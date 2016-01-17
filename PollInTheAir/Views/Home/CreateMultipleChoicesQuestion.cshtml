@@ -1,4 +1,4 @@
-﻿@model PollInTheAir.Models.MultipleChoicesQuestion
+﻿@model PollInTheAir.Domain.Models.MultipleChoicesQuestion
 
 @{
     Layout = null;
@@ -53,8 +53,8 @@
         {
             <div class="row">
                 <div class="form-group col-xs-8">
-                    @Html.LabelFor(m => m.Title)
-                    @Html.TextBoxFor(m => m.Title, htmlAttributes: new { @class = "form-control col-xs-4" })
+                    @Html.LabelFor(m => m.Statement)
+                    @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4" })
                 </div>
             </div>
 

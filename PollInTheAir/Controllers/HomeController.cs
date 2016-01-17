@@ -1,7 +1,8 @@
-﻿using PollInTheAir.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using PollInTheAir.Domain.Concrete;
+using PollInTheAir.Domain.Models;
 
-namespace PollInTheAir.Controllers
+namespace PollInTheAir.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,7 +25,11 @@ namespace PollInTheAir.Controllers
         [HttpPost]
         public ViewResult CreateMultipleChoicesQuestion(MultipleChoicesQuestion question)
         {
-            question.ToString();
+            using (var context = new PollDbContext())
+            {
+                context.Questions.Add(question);
+                context.SaveChanges();
+            }
 
             return View();
         }
