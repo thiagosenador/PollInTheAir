@@ -1,0 +1,90 @@
+﻿@model PollInTheAir.Models.MultipleChoicesQuestion
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script>
+        $(function () {
+            $(document).on('click', '.btn-add', function (e) {
+                e.preventDefault();
+
+                var controlForm = $('.controls'),
+                    currentEntry = $(this).parents('.entry:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+                newEntry.find('input').val('');
+
+                controlForm.find('.entry:not(:last) .btn-add')
+                    .removeClass('btn-add')
+                    .addClass('btn-remove')
+                    .removeClass('btn-primary')
+                    .addClass('btn-warning')
+                    .html('<span class="glyphicon glyphicon-minus"></span>');
+            }).on('click', '.btn-remove',
+
+            function (e) {
+                $(this).parents('.entry:first').remove();
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.css" />
+
+    <title>Poll in the air</title>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Create multiple choices question</h1>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <div class="form-group col-xs-8">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, htmlAttributes: new { @class = "form-control col-xs-4" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-8">
+                    <label class="control-label" for="Choices">Choices</label>
+
+                    <div class="controls">
+                        <div class="entry input-group" style="margin-bottom:10px">
+                            <span class="input-group-addon">
+                                <input type="checkbox" disabled>
+                            </span>
+                            <input class="form-control" name="Choices" type="text" placeholder="type a choice" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-add" type="button">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-8">
+                    <input type="reset" value="Clear form" class="btn btn-default" />
+                    <input type="submit" value="Create question" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

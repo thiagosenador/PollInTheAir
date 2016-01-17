@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.css" />
+
+    <title>Poll in the air</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1><small>welcome to </small>pool in the air</h1>
+
+            <p>where you can get information from the cloud...</p>
+
+            <br /><br /><br />
+
+            <p>
+                @Html.ActionLink("create poll", "CreatePoll", null, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+                @Html.ActionLink("answer poll", "CreatePoll", null, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+                @Html.ActionLink("view poll", "CreatePoll", null, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+            </p>
+        </div>
+    </div>
+</body>
+</html>
