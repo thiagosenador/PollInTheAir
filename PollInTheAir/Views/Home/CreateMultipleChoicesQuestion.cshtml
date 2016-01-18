@@ -60,13 +60,26 @@
 
             <div class="row">
                 <div class="form-group col-xs-8">
-                    <label class="control-label" for="Choices">Choices</label>
+                    <label class="control-label">Answers allowed</label>
+                    <div>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                                <input type="radio" name="CanSelectMultiple" id="single" value="false" autocomplete="off"> single
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="CanSelectMultiple" id="multiple" value="true" autocomplete="off"> multiple
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-8">
+                    <label class="control-label">Choices</label>
 
                     <div class="controls">
                         <div class="entry input-group" style="margin-bottom:10px">
-                            <span class="input-group-addon">
-                                <input type="checkbox" disabled>
-                            </span>
                             <input class="form-control" name="Choices" type="text" placeholder="type a choice" />
                             <span class="input-group-btn">
                                 <button class="btn btn-primary btn-add" type="button">
@@ -78,10 +91,19 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    <input type="reset" value="Clear form" class="btn btn-default" />
-                    <input type="submit" value="Create question" class="btn btn-default" />
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        add another question <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("free text", "CreateFreeTextQuestion")</li>
+                        <li>@Html.ActionLink("multiple choices", "CreateMultipleChoicesQuestion")</li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    @Html.ActionLink("finish", "FinishQuestion", null, new { @class = "btn btn-default" })
                 </div>
             </div>
         }
