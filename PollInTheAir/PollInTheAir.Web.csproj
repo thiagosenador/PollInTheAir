@@ -144,6 +144,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PollController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,10 +155,10 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\CreatePoll.cshtml" />
+    <Content Include="Views\Poll\CreatePoll.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Home\CreateMultipleChoicesQuestion.cshtml" />
-    <Content Include="Views\Home\CreateFreeTextQuestion.cshtml" />
+    <Content Include="Views\Poll\CreateMultipleChoicesQuestion.cshtml" />
+    <Content Include="Views\Poll\CreateFreeTextQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

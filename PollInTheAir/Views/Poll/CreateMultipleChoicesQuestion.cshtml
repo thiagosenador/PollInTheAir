@@ -49,7 +49,7 @@
             <h1>Create multiple choices question</h1>
         </div>
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("FinishQuestion", "Poll"))
         {
             <div class="row">
                 <div class="form-group col-xs-8">
@@ -64,10 +64,10 @@
                     <div>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary active">
-                                <input type="radio" name="CanSelectMultiple" id="single" value="false" autocomplete="off"> single
+                                @Html.RadioButtonFor(m => m.CanSelectMultiple, false) single
                             </label>
                             <label class="btn btn-primary">
-                                <input type="radio" name="CanSelectMultiple" id="multiple" value="true" autocomplete="off"> multiple
+                                @Html.RadioButtonFor(m => m.CanSelectMultiple, true) multiple
                             </label>
                         </div>
                     </div>
@@ -79,8 +79,8 @@
                     <label class="control-label">Choices</label>
 
                     <div class="controls">
-                        <div class="entry input-group" style="margin-bottom:10px">
-                            <input class="form-control" name="Choices" type="text" placeholder="type a choice" />
+                        <div class="entry input-group" style="margin-bottom: 10px">
+                            @Html.TextBoxFor(m => m.Choices, new { @class = "form-control", @placeholder = "type a choices" })
                             <span class="input-group-btn">
                                 <button class="btn btn-primary btn-add" type="button">
                                     <span class="glyphicon glyphicon-plus"></span>
