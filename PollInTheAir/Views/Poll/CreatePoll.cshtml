@@ -37,7 +37,7 @@
             <h1>Create poll</h1>
         </div>
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("CreatePoll", "Poll"))
         {
             <div class="row">
                 <div class="form-group col-xs-8">
@@ -58,14 +58,11 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         add question <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("free text", "CreateFreeTextQuestion")</li>
-                        <li>@Html.ActionLink("multiple choices", "CreateMultipleChoicesQuestion")</li>
-                    </ul>
-                </div>
 
-                <div class="btn-group">
-                    <input type="submit" value="finish" class="btn btn-default" />
+                    <ul class="dropdown-menu">
+                        <li><button class="btn btn-link" type="submit" name="questionType" value="free text">free text</button></li>
+                        <li><button class="btn btn-link" type="submit" name="questionType" value="multiple choices">multiple choices</button></li>
+                    </ul>
                 </div>
             </div>
         }
