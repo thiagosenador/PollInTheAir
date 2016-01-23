@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
+using PollInTheAir.Domain.Abstract;
+using PollInTheAir.Domain.Concrete;
 using PollInTheAir.Domain.Models;
 
 namespace PollInTheAir.Web.Controllers
@@ -8,6 +11,13 @@ namespace PollInTheAir.Web.Controllers
     {
         private const string PollKey = "poll";
 
+        private readonly IPollRepository pollRepository;
+
+        public PollController(IPollRepository pollRepository)
+        {
+            this.pollRepository = pollRepository;
+        }
+
         [HttpGet]
         public ViewResult CreatePoll()
         {
@@ -15,7 +25,7 @@ namespace PollInTheAir.Web.Controllers
         }
 
         [HttpPost]
-        public ViewResult CreatePoll(string questionType, Poll poll)
+        public RedirectToRouteResult CreatePoll(string questionType, Poll poll)
         {
             poll.Questions = new List<Question>();
 
@@ -25,15 +35,20 @@ namespace PollInTheAir.Web.Controllers
         }
 
         [HttpPost]
-        public ViewResult CreateMultipleChoicesQuestion(string questionType, MultipleChoicesQuestion question)
+        public RedirectToRouteResult CreateMultipleChoicesQuestion(List<string> choices, string questionType, MultipleChoicesQuestion question)
         {
+            foreach (var choice in choices)
+            {
+                question.Choices.Add(new Choice {Text = choice});
+            }
+
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
         }
 
         [HttpPost]
-        public ViewResult CreateFreeTextQuestion(string questionType, Question question)
+        public RedirectToRouteResult CreateFreeTextQuestion(string questionType, Question question)
         {
             ((Poll)Session[PollKey]).Questions.Add(question);
 
@@ -42,35 +57,52 @@ namespace PollInTheAir.Web.Controllers
 
         [HttpGet]
         public ViewResult CreateMultipleChoicesQuestion()
-        { 
-            return View("CreateMultipleChoicesQuestion");
+        {
+            return View();
         }
 
         [HttpGet]
         public ViewResult CreateFreeTextQuestion()
         {
-            return View("CreateFreeTextQuestion");
+            return View();
         }
 
-        public ViewResult FinishQuestion(Question question)
+        public ViewResult FinishPollCreation()
         {
             Poll poll = (Poll)Session[PollKey];
-            poll.Questions.Add(question);
 
-            return View("CreateMultipleChoicesQuestion");
+            return View("ReviewPollView", poll);
         }
 
-        private ViewResult GoToCreateQuestion(string questionType)
+        private RedirectToRouteResult GoToCreateQuestion(string questionType)
         {
             if (questionType.Equals("free text"))
             {
-                return this.CreateFreeTextQuestion();
+                return RedirectToAction("CreateFreeTextQuestion");
             }
 
             if (questionType.Equals("multiple choices"))
             {
-                return this.CreateMultipleChoicesQuestion();
+                return RedirectToAction("CreateMultipleChoicesQuestion");
             }
+
+            if (string.IsNullOrEmpty(questionType))
+            {
+                return RedirectToAction("FinishPollCreation");
+            }
+
+            return null;
+        }
+
+        public ActionResult PublishPoll()
+        {
+            var poll = (Poll)Session[PollKey];
+
+            poll.CreatedAt = DateTime.Now;
+
+            var context = new PollDbContext();
+            context.Polls.Add(poll);
+            context.SaveChanges();
 
             return null;
         }

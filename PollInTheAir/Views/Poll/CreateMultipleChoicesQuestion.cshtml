@@ -64,7 +64,7 @@
                     <div>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary active">
-                                @Html.RadioButtonFor(m => m.CanSelectMultiple, false) single
+                                @Html.RadioButtonFor(m => m.CanSelectMultiple, false, new { @checked = true }) single
                             </label>
                             <label class="btn btn-primary">
                                 @Html.RadioButtonFor(m => m.CanSelectMultiple, true) multiple
@@ -80,7 +80,7 @@
 
                     <div class="controls">
                         <div class="entry input-group" style="margin-bottom: 10px">
-                            @Html.TextBoxFor(m => m.Choices, new { @class = "form-control", @placeholder = "type a choices" })
+                            @Html.TextBox("choices", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
                             <span class="input-group-btn">
                                 <button class="btn btn-primary btn-add" type="button">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="btn-group">
-                    @Html.ActionLink("finish", "FinishQuestion", null, new { @class = "btn btn-default" })
+                    <button class="btn btn-default" type="submit" name="questionType" value="">finish</button>
                 </div>
             </div>
         }

@@ -159,6 +159,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Poll\CreateMultipleChoicesQuestion.cshtml" />
     <Content Include="Views\Poll\CreateFreeTextQuestion.cshtml" />
+    <Content Include="Views\Poll\ReviewPollView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

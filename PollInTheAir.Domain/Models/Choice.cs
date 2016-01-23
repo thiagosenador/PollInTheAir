@@ -2,13 +2,12 @@
 
 namespace PollInTheAir.Domain.Models
 {
-    public class Question
+    public class Choice
     {
         public long Id { get; set; }
 
         [Required]
         [MaxLength(128)]
-        [Display(Name = "statement")]
-        public string Statement { get; set; }
+        public string Text { get; set; }
     }
 }

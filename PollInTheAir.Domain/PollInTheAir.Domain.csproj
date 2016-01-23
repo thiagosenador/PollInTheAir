@@ -56,6 +56,16 @@
     <Compile Include="Concrete\PollRepository.cs" />
     <Compile Include="Concrete\PollDbContext.cs" />
     <Compile Include="Concrete\QuestionRepository.cs" />
+    <Compile Include="Migrations\201601231810031_InitialCreate.cs" />
+    <Compile Include="Migrations\201601231810031_InitialCreate.Designer.cs">
+      <DependentUpon>201601231810031_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601231828383_AddCreatedAtField.cs" />
+    <Compile Include="Migrations\201601231828383_AddCreatedAtField.Designer.cs">
+      <DependentUpon>201601231828383_AddCreatedAtField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Choice.cs" />
     <Compile Include="Models\MultipleChoicesQuestion.cs" />
     <Compile Include="Models\Poll.cs" />
     <Compile Include="Models\Question.cs" />
@@ -65,7 +75,14 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601231810031_InitialCreate.resx">
+      <DependentUpon>201601231810031_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601231828383_AddCreatedAtField.resx">
+      <DependentUpon>201601231828383_AddCreatedAtField.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

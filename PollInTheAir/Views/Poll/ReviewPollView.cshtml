@@ -1,0 +1,53 @@
+﻿@model PollInTheAir.Domain.Models.Poll
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.css" />
+
+    <title>Poll in the air</title>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Review your poll</h1>
+        </div>
+
+        <ul class="list-group col-xs-8">
+            <li class="list-group-item">
+                <h3 class="list-group-item-heading">@Html.LabelFor(m => m.Title)</h3>
+                <p class="list-group-item-text">@Model.Title</p>
+            </li>
+
+            <li class="list-group-item">
+                <h3 class="list-group-item-heading">@Html.LabelFor(m => m.ExpiresAt)</h3>
+                <p class="list-group-item-text">@Model.ExpiresAt</p>
+            </li>
+
+            <li class="list-group-item">
+                <h3 class="list-group-item-heading">@Html.LabelFor(m => m.Questions)</h3>
+
+                <ul class="list-group">
+                    @foreach (var question in Model.Questions)
+                    {
+                        <li class="list-group-item">
+                            <p class="list-group-item-heading">@question.Statement</p>
+                        </li>
+                    }
+                </ul>
+            </li>
+        </ul>
+
+        @Html.ActionLink("publish poll", "PublishPoll", "Poll", null, new { @class = "btn btn-default" })
+    </div>
+</body>
+</html>
