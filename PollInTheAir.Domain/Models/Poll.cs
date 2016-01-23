@@ -18,6 +18,9 @@ namespace PollInTheAir.Domain.Models
         public DateTime? CreatedAt { get; set; }
 
         [Required]
+        public Location CreationLocation { get; set; }
+
+        [Required]
         [Display(Name = "expires at")]
         public DateTime? ExpiresAt { get; set; }
 
