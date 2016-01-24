@@ -14,18 +14,21 @@ namespace PollInTheAir.Domain.Models
         public string Title { get; set; }
 
         [Required]
-        [Display(Name = "created at")]
-        public DateTime? CreatedAt { get; set; }
-
-        [Required]
         public Location CreationLocation { get; set; }
 
         [Required]
-        [Display(Name = "expires at")]
-        public DateTime? ExpiresAt { get; set; }
+        public float Range { get; set; }
 
         [Required]
         [Display(Name = "questions")]
         public List<Question> Questions { get; set; }
+
+        [Required]
+        [Display(Name = "created at")]
+        public DateTime? CreatedAt { get; set; }
+
+        [Required]
+        [Display(Name = "expires at")]
+        public DateTime? ExpiresAt { get; set; }
     }
 }

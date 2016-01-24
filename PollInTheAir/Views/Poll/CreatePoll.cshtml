@@ -34,6 +34,7 @@
     <script src="~/Scripts/bootstrap-datepicker.js"></script>
 
     <script>
+        var initialRange = 50;
         // DatePicker and Slider
 
         $(function () {
@@ -49,7 +50,7 @@
             $(".slider").slider({
                 min: 10,
                 max: 100,
-                value: 50,
+                value: initialRange,
                 step: 5,
                 slide: function (event, ui) {
                     UpdateCircle(parseInt(ui.value));
@@ -88,7 +89,8 @@
 
                         this.SetLatLongValues();
 
-                        this.DrawRange(50);
+                        this.DrawRange(initialRange);
+                        this.UpdateCircle(initialRange);
                     });
             }
         }
@@ -116,8 +118,7 @@
                 fillColor: '#FF0000',
                 fillOpacity: 0.35,
                 map: map,
-                center: pos,
-                radius: radius
+                center: pos
             });
 
             circle.setMap(map);
@@ -125,6 +126,8 @@
 
         function UpdateCircle(radius) {
             circle.setRadius(radius);
+
+            $("#range").val(radius);
         }
     </script>
 
@@ -166,6 +169,7 @@
 
                     @Html.HiddenFor(m => m.CreationLocation.Latitude, new { @id = "latitude" })
                     @Html.HiddenFor(m => m.CreationLocation.Longitude, new { @id = "longitude" })
+                    @Html.HiddenFor(m => m.Range, new { @id = "range" })
                 </div>
             </div>
 
