@@ -80,7 +80,7 @@
             }
 
 
-            // we don't want the step ever to be a floating point.
+            // we don'obj want the step ever to be a floating point.
             slider.options.pipStep = Math.round( options.step );
 
             // get rid of all pips that might already exist.

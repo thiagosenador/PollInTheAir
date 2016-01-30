@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Ninject;
-using PollInTheAir.Domain.Abstract;
-using PollInTheAir.Domain.Concrete;
-
-namespace PollInTheAir.Web.Infrastructure
+﻿namespace PollInTheAir.Web.Infrastructure
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+
+    using Ninject;
+
+    using PollInTheAir.Domain.Repository;
+    using PollInTheAir.Domain.Repository.Impl;
+    using PollInTheAir.Domain.Services;
+    using PollInTheAir.Domain.Services.Impl;
+
     public class NinjectDependencyResolver : IDependencyResolver
     {
         private readonly IKernel kernel;
@@ -15,23 +19,23 @@ namespace PollInTheAir.Web.Infrastructure
         {
             this.kernel = kernel;
 
-            AddBindings();
+            this.AddBindings();
         }
 
         public object GetService(Type serviceType)
         {
-            return kernel.TryGet(serviceType);
+            return this.kernel.TryGet(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return kernel.GetAll(serviceType);
+            return this.kernel.GetAll(serviceType);
         }
 
         private void AddBindings()
         {
-            kernel.Bind<IPollRepository>().To<PollRepository>();
-            kernel.Bind<IQuestionRepository>().To<QuestionRepository>();
+            this.kernel.Bind<ICatalog>().To<Catalog>();
+            this.kernel.Bind<IPollService>().To<PollService>();
         }
     }
 }

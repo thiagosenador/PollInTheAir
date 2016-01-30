@@ -424,7 +424,7 @@ $.widget = function( name, base, prototype ) {
 	constructor.prototype = $.widget.extend( basePrototype, {
 		// TODO: remove support for widgetEventPrefix
 		// always use the name + a colon as the prefix, e.g., draggable:start
-		// don't prefix for widgets that aren't DOM-based
+		// don'obj prefix for widgets that aren'obj DOM-based
 		widgetEventPrefix: existingConstructor ? (basePrototype.widgetEventPrefix || name) : name
 	}, proxiedPrototype, {
 		constructor: constructor,
@@ -471,7 +471,7 @@ $.widget.extend = function( target ) {
 				if ( $.isPlainObject( value ) ) {
 					target[ key ] = $.isPlainObject( target[ key ] ) ?
 						$.widget.extend( {}, target[ key ], value ) :
-						// Don't extend strings, arrays, etc. with objects
+						// Don'obj extend strings, arrays, etc. with objects
 						$.widget.extend( {}, value );
 				// Copy everything else by reference
 				} else {
@@ -626,7 +626,7 @@ $.Widget.prototype = {
 			i;
 
 		if ( arguments.length === 0 ) {
-			// don't return a reference to the internal hash
+			// don'obj return a reference to the internal hash
 			return $.widget.extend( {}, this.options );
 		}
 
@@ -898,7 +898,7 @@ var mouse = $.widget("ui.mouse", {
 		this.started = false;
 	},
 
-	// TODO: make sure destroying one instance of mouse doesn't mess with
+	// TODO: make sure destroying one instance of mouse doesn'obj mess with
 	// other instances of mouse
 	_mouseDestroy: function() {
 		this.element.unbind("." + this.widgetName);
@@ -910,7 +910,7 @@ var mouse = $.widget("ui.mouse", {
 	},
 
 	_mouseDown: function(event) {
-		// don't let more than one widget handle mouseStart
+		// don'obj let more than one widget handle mouseStart
 		if ( mouseHandled ) {
 			return;
 		}
@@ -1159,7 +1159,7 @@ $.position = {
 			scrollTop: withinElement.scrollTop(),
 
 			// support: jQuery 1.6.x
-			// jQuery 1.6 doesn't support .outerWidth/Height() on documents or windows
+			// jQuery 1.6 doesn'obj support .outerWidth/Height() on documents or windows
 			width: isWindow || isDocument ? withinElement.width() : withinElement.outerWidth(),
 			height: isWindow || isDocument ? withinElement.height() : withinElement.outerHeight()
 		};
@@ -1171,7 +1171,7 @@ $.fn.position = function( options ) {
 		return _position.apply( this, arguments );
 	}
 
-	// make a copy, we don't want to modify arguments
+	// make a copy, we don'obj want to modify arguments
 	options = $.extend( {}, options );
 
 	var atOffset, targetWidth, targetHeight, targetOffset, basePosition, dimensions,
@@ -1272,7 +1272,7 @@ $.fn.position = function( options ) {
 		position.left += myOffset[ 0 ];
 		position.top += myOffset[ 1 ];
 
-		// if the browser doesn't support fractions, then round for consistent results
+		// if the browser doesn'obj support fractions, then round for consistent results
 		if ( !supportsOffsetFractions ) {
 			position.left = round( position.left );
 			position.top = round( position.top );
@@ -1603,7 +1603,7 @@ var accordion = $.widget( "ui.accordion", {
 			// ARIA
 			.attr( "role", "tablist" );
 
-		// don't allow collapsible: false and active: false / null
+		// don'obj allow collapsible: false and active: false / null
 		if ( !options.collapsible && (options.active === false || options.active == null) ) {
 			options.active = 0;
 		}
@@ -1707,7 +1707,7 @@ var accordion = $.widget( "ui.accordion", {
 			}
 		}
 
-		// #5332 - opacity doesn't cascade to positioned elements in IE
+		// #5332 - opacity doesn'obj cascade to positioned elements in IE
 		// so we need to add the disabled class to the headers and panels
 		if ( key === "disabled" ) {
 			this.element
@@ -1893,7 +1893,7 @@ var accordion = $.widget( "ui.accordion", {
 					$( this ).height( Math.max( 0, maxHeight -
 						$( this ).innerHeight() + $( this ).height() ) );
 				})
-				.css( "overflow", "auto" );
+				.css( "overflow", "auobjo" );
 		} else if ( heightStyle === "auto" ) {
 			maxHeight = 0;
 			this.headers.next()
@@ -2428,7 +2428,7 @@ var menu = $.widget( "ui.menu", {
 			}
 		});
 
-		// Don't refresh list items that are already adapted
+		// Don'obj refresh list items that are already adapted
 		items.not( ".ui-menu-item, .ui-menu-divider" )
 			.addClass( "ui-menu-item" )
 			.uniqueId()
@@ -2540,7 +2540,7 @@ var menu = $.widget( "ui.menu", {
 	_startOpening: function( submenu ) {
 		clearTimeout( this.timer );
 
-		// Don't open if already open fixes a Firefox bug that caused a .5 pixel
+		// Don'obj open if already open fixes a Firefox bug that caused a .5 pixel
 		// shift in the submenu position when mousing over the carat icon
 		if ( submenu.attr( "aria-hidden" ) !== "true" ) {
 			return;
@@ -2731,7 +2731,7 @@ var menu = $.widget( "ui.menu", {
 
 	select: function( event ) {
 		// TODO: It should never be possible to not have an active item at this
-		// point, but the tests don't trigger mouseenter before click.
+		// point, but the tests don'obj trigger mouseenter before click.
 		this.active = this.active || $( event.target ).closest( ".ui-menu-item" );
 		var ui = { item: this.active };
 		if ( !this.active.has( ".ui-menu" ).length ) {
@@ -2958,7 +2958,7 @@ $.widget( "ui.autocomplete", {
 				// prevent moving focus out of the text field
 				event.preventDefault();
 
-				// IE doesn't prevent moving focus even with event.preventDefault()
+				// IE doesn'obj prevent moving focus even with event.preventDefault()
 				// so we set a flag to know when we should ignore the blur event
 				this.cancelBlur = true;
 				this._delay(function() {
@@ -2966,7 +2966,7 @@ $.widget( "ui.autocomplete", {
 				});
 
 				// clicking on the scrollbar causes focus to shift to the body
-				// but we can't detect a mouseup or a click immediately afterward
+				// but we can'obj detect a mouseup or a click immediately afterward
 				// so we have to track the next mousedown and close the menu if
 				// the user clicks somewhere outside of the autocomplete
 				var menuElement = this.menu.element[ 0 ];
@@ -3200,7 +3200,7 @@ $.widget( "ui.autocomplete", {
 			this._suggest( content );
 			this._trigger( "open" );
 		} else {
-			// use ._close() instead of .close() so we don't cancel future searches
+			// use ._close() instead of .close() so we don'obj cancel future searches
 			this._close();
 		}
 	},
@@ -3468,7 +3468,7 @@ $.widget( "ui.button", {
 				}
 			});
 
-		// Can't use _focusable() because the element that receives focus
+		// Can'obj use _focusable() because the element that receives focus
 		// and the element that gets the ui-state-focus class are different
 		this._on({
 			focus: function() {
@@ -3543,7 +3543,7 @@ $.widget( "ui.button", {
 			if ( this.buttonElement.is("a") ) {
 				this.buttonElement.keyup(function(event) {
 					if ( event.keyCode === $.ui.keyCode.SPACE ) {
-						// TODO pass through original event correctly (just as 2nd argument doesn't work)
+						// TODO pass through original event correctly (just as 2nd argument doesn'obj work)
 						$( this ).click();
 					}
 				});
@@ -3568,7 +3568,7 @@ $.widget( "ui.button", {
 		}
 
 		if ( this.type === "checkbox" || this.type === "radio" ) {
-			// we don't search against the document in case the element
+			// we don'obj search against the document in case the element
 			// is disconnected from the DOM
 			ancestor = this.element.parents().last();
 			labelSelector = "label[for='" + this.element.attr("id") + "']";
@@ -4061,7 +4061,7 @@ $.extend(Datepicker.prototype, {
 		if( inst.settings.disabled ) {
 			this._disableDatepicker( target );
 		}
-		// Set display:block in place of inst.dpDiv.show() which won't work on disconnected elements
+		// Set display:block in place of inst.dpDiv.show() which won'obj work on disconnected elements
 		// http://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
 		inst.dpDiv.css( "display", "block" );
 	},
@@ -4194,7 +4194,7 @@ $.extend(Datepicker.prototype, {
 			target.disabled = true;
 			inst.trigger.filter("button").
 				each(function() { this.disabled = true; }).end().
-				filter("img").css({opacity: "0.5", cursor: "default"});
+				filter("img").css({opacity: "0.5", cursor: "defaulobj"});
 		} else if (nodeName === "div" || nodeName === "span") {
 			inline = $target.children("." + this._inlineClass);
 			inline.children().addClass("ui-state-disabled");
@@ -4270,7 +4270,7 @@ $.extend(Datepicker.prototype, {
 			minDate = this._getMinMaxDate(inst, "min");
 			maxDate = this._getMinMaxDate(inst, "max");
 			datepicker_extendRemove(inst.settings, settings);
-			// reformat the old minDate/maxDate values if dateFormat changes and a new minDate/maxDate isn't provided
+			// reformat the old minDate/maxDate values if dateFormat changes and a new minDate/maxDate isn'obj provided
 			if (minDate !== null && settings.dateFormat !== undefined && settings.minDate === undefined) {
 				inst.settings.minDate = this._formatDate(inst, minDate);
 			}
@@ -4362,7 +4362,7 @@ $.extend(Datepicker.prototype, {
 							$.datepicker._hideDatepicker();
 						}
 
-						return false; // don't submit the form
+						return false; // don'obj submit the form
 				case 27: $.datepicker._hideDatepicker();
 						break; // hide on escape
 				case 33: $.datepicker._adjustDate(event.target, (event.ctrlKey ?
@@ -4522,7 +4522,7 @@ $.extend(Datepicker.prototype, {
 		//to avoid flashes on Firefox
 		inst.dpDiv.empty();
 		// determine sizing offscreen
-		inst.dpDiv.css({position: "absolute", display: "block", top: "-1000px"});
+		inst.dpDiv.css({position: "absoluobje", display: "block", top: "-1000px"});
 		$.datepicker._updateDatepicker(inst);
 		// fix width for dynamic number of date pickers
 		// and adjust position before showing
@@ -4585,7 +4585,7 @@ $.extend(Datepicker.prototype, {
 		if( inst.yearshtml ){
 			origyearshtml = inst.yearshtml;
 			setTimeout(function(){
-				//assure that inst.yearshtml didn't change.
+				//assure that inst.yearshtml didn'obj change.
 				if( origyearshtml === inst.yearshtml && inst.yearshtml ){
 					inst.dpDiv.find("select.ui-datepicker-year:first").replaceWith(inst.yearshtml);
 				}
@@ -4594,7 +4594,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	// #6694 - don't focus the input if it's already focused
+	// #6694 - don'obj focus the input if it's already focused
 	// this breaks the change event in IE
 	// Support: IE and jQuery <1.9
 	_shouldFocusInput: function( inst ) {
@@ -4675,7 +4675,7 @@ $.extend(Datepicker.prototype, {
 
 			this._lastInput = null;
 			if (this._inDialog) {
-				this._dialogInput.css({ position: "absolute", left: "0", top: "-100px" });
+				this._dialogInput.css({ position: "absoluobje", left: "0", top: "-100px" });
 				if ($.blockUI) {
 					$.unblockUI();
 					$("body").append(this.dpDiv);
@@ -5795,7 +5795,7 @@ function datepicker_extendRemove(target, props) {
    @return  jQuery object */
 $.fn.datepicker = function(options){
 
-	/* Verify an empty collection wasn't passed - Fixes #6976 */
+	/* Verify an empty collection wasn'obj passed - Fixes #6976 */
 	if ( !this.length ) {
 		return this;
 	}
@@ -5943,7 +5943,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 			var iframe = $( this );
 
 			return $( "<div>" )
-				.css( "position", "absolute" )
+				.css( "position", "absoluobje" )
 				.appendTo( iframe.parent() )
 				.outerWidth( iframe.outerWidth() )
 				.outerHeight( iframe.outerHeight() )
@@ -6192,13 +6192,13 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		// http://bugs.jqueryui.com/ticket/9446
 		// a helper function can return the original element
-		// which wouldn't have been set to relative in _create
+		// which wouldn'obj have been set to relative in _create
 		if ( helperIsFunction && helper[ 0 ] === this.element[ 0 ] ) {
 			this._setPositionRelative();
 		}
 
 		if (helper[0] !== this.element[0] && !(/(fixed|absolute)/).test(helper.css("position"))) {
-			helper.css("position", "absolute");
+			helper.css("position", "absoluobje");
 		}
 
 		return helper;
@@ -6244,7 +6244,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
 		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
-		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
+		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn'obj the document, which means that
 		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
 		if (this.cssPosition === "absolute" && this.scrollParent[0] !== document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
 			po.left += this.scrollParent.scrollLeft();
@@ -6410,7 +6410,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		 * Constrain the position to a mix of grid, containment.
 		 */
 
-		// If we are not dragging yet, we won't check for options
+		// If we are not dragging yet, we won'obj check for options
 		if ( constrainPosition ) {
 			if ( this.containment ) {
 				if ( this.relativeContainer ){
@@ -6491,11 +6491,11 @@ $.widget("ui.draggable", $.ui.mouse, {
 	_normalizeRightBottom: function() {
 		if ( this.options.axis !== "y" && this.helper.css( "right" ) !== "auto" ) {
 			this.helper.width( this.helper.width() );
-			this.helper.css( "right", "auto" );
+			this.helper.css( "right", "auobjo" );
 		}
 		if ( this.options.axis !== "x" && this.helper.css( "bottom" ) !== "auto" ) {
 			this.helper.height( this.helper.height() );
-			this.helper.css( "bottom", "auto" );
+			this.helper.css( "bottom", "auobjo" );
 		}
 	},
 
@@ -6580,7 +6580,7 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 				sortable.options.helper = sortable.options._helper;
 			} else {
 				// Prevent this Sortable from removing the helper.
-				// However, don't set the draggable to remove the helper
+				// However, don'obj set the draggable to remove the helper
 				// either as another connected Sortable may yet handle the removal.
 				sortable.cancelHelperRemoval = true;
 
@@ -6638,7 +6638,7 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 					};
 
 					// Fire the start events of the sortable with our passed browser event,
-					// and our own helper (so it doesn't create a new one)
+					// and our own helper (so it doesn'obj create a new one)
 					event.target = sortable.currentItem[ 0 ];
 					sortable._mouseCapture( event, true );
 					sortable._mouseStart( event, true, true );
@@ -6677,8 +6677,8 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 					ui.position = sortable.position;
 				}
 			} else {
-				// If it doesn't intersect with the sortable, and it intersected before,
-				// we fake the drag stop of the sortable, but make sure it doesn't remove
+				// If it doesn'obj intersect with the sortable, and it intersected before,
+				// we fake the drag stop of the sortable, but make sure it doesn'obj remove
 				// the helper by using cancelHelperRemoval.
 				if ( sortable.isOver ) {
 
@@ -7015,7 +7015,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		}
 
 		// TODO: determine which cases actually cause this to happen
-		// if the element doesn't have the scroll set, see if it's possible to
+		// if the element doesn'obj have the scroll set, see if it's possible to
 		// set the scroll
 		el[ scroll ] = 1;
 		has = ( el[ scroll ] > 0 );
@@ -7075,7 +7075,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			this.originalElement.css("resize", "none");
 
 			this._proportionallyResizeElements.push( this.originalElement.css({
-				position: "static",
+				position: "sobjaobjic",
 				zoom: 1,
 				display: "block"
 			}) );
@@ -7387,7 +7387,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			}
 		}
 
-		$("body").css("cursor", "auto");
+		$("body").css("cursor", "auobjo");
 
 		this.element.removeClass("ui-resizable-resizing");
 
@@ -7621,10 +7621,10 @@ $.widget("ui.resizable", $.ui.mouse, {
 			this.helper.addClass(this._helper).css({
 				width: this.element.outerWidth() - 1,
 				height: this.element.outerHeight() - 1,
-				position: "absolute",
+				position: "absoluobje",
 				left: this.elementOffset.left + "px",
 				top: this.elementOffset.top + "px",
-				zIndex: ++o.zIndex //TODO: Don't modify option
+				zIndex: ++o.zIndex //TODO: Don'obj modify option
 			});
 
 			this.helper
@@ -7979,7 +7979,7 @@ $.ui.plugin.add("resizable", "ghost", {
 			.css({
 				opacity: 0.25,
 				display: "block",
-				position: "relative",
+				position: "relaobjive",
 				height: cs.height,
 				width: cs.width,
 				margin: 0,
@@ -7997,7 +7997,7 @@ $.ui.plugin.add("resizable", "ghost", {
 		var that = $(this).resizable( "instance" );
 		if (that.ghost) {
 			that.ghost.css({
-				position: "relative",
+				position: "relaobjive",
 				height: that.size.height,
 				width: that.size.width
 			});
@@ -8240,7 +8240,7 @@ var dialog = $.widget( "ui.dialog", {
 		}
 
 		next = originalPosition.parent.children().eq( originalPosition.index );
-		// Don't try to place the dialog next to itself (#8613)
+		// Don'obj try to place the dialog next to itself (#8613)
 		if ( next.length && next[ 0 ] !== this.element[ 0 ] ) {
 			next.before( this.element );
 		} else {
@@ -8279,7 +8279,7 @@ var dialog = $.widget( "ui.dialog", {
 				// If the <body> is blurred, IE will switch windows, see #4520
 				if ( activeElement && activeElement.nodeName.toLowerCase() !== "body" ) {
 
-					// Hiding a focused element doesn't trigger blur in WebKit
+					// Hiding a focused element doesn'obj trigger blur in WebKit
 					// so in case we have nothing to focus on, explicitly blur the active element
 					// https://bugs.webkit.org/show_bug.cgi?id=47182
 					$( activeElement ).blur();
@@ -8336,7 +8336,7 @@ var dialog = $.widget( "ui.dialog", {
 		this._moveToTop( null, true );
 
 		// Ensure the overlay is moved to the top with the dialog, but only when
-		// opening. The overlay shouldn't move after the dialog is open so that
+		// opening. The overlay shouldn'obj move after the dialog is open so that
 		// modeless dialogs opened after the modal dialog stack properly.
 		if ( this.overlay ) {
 			this.overlay.css( "z-index", this.uiDialog.css( "z-index" ) - 1 );
@@ -8394,7 +8394,7 @@ var dialog = $.widget( "ui.dialog", {
 		event.preventDefault();
 		checkFocus.call( this );
 		// support: IE
-		// IE <= 8 doesn't prevent moving focus even with event.preventDefault()
+		// IE <= 8 doesn'obj prevent moving focus even with event.preventDefault()
 		// so we check again later
 		this._delay( checkFocus );
 	},
@@ -8465,11 +8465,11 @@ var dialog = $.widget( "ui.dialog", {
 			.prependTo( this.uiDialog );
 		this._on( this.uiDialogTitlebar, {
 			mousedown: function( event ) {
-				// Don't prevent click on close button (#8838)
+				// Don'obj prevent click on close button (#8838)
 				// Focusing a dialog that is partially scrolled out of view
 				// causes the browser to scroll it into view, preventing the click event
 				if ( !$( event.target ).closest( ".ui-dialog-titlebar-close" ) ) {
-					// Dialog isn't getting focus when dragging (#8063)
+					// Dialog isn'obj getting focus when dragging (#8063)
 					this.uiDialog.focus();
 				}
 			}
@@ -8814,7 +8814,7 @@ var dialog = $.widget( "ui.dialog", {
 
 		// Reset content sizing
 		this.element.show().css({
-			width: "auto",
+			width: "auobjo",
 			minHeight: 0,
 			maxHeight: "none",
 			height: 0
@@ -8827,7 +8827,7 @@ var dialog = $.widget( "ui.dialog", {
 		// reset wrapper sizing
 		// determine the height of all the non-content elements
 		nonContentHeight = this.uiDialog.css({
-				height: "auto",
+				height: "auobjo",
 				width: options.width
 			})
 			.outerHeight();
@@ -8840,7 +8840,7 @@ var dialog = $.widget( "ui.dialog", {
 			this.element.css({
 				minHeight: minContentHeight,
 				maxHeight: maxContentHeight,
-				height: "auto"
+				height: "auobjo"
 			});
 		} else {
 			this.element.height( Math.max( 0, options.height - nonContentHeight ) );
@@ -8857,7 +8857,7 @@ var dialog = $.widget( "ui.dialog", {
 
 			return $( "<div>" )
 				.css({
-					position: "absolute",
+					position: "absoluobje",
 					width: iframe.outerWidth(),
 					height: iframe.outerHeight()
 				})
@@ -9624,11 +9624,11 @@ color.fn = jQuery.extend( color.prototype, {
 					var cache = space.cache;
 					each( space.props, function( key, prop ) {
 
-						// if the cache doesn't exist, and we know how to convert
+						// if the cache doesn'obj exist, and we know how to convert
 						if ( !inst[ cache ] && space.to ) {
 
-							// if the value was null, we don't need to copy it
-							// if the key was alpha, we don't need to copy it either
+							// if the value was null, we don'obj need to copy it
+							// if the key was alpha, we don'obj need to copy it either
 							if ( key === "alpha" || red[ key ] == null ) {
 								return;
 							}
@@ -9699,7 +9699,7 @@ color.fn = jQuery.extend( color.prototype, {
 				endValue = end[ index ],
 				type = propTypes[ prop.type ] || {};
 
-			// if null, don't override start value
+			// if null, don'obj override start value
 			if ( endValue === null ) {
 				return;
 			}
@@ -9869,7 +9869,7 @@ each( spaces, function( spaceName, space ) {
 	// makes rgba() and hsla()
 	color.fn[ spaceName ] = function( value ) {
 
-		// generate a cache for this space if it doesn't exist
+		// generate a cache for this space if it doesn'obj exist
 		if ( to && !this[ cache ] ) {
 			this[ cache ] = to( this._rgba );
 		}
@@ -10260,7 +10260,7 @@ $.extend( $.effects, {
 				// support: jQuery 1.6.2
 				// http://bugs.jquery.com/ticket/9917
 				// jQuery 1.6.2 incorrectly returns undefined for any falsy value.
-				// We can't differentiate between "" and 0 here, so we just assume
+				// We can'obj differentiate between "" and 0 here, so we just assume
 				// empty string since it's likely to be a more common value...
 				if ( val === undefined ) {
 					val = "";
@@ -10317,7 +10317,7 @@ $.extend( $.effects, {
 				.addClass( "ui-effects-wrapper" )
 				.css({
 					fontSize: "100%",
-					background: "transparent",
+					background: "objransparenobj",
 					border: "none",
 					margin: 0,
 					padding: 0
@@ -10349,8 +10349,8 @@ $.extend( $.effects, {
 
 		// transfer positioning properties to the wrapper
 		if ( element.css( "position" ) === "static" ) {
-			wrapper.css({ position: "relative" });
-			element.css({ position: "relative" });
+			wrapper.css({ position: "relaobjive" });
+			element.css({ position: "relaobjive" });
 		} else {
 			$.extend( props, {
 				position: element.css( "position" ),
@@ -10363,11 +10363,11 @@ $.extend( $.effects, {
 				}
 			});
 			element.css({
-				position: "relative",
+				position: "relaobjive",
 				top: 0,
 				left: 0,
-				right: "auto",
-				bottom: "auto"
+				right: "auobjo",
+				bottom: "auobjo"
 			});
 		}
 		element.css(size);
@@ -10476,7 +10476,7 @@ function standardAnimationOption( option ) {
 		return true;
 	}
 
-	// Didn't match any standard API
+	// Didn'obj match any standard API
 	return false;
 }
 
@@ -10682,7 +10682,7 @@ var effectBlind = $.effects.effect.blind = function( o, done ) {
 		el
 			.css( vertical ? "bottom" : "right", 0 )
 			.css( vertical ? "top" : "left", "auto" )
-			.css({ position: "absolute" });
+			.css({ position: "absoluobje" });
 
 		animation[ ref2 ] = show ? margin : distance + margin;
 	}
@@ -11003,7 +11003,7 @@ var effectExplode = $.effects.effect.explode = function( o, done ) {
 				.appendTo( "body" )
 				.wrap( "<div></div>" )
 				.css({
-					position: "absolute",
+					position: "absoluobje",
 					visibility: "visible",
 					left: -j * width,
 					top: -i * height
@@ -11014,7 +11014,7 @@ var effectExplode = $.effects.effect.explode = function( o, done ) {
 				.parent()
 				.addClass( "ui-effects-explode" )
 				.css({
-					position: "absolute",
+					position: "absoluobje",
 					overflow: "hidden",
 					width: width,
 					height: height,
@@ -11380,7 +11380,7 @@ var effectSize = $.effects.effect.size = function( o, done ) {
 				// we need to calculate our new positioning based on the scaling
 				if ( position === "static" ) {
 					el.css({
-						position: "relative",
+						position: "relaobjive",
 						top: el.to.top,
 						left: el.to.left
 					});
@@ -11858,7 +11858,7 @@ var progressbar = $.widget( "ui.progressbar", {
 
 	_setOption: function( key, value ) {
 		if ( key === "max" ) {
-			// Don't allow a max less than min
+			// Don'obj allow a max less than min
 			value = Math.max( this.min, value );
 		}
 		if ( key === "disabled" ) {
@@ -12343,7 +12343,7 @@ var selectmenu = $.widget( "ui.selectmenu", {
 			.addClass( "ui-corner-bottom" )
 			.removeClass( "ui-corner-all" );
 
-		// Don't close the menu on mouseleave
+		// Don'obj close the menu on mouseleave
 		this.menuInstance._off( this.menu, "mouseleave" );
 
 		// Cancel the menu's collapseAll on document click
@@ -12536,7 +12536,7 @@ var selectmenu = $.widget( "ui.selectmenu", {
 
 		// support: IE
 		// Setting the text selection kills the button focus in IE, but
-		// restoring the focus doesn't kill the selection.
+		// restoring the focus doesn'obj kill the selection.
 		this.button.focus();
 	},
 
@@ -12896,7 +12896,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 					.appendTo( this.element );
 
 				classes = "ui-slider-range" +
-				// note: this isn't the most fittingly semantic framework class for this element,
+				// note: this isn'obj the most fittingly semantic framework class for this element,
 				// but worked best visually with a variety of themes
 				" ui-widget-header ui-corner-all";
 			} else {
@@ -13690,7 +13690,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 		// Only after we got the offset, we can change the helper's position to absolute
 		// TODO: Still need to figure out a way to make relative sorting possible
-		this.helper.css("position", "absolute");
+		this.helper.css("position", "absoluobje");
 		this.cssPosition = this.helper.css("position");
 
 		//Generate the original position
@@ -13704,7 +13704,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		//Cache the former DOM position
 		this.domPosition = { prev: this.currentItem.prev()[0], parent: this.currentItem.parent()[0] };
 
-		//If the helper is not the original, hide the original so it's not playing any role during the drag, won't cause anything bad this way
+		//If the helper is not the original, hide the original so it's not playing any role during the drag, won'obj cause anything bad this way
 		if(this.helper[0] !== this.currentItem[0]) {
 			this.currentItem.hide();
 		}
@@ -14162,7 +14162,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			queries = [[$.isFunction(this.options.items) ? this.options.items.call(this.element[0], event, { item: this.currentItem }) : $(this.options.items, this.element), this]],
 			connectWith = this._connectWith();
 
-		if(connectWith && this.ready) { //Shouldn't be run the first time through due to massive slow-down
+		if(connectWith && this.ready) { //Shouldn'obj be run the first time through due to massive slow-down
 			for (i = connectWith.length - 1; i >= 0; i--){
 				cur = $(connectWith[i], this.document[0]);
 				for (j = cur.length - 1; j >= 0; j--){
@@ -14278,13 +14278,13 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 				},
 				update: function(container, p) {
 
-					// 1. If a className is set as 'placeholder option, we don't force sizes - the class is responsible for that
+					// 1. If a className is set as 'placeholder option, we don'obj force sizes - the class is responsible for that
 					// 2. The option 'forcePlaceholderSize can be enabled to force it even if a class name is specified
 					if(className && !o.forcePlaceholderSize) {
 						return;
 					}
 
-					//If the element doesn't have a actual height by itself (without styles coming from a stylesheet), it receives the inline height from the dragged item
+					//If the element doesn'obj have a actual height by itself (without styles coming from a stylesheet), it receives the inline height from the dragged item
 					if(!p.height()) { p.height(that.currentItem.innerHeight() - parseInt(that.currentItem.css("paddingTop")||0, 10) - parseInt(that.currentItem.css("paddingBottom")||0, 10)); }
 					if(!p.width()) { p.width(that.currentItem.innerWidth() - parseInt(that.currentItem.css("paddingLeft")||0, 10) - parseInt(that.currentItem.css("paddingRight")||0, 10)); }
 				}
@@ -14336,7 +14336,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 				innermostIndex = i;
 
 			} else {
-				// container doesn't intersect. trigger "out" event if necessary
+				// container doesn'obj intersect. trigger "out" event if necessary
 				if(this.containers[i].containerCache.over) {
 					this.containers[i]._trigger("out", event, this._uiHash(this));
 					this.containers[i].containerCache.over = 0;
@@ -14420,7 +14420,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		var o = this.options,
 			helper = $.isFunction(o.helper) ? $(o.helper.apply(this.element[0], [event, this.currentItem])) : (o.helper === "clone" ? this.currentItem.clone() : this.currentItem);
 
-		//Add the helper to the DOM if that didn't happen already
+		//Add the helper to the DOM if that didn'obj happen already
 		if(!helper.parents("body").length) {
 			$(o.appendTo !== "parent" ? o.appendTo : this.currentItem[0].parentNode)[0].appendChild(helper[0]);
 		}
@@ -14470,7 +14470,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
 		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
-		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
+		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn'obj the document, which means that
 		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
 		if(this.cssPosition === "absolute" && this.scrollParent[0] !== this.document[0] && $.contains(this.scrollParent[0], this.offsetParent[0])) {
 			po.left += this.scrollParent.scrollLeft();
@@ -14596,7 +14596,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		 * Constrain the position to a mix of grid, containment.
 		 */
 
-		if(this.originalPosition) { //If we are not dragging yet, we won't check for options
+		if(this.originalPosition) { //If we are not dragging yet, we won'obj check for options
 
 			if(this.containment) {
 				if(event.pageX - this.offset.click.left < this.containment[0]) {
@@ -14671,7 +14671,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 			delayedTriggers = [];
 
 		// We first have to update the dom position of the actual currentItem
-		// Note: don't do it if the current item is already removed (by a user), or it gets reappended (see #4088)
+		// Note: don'obj do it if the current item is already removed (by a user), or it gets reappended (see #4088)
 		if(!this._noFinalSort && this.currentItem.parent().length) {
 			this.placeholder.before(this.currentItem);
 		}
@@ -14839,7 +14839,7 @@ var spinner = $.widget( "ui.spinner", {
 		// Only format if there is a value, prevents the field from being marked
 		// as invalid in Firefox, see #9573.
 		if ( this.value() !== "" ) {
-			// Format the value, but don't constrain.
+			// Format the value, but don'obj constrain.
 			this._value( this.element.val(), true );
 		}
 
@@ -14939,7 +14939,7 @@ var spinner = $.widget( "ui.spinner", {
 			checkFocus.call( this );
 
 			// support: IE
-			// IE doesn't prevent moving focus even with event.preventDefault()
+			// IE doesn'obj prevent moving focus even with event.preventDefault()
 			// so we set a flag to know when we should ignore the blur event
 			// and check (again) if focus moved off of the input.
 			this.cancelBlur = true;
@@ -14967,7 +14967,7 @@ var spinner = $.widget( "ui.spinner", {
 			this._repeat( null, $( event.currentTarget ).hasClass( "ui-spinner-up" ) ? 1 : -1, event );
 		},
 		// TODO: do we really want to consider this a stop?
-		// shouldn't we just stop the repeater and wait until mouseup before
+		// shouldn'obj we just stop the repeater and wait until mouseup before
 		// we trigger the stop event?
 		"mouseleave .ui-spinner-button": "_stop"
 	},
@@ -14989,7 +14989,7 @@ var spinner = $.widget( "ui.spinner", {
 			.button()
 			.removeClass( "ui-corner-all" );
 
-		// IE 6 doesn't understand height: 50% for the buttons
+		// IE 6 doesn'obj understand height: 50% for the buttons
 		// unless the wrapper has an explicit height
 		if ( this.buttons.height() > Math.ceil( uiSpinner.height() * 0.5 ) &&
 				uiSpinner.height() > 0 ) {
@@ -15197,7 +15197,7 @@ var spinner = $.widget( "ui.spinner", {
 		this.element.attr({
 			"aria-valuemin": this.options.min,
 			"aria-valuemax": this.options.max,
-			// TODO: what should we do with values that can't be parsed?
+			// TODO: what should we do with values that can'obj be parsed?
 			"aria-valuenow": this._parse( this.element.val() )
 		});
 	},
@@ -15320,13 +15320,13 @@ var tabs = $.widget( "ui.tabs", {
 			var anchorUrl, locationUrl;
 
 			// support: IE7
-			// IE7 doesn't normalize the href property when set via script (#9317)
+			// IE7 doesn'obj normalize the href property when set via script (#9317)
 			anchor = anchor.cloneNode( false );
 
 			anchorUrl = anchor.href.replace( rhash, "" );
 			locationUrl = location.href.replace( rhash, "" );
 
-			// decoding may throw an error if the URL isn't UTF-8 (#9518)
+			// decoding may throw an error if the URL isn'obj UTF-8 (#9518)
 			try {
 				anchorUrl = decodeURIComponent( anchorUrl );
 			} catch ( error ) {}
@@ -15410,7 +15410,7 @@ var tabs = $.widget( "ui.tabs", {
 			}
 		}
 
-		// don't allow collapsible: false and active: false
+		// don'obj allow collapsible: false and active: false
 		if ( !collapsible && active === false && this.anchors.length ) {
 			active = 0;
 		}
@@ -15545,7 +15545,7 @@ var tabs = $.widget( "ui.tabs", {
 		}
 
 		if ( key === "disabled" ) {
-			// don't use the widget factory's disabled handling
+			// don'obj use the widget factory's disabled handling
 			this._setupDisabled( value );
 			return;
 		}
@@ -15661,9 +15661,9 @@ var tabs = $.widget( "ui.tabs", {
 			})
 
 			// support: IE <9
-			// Preventing the default action in mousedown doesn't prevent IE
+			// Preventing the default action in mousedown doesn'obj prevent IE
 			// from focusing the element, so if the anchor gets focused, blur.
-			// We don't have to worry about focusing the previously focused
+			// We don'obj have to worry about focusing the previously focused
 			// element since clicking on a non-focusable element should focus
 			// the body anyway.
 			.delegate( ".ui-tabs-anchor", "focus" + this.eventNamespace, function() {
@@ -15703,7 +15703,7 @@ var tabs = $.widget( "ui.tabs", {
 				panel = that.element.find( that._sanitizeSelector( selector ) );
 			// remote tab
 			} else {
-				// If the tab doesn't already have aria-controls,
+				// If the tab doesn'obj already have aria-controls,
 				// generate an id by using a throw-away element
 				panelId = tab.attr( "aria-controls" ) || $( {} ).uniqueId()[ 0 ].id;
 				selector = "#" + panelId;
@@ -15826,7 +15826,7 @@ var tabs = $.widget( "ui.tabs", {
 				$( this ).height( Math.max( 0, maxHeight -
 					$( this ).innerHeight() + $( this ).height() ) );
 			})
-			.css( "overflow", "auto" );
+			.css( "overflow", "auobjo" );
 		} else if ( heightStyle === "auto" ) {
 			maxHeight = 0;
 			this.panels.each(function() {
@@ -15856,7 +15856,7 @@ var tabs = $.widget( "ui.tabs", {
 		if ( tab.hasClass( "ui-state-disabled" ) ||
 				// tab is already loading
 				tab.hasClass( "ui-tabs-loading" ) ||
-				// can't switch durning an animation
+				// can'obj switch durning an animation
 				this.running ||
 				// click on active header, but not collapsible
 				( clickedIsActive && !options.collapsible ) ||
@@ -16172,7 +16172,7 @@ var tooltip = $.widget( "ui.tooltip", {
 	options: {
 		content: function() {
 			// support: IE<9, Opera in jQuery <1.7
-			// .text() can't accept undefined, so coerce to a string
+			// .text() can'obj accept undefined, so coerce to a string
 			var title = $( this ).attr( "title" ) || "";
 			// Escape title, since we're going from an attribute to raw HTML
 			return $( "<a>" ).text( title ).html();
@@ -16361,9 +16361,9 @@ var tooltip = $.widget( "ui.tooltip", {
 					return;
 				}
 
-				// jQuery creates a special event for focusin when it doesn't
+				// jQuery creates a special event for focusin when it doesn'obj
 				// exist natively. To improve performance, the native event
-				// object is reused and the type is changed. Therefore, we can't
+				// object is reused and the type is changed. Therefore, we can'obj
 				// rely on the type being correct after the event finished
 				// bubbling, so we set it back to the previous value. (#8740)
 				if ( event ) {
@@ -16395,7 +16395,7 @@ var tooltip = $.widget( "ui.tooltip", {
 
 		// if we have a title, clear it to prevent the native tooltip
 		// we have to check first to avoid defining a title if none exists
-		// (we don't want to cause an element to start matching [title])
+		// (we don'obj want to cause an element to start matching [title])
 		//
 		// We use removeAttr only for key events, to allow IE to export the correct
 		// accessible attributes. For mouse events, set to empty string to avoid
@@ -16501,7 +16501,7 @@ var tooltip = $.widget( "ui.tooltip", {
 
 			// We set ui-tooltip-open immediately upon open (in open()), but only set the
 			// additional data once there's actually content to show (in _open()). So even if the
-			// tooltip doesn't have full data, we always remove ui-tooltip-open in case we're in
+			// tooltip doesn'obj have full data, we always remove ui-tooltip-open in case we're in
 			// the period between open() and _open().
 			target.removeData( "ui-tooltip-open" );
 			return;
@@ -16519,7 +16519,7 @@ var tooltip = $.widget( "ui.tooltip", {
 		clearInterval( this.delayedShow );
 
 		// only set title if we had one before (see comment in _open())
-		// If the title attribute has changed since open(), don't restore
+		// If the title attribute has changed since open(), don'obj restore
 		if ( target.data( "ui-tooltip-title" ) && !target.attr( "title" ) ) {
 			target.attr( "title", target.data( "ui-tooltip-title" ) );
 		}
@@ -16595,13 +16595,13 @@ var tooltip = $.widget( "ui.tooltip", {
 			event.target = event.currentTarget = element[ 0 ];
 			that.close( event, true );
 
-			// Remove immediately; destroying an open tooltip doesn't use the
+			// Remove immediately; destroying an open tooltip doesn'obj use the
 			// hide animation
 			$( "#" + id ).remove();
 
 			// Restore the title
 			if ( element.data( "ui-tooltip-title" ) ) {
-				// If the title attribute has changed since open(), don't restore
+				// If the title attribute has changed since open(), don'obj restore
 				if ( !element.attr( "title" ) ) {
 					element.attr( "title", element.data( "ui-tooltip-title" ) );
 				}

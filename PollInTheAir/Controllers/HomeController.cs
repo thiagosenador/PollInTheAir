@@ -1,12 +1,12 @@
-﻿using System.Web.Mvc;
-
-namespace PollInTheAir.Web.Controllers
+﻿namespace PollInTheAir.Web.Controllers
 {
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         public ViewResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }

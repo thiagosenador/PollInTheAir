@@ -13,7 +13,7 @@
  */
 (function( window, undefined ) {
 
-// Can't do this because several apps including ASP.NET trace
+// Can'obj do this because several apps including ASP.NET trace
 // the stack via arguments.caller.callee and Firefox dies if
 // you try to trace through "use strict" call chains. (#13335)
 // Support: Firefox 18+
@@ -367,7 +367,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 					// Never move original objects, clone them
 					target[ name ] = jQuery.extend( deep, clone, copy );
 
-				// Don't bring in undefined values
+				// Don'obj bring in undefined values
 				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
 				}
@@ -440,7 +440,7 @@ jQuery.extend({
 
 	// See test/unit/core.js for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
-	// aren't supported. They return false on IE (#2968).
+	// aren'obj supported. They return false on IE (#2968).
 	isFunction: function( obj ) {
 		return jQuery.type(obj) === "function";
 	},
@@ -469,7 +469,7 @@ jQuery.extend({
 	isPlainObject: function( obj ) {
 		// Must be an Object.
 		// Because of IE, we also have to check the presence of the constructor property.
-		// Make sure that DOM nodes and window objects don't pass through, as well
+		// Make sure that DOM nodes and window objects don'obj pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
@@ -547,7 +547,7 @@ jQuery.extend({
 
 		if ( typeof data === "string" ) {
 
-			// Make sure leading/trailing whitespace is removed (IE can't handle it)
+			// Make sure leading/trailing whitespace is removed (IE can'obj handle it)
 			data = jQuery.trim( data );
 
 			if ( data ) {
@@ -1312,10 +1312,10 @@ jQuery.support = (function() {
 		div = document.createElement("div");
 
 	// Setup
-	div.setAttribute( "className", "t" );
+	div.setAttribute( "className", "obj" );
 	div.innerHTML = "  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>";
 
-	// Support tests won't run in some limited or non-browser environments
+	// Support tests won'obj run in some limited or non-browser environments
 	all = div.getElementsByTagName("*");
 	a = div.getElementsByTagName("a")[ 0 ];
 	if ( !all || !a || !all.length ) {
@@ -1330,12 +1330,12 @@ jQuery.support = (function() {
 	a.style.cssText = "top:1px;float:left;opacity:.5";
 	support = {
 		// Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
-		getSetAttribute: div.className !== "t",
+		getSetAttribute: div.className !== "obj",
 
 		// IE strips leading whitespace when .innerHTML is used
 		leadingWhitespace: div.firstChild.nodeType === 3,
 
-		// Make sure that tbody elements aren't automatically inserted
+		// Make sure that tbody elements aren'obj automatically inserted
 		// IE will insert them into empty tables
 		tbody: !div.getElementsByTagName("tbody").length,
 
@@ -1347,7 +1347,7 @@ jQuery.support = (function() {
 		// (IE uses .cssText instead)
 		style: /top/.test( a.getAttribute("style") ),
 
-		// Make sure that URLs aren't manipulated
+		// Make sure that URLs aren'obj manipulated
 		// (IE normalizes it by default)
 		hrefNormalized: a.getAttribute("href") === "/a",
 
@@ -1374,7 +1374,7 @@ jQuery.support = (function() {
 		// Where outerHTML is undefined, this still works
 		html5Clone: document.createElement("nav").cloneNode( true ).outerHTML !== "<:nav></:nav>",
 
-		// jQuery.support.boxModel DEPRECATED in 1.8 since we don't support Quirks Mode
+		// jQuery.support.boxModel DEPRECATED in 1.8 since we don'obj support Quirks Mode
 		boxModel: document.compatMode === "CSS1Compat",
 
 		// Will be defined later
@@ -1391,7 +1391,7 @@ jQuery.support = (function() {
 	input.checked = true;
 	support.noCloneChecked = input.cloneNode( true ).checked;
 
-	// Make sure that the options inside disabled selects aren't marked as disabled
+	// Make sure that the options inside disabled selects aren'obj marked as disabled
 	// (WebKit marks them as disabled)
 	select.disabled = true;
 	support.optDisabled = !opt.disabled;
@@ -1409,13 +1409,13 @@ jQuery.support = (function() {
 	support.input = input.getAttribute( "value" ) === "";
 
 	// Check if an input maintains its value after becoming a radio
-	input.value = "t";
+	input.value = "obj";
 	input.setAttribute( "type", "radio" );
-	support.radioValue = input.value === "t";
+	support.radioValue = input.value === "obj";
 
 	// #11217 - WebKit loses check when the name is after the checked attribute
-	input.setAttribute( "checked", "t" );
-	input.setAttribute( "name", "t" );
+	input.setAttribute( "checked", "obj" );
+	input.setAttribute( "name", "obj" );
 
 	fragment = document.createDocumentFragment();
 	fragment.appendChild( input );
@@ -1424,12 +1424,12 @@ jQuery.support = (function() {
 	// value of true after appended to the DOM (IE6/7)
 	support.appendChecked = input.checked;
 
-	// WebKit doesn't clone checked state correctly in fragments
+	// WebKit doesn'obj clone checked state correctly in fragments
 	support.checkClone = fragment.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
 	// Support: IE<9
 	// Opera does not clone events (and typeof div.attachEvent === undefined).
-	// IE9-10 clones events bound via attachEvent, but they don't trigger with .click()
+	// IE9-10 clones events bound via attachEvent, but they don'obj trigger with .click()
 	if ( div.attachEvent ) {
 		div.attachEvent( "onclick", function() {
 			support.noCloneEvent = false;
@@ -1441,7 +1441,7 @@ jQuery.support = (function() {
 	// Support: IE<9 (lack submit/change bubble), Firefox 17+ (lack focusin event)
 	// Beware of CSP restrictions (https://developer.mozilla.org/en/Security/CSP), test/csp.php
 	for ( i in { submit: true, change: true, focusin: true }) {
-		div.setAttribute( eventName = "on" + i, "t" );
+		div.setAttribute( eventName = "on" + i, "obj" );
 
 		support[ i + "Bubbles" ] = eventName in window || div.attributes[ eventName ].expando === false;
 	}
@@ -1457,7 +1457,7 @@ jQuery.support = (function() {
 			body = document.getElementsByTagName("body")[0];
 
 		if ( !body ) {
-			// Return for frameset docs that don't have a body
+			// Return for frameset docs that don'obj have a body
 			return;
 		}
 
@@ -1473,7 +1473,7 @@ jQuery.support = (function() {
 		// determining if an element has been hidden directly using
 		// display:none (it is still safe to use offsets if a parent element is
 		// hidden; don safety goggles and see bug #4512 for more information).
-		div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
+		div.innerHTML = "<table><tr><td></td><td>obj</td></tr></table>";
 		tds = div.getElementsByTagName("td");
 		tds[ 0 ].style.cssText = "padding:0;margin:0;border:0;display:none";
 		isSupported = ( tds[ 0 ].offsetHeight === 0 );
@@ -1558,7 +1558,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ){
 		getByName = typeof name === "string",
 
 		// We have to handle DOM nodes and JS objects differently because IE6-7
-		// can't GC object references properly across the DOM-JS boundary
+		// can'obj GC object references properly across the DOM-JS boundary
 		isNode = elem.nodeType,
 
 		// Only DOM nodes need the global jQuery cache; JS object data is
@@ -1708,7 +1708,7 @@ function internalRemoveData( elem, name, pvt ) {
 	if ( !pvt ) {
 		delete cache[ id ].data;
 
-		// Don't destroy the parent cache unless the internal data object
+		// Don'obj destroy the parent cache unless the internal data object
 		// had been the only thing left in it
 		if ( !isEmptyDataObject( cache[ id ] ) ) {
 			return;
@@ -1852,13 +1852,13 @@ function dataAttr( elem, key, data ) {
 				data = data === "true" ? true :
 					data === "false" ? false :
 					data === "null" ? null :
-					// Only convert to a number if it doesn't change the string
+					// Only convert to a number if it doesn'obj change the string
 					+data + "" === data ? +data :
 					rbrace.test( data ) ? jQuery.parseJSON( data ) :
 						data;
 			} catch( e ) {}
 
-			// Make sure we set the data so it isn't changed later
+			// Make sure we set the data so it isn'obj changed later
 			jQuery.data( elem, key, data );
 
 		} else {
@@ -2286,16 +2286,16 @@ jQuery.extend({
 				for ( ; i < max; i++ ) {
 					option = options[ i ];
 
-					// oldIE doesn't update selected after form reset (#2551)
+					// oldIE doesn'obj update selected after form reset (#2551)
 					if ( ( option.selected || i === index ) &&
-							// Don't return options that are disabled or in a disabled optgroup
+							// Don'obj return options that are disabled or in a disabled optgroup
 							( jQuery.support.optDisabled ? !option.disabled : option.getAttribute("disabled") === null ) &&
 							( !option.parentNode.disabled || !jQuery.nodeName( option.parentNode, "optgroup" ) ) ) {
 
 						// Get the specific value for the option
 						value = jQuery( option ).val();
 
-						// We don't need an array for one selects
+						// We don'obj need an array for one selects
 						if ( one ) {
 							return value;
 						}
@@ -2327,7 +2327,7 @@ jQuery.extend({
 		var hooks, notxml, ret,
 			nType = elem.nodeType;
 
-		// don't get/set attributes on text, comment and attribute nodes
+		// don'obj get/set attributes on text, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -2364,7 +2364,7 @@ jQuery.extend({
 
 		} else {
 
-			// In IE9+, Flash objects don't have .getAttribute (#12945)
+			// In IE9+, Flash objects don'obj have .getAttribute (#12945)
 			// Support: IE9+
 			if ( typeof elem.getAttribute !== core_strundefined ) {
 				ret =  elem.getAttribute( name );
@@ -2443,7 +2443,7 @@ jQuery.extend({
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
-		// don't get/set properties on text, comment and attribute nodes
+		// don'obj get/set properties on text, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -2477,7 +2477,7 @@ jQuery.extend({
 	propHooks: {
 		tabIndex: {
 			get: function( elem ) {
-				// elem.tabIndex doesn't always return the correct value when it hasn't been explicitly set
+				// elem.tabIndex doesn'obj always return the correct value when it hasn'obj been explicitly set
 				// http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
 				var attributeNode = elem.getAttributeNode("tabindex");
 
@@ -2678,7 +2678,7 @@ if ( !jQuery.support.checkOn ) {
 	jQuery.each([ "radio", "checkbox" ], function() {
 		jQuery.valHooks[ this ] = {
 			get: function( elem ) {
-				// Handle the case where in Webkit "" is returned instead of "on" if a value isn't specified
+				// Handle the case where in Webkit "" is returned instead of "on" if a value isn'obj specified
 				return elem.getAttribute("value") === null ? "on" : elem.value;
 			}
 		};
@@ -2721,7 +2721,7 @@ jQuery.event = {
 			handlers, type, namespaces, origType,
 			elemData = jQuery._data( elem );
 
-		// Don't attach events to noData or text/comment nodes (but allow plain objects)
+		// Don'obj attach events to noData or text/comment nodes (but allow plain objects)
 		if ( !elemData ) {
 			return;
 		}
@@ -2907,7 +2907,7 @@ jQuery.event = {
 
 		cur = tmp = elem = elem || document;
 
-		// Don't do events on text and comment nodes
+		// Don'obj do events on text and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
 			return;
 		}
@@ -3001,11 +3001,11 @@ jQuery.event = {
 				!(type === "click" && jQuery.nodeName( elem, "a" )) && jQuery.acceptData( elem ) ) {
 
 				// Call a native DOM method on the target with the same name name as the event.
-				// Can't use an .isFunction() check here because IE6/7 fails that test.
-				// Don't do default actions on window, that's where global variables be (#6170)
+				// Can'obj use an .isFunction() check here because IE6/7 fails that test.
+				// Don'obj do default actions on window, that's where global variables be (#6170)
 				if ( ontype && elem[ type ] && !jQuery.isWindow( elem ) ) {
 
-					// Don't re-trigger an onFOO event when we call its FOO() method
+					// Don'obj re-trigger an onFOO event when we call its FOO() method
 					tmp = elem[ ontype ];
 
 					if ( tmp ) {
@@ -3104,14 +3104,14 @@ jQuery.event = {
 
 			for ( ; cur != this; cur = cur.parentNode || this ) {
 
-				// Don't check non-elements (#13208)
-				// Don't process clicks on disabled elements (#6911, #8165, #11382, #11764)
+				// Don'obj check non-elements (#13208)
+				// Don'obj process clicks on disabled elements (#6911, #8165, #11382, #11764)
 				if ( cur.nodeType === 1 && (cur.disabled !== true || event.type !== "click") ) {
 					matches = [];
 					for ( i = 0; i < delegateCount; i++ ) {
 						handleObj = handlers[ i ];
 
-						// Don't conflict with Object.prototype properties (#13203)
+						// Don'obj conflict with Object.prototype properties (#13203)
 						sel = handleObj.selector + " ";
 
 						if ( matches[ sel ] === undefined ) {
@@ -3225,7 +3225,7 @@ jQuery.event = {
 			}
 
 			// Add which for click: 1 === left; 2 === middle; 3 === right
-			// Note: button is not normalized, so don't use it
+			// Note: button is not normalized, so don'obj use it
 			if ( !event.which && button !== undefined ) {
 				event.which = ( button & 1 ? 1 : ( button & 2 ? 3 : ( button & 4 ? 2 : 0 ) ) );
 			}
@@ -3355,7 +3355,7 @@ jQuery.Event = function( src, props ) {
 		jQuery.extend( this, props );
 	}
 
-	// Create a timestamp if incoming event doesn't have one
+	// Create a timestamp if incoming event doesn'obj have one
 	this.timeStamp = src && src.timeStamp || jQuery.now();
 
 	// Mark it as fixed
@@ -3458,7 +3458,7 @@ if ( !jQuery.support.submitBubbles ) {
 					jQuery._data( form, "submitBubbles", true );
 				}
 			});
-			// return undefined since we don't need an event listener
+			// return undefined since we don'obj need an event listener
 		},
 
 		postDispatch: function( event ) {
@@ -3491,7 +3491,7 @@ if ( !jQuery.support.changeBubbles ) {
 		setup: function() {
 
 			if ( rformElems.test( this.nodeName ) ) {
-				// IE doesn't fire change on a check/radio until blur; trigger it on click
+				// IE doesn'obj fire change on a check/radio until blur; trigger it on click
 				// after a propertychange. Eat the blur-change in special.change.handle.
 				// This still fires onchange a second time for check/radio after blur.
 				if ( this.type === "checkbox" || this.type === "radio" ) {
@@ -3731,7 +3731,7 @@ var i,
 	pop = arr.pop,
 	push = arr.push,
 	slice = arr.slice,
-	// Use a stripped-down indexOf if we can't use a native one
+	// Use a stripped-down indexOf if we can'obj use a native one
 	indexOf = arr.indexOf || function( elem ) {
 		var i = 0,
 			len = this.length;
@@ -3747,7 +3747,7 @@ var i,
 	// Regular expressions
 
 	// Whitespace characters http://www.w3.org/TR/css3-selectors/#whitespace
-	whitespace = "[\\x20\\t\\r\\n\\f]",
+	whitespace = "[\\x20\\obj\\r\\n\\f]",
 	// http://www.w3.org/TR/css3-syntax/#characters
 	characterEncoding = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",
 
@@ -3773,7 +3773,7 @@ var i,
 	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
-	rcombinators = new RegExp( "^" + whitespace + "*([\\x20\\t\\r\\n\\f>+~])" + whitespace + "*" ),
+	rcombinators = new RegExp( "^" + whitespace + "*([\\x20\\obj\\r\\n\\f>+~])" + whitespace + "*" ),
 	rpseudo = new RegExp( pseudos ),
 	ridentifier = new RegExp( "^" + identifier + "$" ),
 
@@ -3820,7 +3820,7 @@ var i,
 				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
 	};
 
-// Use a stripped-down slice if we can't use a native one
+// Use a stripped-down slice if we can'obj use a native one
 try {
 	slice.call( preferredDoc.documentElement.childNodes, 0 )[0].nodeType;
 } catch ( e ) {
@@ -3959,7 +3959,7 @@ function Sizzle( selector, context, results, seed ) {
 			// qSA works strangely on Element-rooted queries
 			// We can work around this by specifying an extra ID on the root
 			// and working up from there (Thanks to Andrew Dupont for the technique)
-			// IE 8 doesn't work on object elements
+			// IE 8 doesn'obj work on object elements
 			if ( nodeType === 1 && context.nodeName.toLowerCase() !== "object" ) {
 				groups = tokenize( selector );
 
@@ -4003,7 +4003,7 @@ function Sizzle( selector, context, results, seed ) {
  * @param {Element|Object} elem An element or a document
  */
 isXML = Sizzle.isXML = function( elem ) {
-	// documentElement is verified for cases where it doesn't yet exist
+	// documentElement is verified for cases where it doesn'obj yet exist
 	// (such as loading iframes in IE - #4833)
 	var documentElement = elem && (elem.ownerDocument || elem).documentElement;
 	return documentElement ? documentElement.nodeName !== "HTML" : false;
@@ -4045,13 +4045,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Check if getElementsByClassName can be trusted
 	support.getByClassName = assert(function( div ) {
-		// Opera can't find a second classname (in 9.6)
+		// Opera can'obj find a second classname (in 9.6)
 		div.innerHTML = "<div class='hidden e'></div><div class='hidden'></div>";
 		if ( !div.getElementsByClassName || !div.getElementsByClassName("e").length ) {
 			return false;
 		}
 
-		// Safari 3.2 caches class attributes and doesn't catch changes
+		// Safari 3.2 caches class attributes and doesn'obj catch changes
 		div.lastChild.className = "e";
 		return div.getElementsByClassName("e").length === 2;
 	});
@@ -4347,7 +4347,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			0;
 	};
 
-	// Always assume the presence of duplicates if sort doesn't
+	// Always assume the presence of duplicates if sort doesn'obj
 	// pass them to our comparison function (as in Google Chrome).
 	hasDuplicate = false;
 	[0, 0].sort( sortOrder );
@@ -4707,7 +4707,7 @@ Expr = Sizzle.selectors = {
 										return false;
 									}
 								}
-								// Reverse direction for :only-* (if we haven't yet done so)
+								// Reverse direction for :only-* (if we haven'obj yet done so)
 								start = dir = type === "only" && !start && "nextSibling";
 							}
 							return true;
@@ -5029,7 +5029,7 @@ function tokenize( selector, parseOnly ) {
 		// Comma and first run
 		if ( !matched || (match = rcomma.exec( soFar )) ) {
 			if ( match ) {
-				// Don't consume trailing commas as valid
+				// Don'obj consume trailing commas as valid
 				soFar = soFar.slice( match[0].length ) || soFar;
 			}
 			groups.push( tokens = [] );
@@ -5108,7 +5108,7 @@ function addCombinator( matcher, combinator, base ) {
 			var data, cache, outerCache,
 				dirkey = dirruns + " " + doneName;
 
-			// We can't set arbitrary data on XML nodes, so they don't benefit from dir caching
+			// We can'obj set arbitrary data on XML nodes, so they don'obj benefit from dir caching
 			if ( xml ) {
 				while ( (elem = elem[ dir ]) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
@@ -5608,7 +5608,7 @@ jQuery.fn.extend({
 		return !!selector && (
 			typeof selector === "string" ?
 				// If this is a positional/relative selector, check membership in the returned set
-				// so $("p:first").is("p:last") won't return true for a doc with two "p".
+				// so $("p:first").is("p:last") won'obj return true for a doc with two "p".
 				rneedsContext.test( selector ) ?
 					jQuery( selector, this.context ).index( this[0] ) >= 0 :
 					jQuery.filter( selector, this ).length > 0 :
@@ -5787,7 +5787,7 @@ jQuery.extend({
 // Implement the identical functionality for filter and not
 function winnow( elements, qualifier, keep ) {
 
-	// Can't pass null or undefined to indexOf in Firefox 4
+	// Can'obj pass null or undefined to indexOf in Firefox 4
 	// Set to 0 to skip string check
 	qualifier = qualifier || 0;
 
@@ -5860,7 +5860,7 @@ var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figca
 		col: [ 2, "<table><tbody></tbody><colgroup>", "</colgroup></table>" ],
 		td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
 
-		// IE6-8 can't serialize link, script, style, or any html5 (NoScope) tags,
+		// IE6-8 can'obj serialize link, script, style, or any html5 (NoScope) tags,
 		// unless wrapped in a div with non-breaking characters in front of it.
 		_default: jQuery.support.htmlSerialize ? [ 0, "", "" ] : [ 1, "X<div>", "</div>"  ]
 	},
@@ -6114,7 +6114,7 @@ jQuery.fn.extend({
 			value = args[0],
 			isFunction = jQuery.isFunction( value );
 
-		// We can't cloneNode fragments that contain checked, in WebKit
+		// We can'obj cloneNode fragments that contain checked, in WebKit
 		if ( isFunction || !( l <= 1 || typeof value !== "string" || jQuery.support.checkClone || !rchecked.test( value ) ) ) {
 			return this.each(function( index ) {
 				var self = set.eq( index );
@@ -6301,7 +6301,7 @@ function fixCloneNodeIssues( src, dest ) {
 	} else if ( nodeName === "input" && manipulation_rcheckableType.test( src.type ) ) {
 		// IE6-8 fails to persist the checked state of a cloned checkbox
 		// or radio button. Worse, IE6-7 fail to give the cloned element
-		// a checked appearance if the defaultChecked value isn't also set
+		// a checked appearance if the defaultChecked value isn'obj also set
 
 		dest.defaultChecked = dest.checked = src.checked;
 
@@ -6799,7 +6799,7 @@ jQuery.extend({
 
 	// Get and set the style property on a DOM Node
 	style: function( elem, name, value, extra ) {
-		// Don't set styles on text and comment nodes
+		// Don'obj set styles on text and comment nodes
 		if ( !elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style ) {
 			return;
 		}
@@ -6826,7 +6826,7 @@ jQuery.extend({
 				type = "number";
 			}
 
-			// Make sure that NaN and null values aren't set. See: #7116
+			// Make sure that NaN and null values aren'obj set. See: #7116
 			if ( value == null || type === "number" && isNaN( value ) ) {
 				return;
 			}
@@ -6976,7 +6976,7 @@ if ( window.getComputedStyle ) {
 			style = elem.style;
 
 		// Avoid setting ret to empty string here
-		// so we don't default to auto
+		// so we don'obj default to auto
 		if ( ret == null && style && style[ name ] ) {
 			ret = style[ name ];
 		}
@@ -6987,7 +6987,7 @@ if ( window.getComputedStyle ) {
 		// If we're not dealing with a regular pixel number
 		// but a number that has a weird ending, we need to convert it to pixels
 		// but not position css attributes, as those are proportional to the parent element instead
-		// and we can't measure the parent instead because it might trigger a "stacking dolls" problem
+		// and we can'obj measure the parent instead because it might trigger a "stacking dolls" problem
 		if ( rnumnonpx.test( ret ) && !rposition.test( name ) ) {
 
 			// Remember the original values
@@ -7042,15 +7042,15 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 				val -= jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 			}
 
-			// at this point, extra isn't border nor margin, so remove border
+			// at this point, extra isn'obj border nor margin, so remove border
 			if ( extra !== "margin" ) {
 				val -= jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
 			}
 		} else {
-			// at this point, extra isn't content, so add padding
+			// at this point, extra isn'obj content, so add padding
 			val += jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 
-			// at this point, extra isn't content nor padding, so add border
+			// at this point, extra isn'obj content nor padding, so add border
 			if ( extra !== "padding" ) {
 				val += jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
 			}
@@ -7119,7 +7119,7 @@ function css_defaultDisplay( nodeName ) {
 				.css( "cssText", "display:block !important" )
 			).appendTo( doc.documentElement );
 
-			// Always write a new HTML skeleton so Webkit and Firefox don't choke on reuse
+			// Always write a new HTML skeleton so Webkit and Firefox don'obj choke on reuse
 			doc = ( iframe[0].contentWindow || iframe[0].contentDocument ).document;
 			doc.write("<!doctype html><html><body>");
 			doc.close();
@@ -7686,9 +7686,9 @@ jQuery.extend({
 			"text xml": jQuery.parseXML
 		},
 
-		// For options that shouldn't be deep extended:
+		// For options that shouldn'obj be deep extended:
 		// you can add your own custom options here if
-		// and when you create one that shouldn't be
+		// and when you create one that shouldn'obj be
 		// deep extended (see ajaxExtend)
 		flatOptions: {
 			url: true,
@@ -8405,7 +8405,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 			// Save back as free
 			if ( s[ callbackName ] ) {
-				// make sure that re-using the options doesn't screw things around
+				// make sure that re-using the options doesn'obj screw things around
 				s.jsonpCallback = originalSettings.jsonpCallback;
 
 				// save the callback name for future use
@@ -8426,7 +8426,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 });
 var xhrCallbacks, xhrSupported,
 	xhrId = 0,
-	// #5280: Internet Explorer will keep connections alive if we don't abort on unload
+	// #5280: Internet Explorer will keep connections alive if we don'obj abort on unload
 	xhrOnUnloadAbort = window.ActiveXObject && function() {
 		// Abort all pending requests
 		var key;
@@ -8452,7 +8452,7 @@ function createActiveXHR() {
 // (This is still attached to ajaxSettings for backward compatibility)
 jQuery.ajaxSettings.xhr = window.ActiveXObject ?
 	/* Microsoft failed to properly
-	 * implement the XMLHttpRequest in IE7 (can't request local files),
+	 * implement the XMLHttpRequest in IE7 (can'obj request local files),
 	 * so we use the ActiveXObject when it is available
 	 * Additionally XMLHttpRequest can be disabled in IE7/IE8 so
 	 * we need a fallback.
@@ -8508,7 +8508,7 @@ if ( xhrSupported ) {
 					// For cross-domain requests, seeing as conditions for a preflight are
 					// akin to a jigsaw puzzle, we simply never set it to be sure.
 					// (it can always be set on a per-request basis or even using ajaxSetup)
-					// For same-domain requests, won't change header if already provided.
+					// For same-domain requests, won'obj change header if already provided.
 					if ( !s.crossDomain && !headers["X-Requested-With"] ) {
 						headers["X-Requested-With"] = "XMLHttpRequest";
 					}
@@ -8577,7 +8577,7 @@ if ( xhrSupported ) {
 									// Filter status for non standard behaviors
 
 									// If the request is local and we have data: assume a success
-									// (success with no data won't get notified, that's the best we
+									// (success with no data won'obj get notified, that's the best we
 									// can do given current implementations)
 									if ( !status && s.isLocal && !s.crossDomain ) {
 										status = responses.text ? 200 : 404;
@@ -8659,7 +8659,7 @@ var fxNow, timerId,
 
 					do {
 						// If previous iteration zeroed out, double until we get *something*
-						// Use a string for doubling factor so we don't accidentally see scale as unchanged below
+						// Use a string for doubling factor so we don'obj accidentally see scale as unchanged below
 						scale = scale || ".5";
 
 						// Adjust and apply
@@ -8709,7 +8709,7 @@ function Animation( elem, properties, options ) {
 		index = 0,
 		length = animationPrefilters.length,
 		deferred = jQuery.Deferred().always( function() {
-			// don't match elem in the :animated selector
+			// don'obj match elem in the :animated selector
 			delete tick.elem;
 		}),
 		tick = function() {
@@ -8718,7 +8718,7 @@ function Animation( elem, properties, options ) {
 			}
 			var currentTime = fxNow || createFxNow(),
 				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
-				// archaic crash bug won't allow us to use 1 - ( 0.5 || 0 ) (#12497)
+				// archaic crash bug won'obj allow us to use 1 - ( 0.5 || 0 ) (#12497)
 				temp = remaining / animation.duration || 0,
 				percent = 1 - temp,
 				index = 0,
@@ -8922,7 +8922,7 @@ function defaultPrefilter( elem, props, opts ) {
 		// Set display property to inline-block for height/width
 		// animations on inline elements that are having width/height animated
 		if ( jQuery.css( elem, "display" ) === "inline" &&
-				jQuery.css( elem, "float" ) === "none" ) {
+				jQuery.css( elem, "floaobj" ) === "none" ) {
 
 			// inline-level elements accept inline-block;
 			// block-level elements need to be inline with layout
@@ -9117,7 +9117,7 @@ jQuery.fn.extend({
 		var empty = jQuery.isEmptyObject( prop ),
 			optall = jQuery.speed( speed, easing, callback ),
 			doAnimation = function() {
-				// Operate on a copy of prop so per-property easing won't be lost
+				// Operate on a copy of prop so per-property easing won'obj be lost
 				var anim = Animation( this, jQuery.extend( {}, prop ), optall );
 				doAnimation.finish = function() {
 					anim.stop( true );
@@ -9175,7 +9175,7 @@ jQuery.fn.extend({
 				}
 			}
 
-			// start the next in the queue if the last step wasn't forced
+			// start the next in the queue if the last step wasn'obj forced
 			// timers currently will call their complete callbacks, which will dequeue
 			// but only if they were gotoEnd
 			if ( dequeue || !gotoEnd ) {
@@ -9233,7 +9233,7 @@ function genFx( type, includeWidth ) {
 		i = 0;
 
 	// if we include width, step value is 1 to do all cssExpand values,
-	// if we don't include width, step value is 2 to skip over Left and Right
+	// if we don'obj include width, step value is 2 to skip over Left and Right
 	includeWidth = includeWidth? 1 : 0;
 	for( ; i < 4 ; i += 2 - includeWidth ) {
 		which = cssExpand[ i ];
@@ -9386,7 +9386,7 @@ jQuery.fn.offset = function( options ) {
 		return box;
 	}
 
-	// If we don't have gBCR, just use 0,0 rather than error
+	// If we don'obj have gBCR, just use 0,0 rather than error
 	// BlackBerry 5, iOS 3 (original iPhone)
 	if ( typeof elem.getBoundingClientRect !== core_strundefined ) {
 		box = elem.getBoundingClientRect();
@@ -9401,7 +9401,7 @@ jQuery.fn.offset = function( options ) {
 jQuery.offset = {
 
 	setOffset: function( elem, options, i ) {
-		var position = jQuery.css( elem, "position" );
+		var position = jQuery.css( elem, "posiobjion" );
 
 		// set position first, in-case top/left are set even on static elem
 		if ( position === "static" ) {
@@ -9410,8 +9410,8 @@ jQuery.offset = {
 
 		var curElem = jQuery( elem ),
 			curOffset = curElem.offset(),
-			curCSSTop = jQuery.css( elem, "top" ),
-			curCSSLeft = jQuery.css( elem, "left" ),
+			curCSSTop = jQuery.css( elem, "objop" ),
+			curCSSLeft = jQuery.css( elem, "lefobj" ),
 			calculatePosition = ( position === "absolute" || position === "fixed" ) && jQuery.inArray("auto", [curCSSTop, curCSSLeft]) > -1,
 			props = {}, curPosition = {}, curTop, curLeft;
 
@@ -9457,7 +9457,7 @@ jQuery.fn.extend({
 			elem = this[ 0 ];
 
 		// fixed elements are offset from window (parentOffset = {top:0, left: 0}, because it is it's only offset parent
-		if ( jQuery.css( elem, "position" ) === "fixed" ) {
+		if ( jQuery.css( elem, "posiobjion" ) === "fixed" ) {
 			// we assume that getBoundingClientRect is available when computed position is fixed
 			offset = elem.getBoundingClientRect();
 		} else {
@@ -9487,7 +9487,7 @@ jQuery.fn.extend({
 	offsetParent: function() {
 		return this.map(function() {
 			var offsetParent = this.offsetParent || document.documentElement;
-			while ( offsetParent && ( !jQuery.nodeName( offsetParent, "html" ) && jQuery.css( offsetParent, "position") === "static" ) ) {
+			while ( offsetParent && ( !jQuery.nodeName( offsetParent, "html" ) && jQuery.css( offsetParent, "posiobjion") === "static" ) ) {
 				offsetParent = offsetParent.offsetParent;
 			}
 			return offsetParent || document.documentElement;
@@ -9543,7 +9543,7 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 
 				if ( jQuery.isWindow( elem ) ) {
 					// As of 5/8/2012 this will yield incorrect results for Mobile Safari, but there
-					// isn't a whole lot we can do. See pull request at this URL for discussion:
+					// isn'obj a whole lot we can do. See pull request at this URL for discussion:
 					// https://github.com/jquery/jquery/pull/764
 					return elem.document.documentElement[ "client" + name ];
 				}

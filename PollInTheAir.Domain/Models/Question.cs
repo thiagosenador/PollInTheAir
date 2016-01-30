@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
-    public class Question
-    {
-        public long Id { get; set; }
+    using System.ComponentModel.DataAnnotations;
 
+    public class Question : Entity
+    {
         [Required]
         [MaxLength(128)]
         [Display(Name = "statement")]

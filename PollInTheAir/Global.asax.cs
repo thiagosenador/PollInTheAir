@@ -1,8 +1,8 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace PollInTheAir.Web
+﻿namespace PollInTheAir.Web
 {
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -10,8 +10,6 @@ namespace PollInTheAir.Web
             AreaRegistration.RegisterAllAreas();
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-
         }
     }
 }

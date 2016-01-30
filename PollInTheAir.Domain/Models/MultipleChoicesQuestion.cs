@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class MultipleChoicesQuestion : Question
     {
         [Display(Name = "choices")]

@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using PollInTheAir.Domain.Abstract;
-using PollInTheAir.Domain.Concrete;
-using PollInTheAir.Domain.Models;
-
-namespace PollInTheAir.Web.Controllers
+﻿namespace PollInTheAir.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+
+    using PollInTheAir.Domain.Models;
+    using PollInTheAir.Domain.Services;
+
     public class PollController : Controller
     {
         private const string PollKey = "poll";
 
-        private readonly IPollRepository pollRepository;
+        private readonly IPollService pollService;
 
-        public PollController(IPollRepository pollRepository)
+        public PollController(IPollService pollService)
         {
-            this.pollRepository = pollRepository;
+            this.pollService = pollService;
         }
 
         [HttpGet]
         public ViewResult CreatePoll()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -29,9 +29,9 @@ namespace PollInTheAir.Web.Controllers
         {
             poll.Questions = new List<Question>();
 
-            Session[PollKey] = poll;
+            this.Session[PollKey] = poll;
 
-            return GoToCreateQuestion(questionType);
+            return this.GoToCreateQuestion(questionType);
         }
 
         [HttpPost]
@@ -39,7 +39,7 @@ namespace PollInTheAir.Web.Controllers
         {
             foreach (var choice in choices)
             {
-                question.Choices.Add(new Choice {Text = choice});
+                question.Choices.Add(new Choice { Text = choice });
             }
 
             ((Poll)Session[PollKey]).Questions.Add(question);
@@ -58,51 +58,49 @@ namespace PollInTheAir.Web.Controllers
         [HttpGet]
         public ViewResult CreateMultipleChoicesQuestion()
         {
-            return View();
+            return this.View();
         }
 
         [HttpGet]
         public ViewResult CreateFreeTextQuestion()
         {
-            return View();
+            return this.View();
         }
 
         public ViewResult FinishPollCreation()
         {
             Poll poll = (Poll)Session[PollKey];
 
-            return View("ReviewPollView", poll);
+            return this.View("ReviewPollView", poll);
+        }
+
+        public ActionResult PublishPoll()
+        {
+            var poll = (Poll)this.Session[PollKey];
+
+            poll.CreatedAt = DateTime.Now;
+
+            this.pollService.CreatePoll(poll);
+
+            return null;
         }
 
         private RedirectToRouteResult GoToCreateQuestion(string questionType)
         {
             if (questionType.Equals("free text"))
             {
-                return RedirectToAction("CreateFreeTextQuestion");
+                return this.RedirectToAction("CreateFreeTextQuestion");
             }
 
             if (questionType.Equals("multiple choices"))
             {
-                return RedirectToAction("CreateMultipleChoicesQuestion");
+                return this.RedirectToAction("CreateMultipleChoicesQuestion");
             }
 
             if (string.IsNullOrEmpty(questionType))
             {
-                return RedirectToAction("FinishPollCreation");
+                return this.RedirectToAction("FinishPollCreation");
             }
-
-            return null;
-        }
-
-        public ActionResult PublishPoll()
-        {
-            var poll = (Poll)Session[PollKey];
-
-            poll.CreatedAt = DateTime.Now;
-
-            var context = new PollDbContext();
-            context.Polls.Add(poll);
-            context.SaveChanges();
 
             return null;
         }

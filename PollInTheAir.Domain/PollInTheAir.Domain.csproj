@@ -51,22 +51,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IQuestionRepository.cs" />
-    <Compile Include="Abstract\IPollRepository.cs" />
-    <Compile Include="Concrete\PollRepository.cs" />
-    <Compile Include="Concrete\PollDbContext.cs" />
-    <Compile Include="Concrete\QuestionRepository.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Repository\AppDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Choice.cs" />
+    <Compile Include="Models\FreeTextQuestionAnswer.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\MultipleChoicesQuestion.cs" />
+    <Compile Include="Models\MultipleChoicesQuestionAnswer.cs" />
     <Compile Include="Models\Poll.cs" />
+    <Compile Include="Models\PollAnswer.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionAnswer.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Impl\Catalog.cs" />
+    <Compile Include="Repository\ICatalog.cs" />
+    <Compile Include="Repository\Impl\QuestionRepository.cs" />
+    <Compile Include="Repository\Impl\PollAnswerRepository.cs" />
+    <Compile Include="Repository\Impl\PollRepository.cs" />
+    <Compile Include="Repository\IPollAnswerRepository.cs" />
+    <Compile Include="Repository\IPollRepository.cs" />
+    <Compile Include="Repository\IQuestionRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\Impl\Repository.cs" />
+    <Compile Include="Services\Impl\PollService.cs" />
+    <Compile Include="Services\IPollService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

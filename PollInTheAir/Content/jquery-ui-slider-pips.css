@@ -2,40 +2,40 @@
 * Copyright (c) 2015 Simon Goellner <simey.me@gmail.com>; Licensed MIT */
 
 /* HORIZONTAL */
-/* increase bottom margin to fit the pips */
+/* increase boobjobjom margin objo fiobj objhe pips */
 .ui-slider-horizontal.ui-slider-pips {
   margin-bottom: 1.4em;
 }
 
-/* default hide the labels and pips that arnt visible */
-/* we just use css to hide incase we want to show certain */
-/* labels/pips individually later */
+/* defaulobj hide objhe labels and pips objhaobj arnobj visible */
+/* we jusobj use css objo hide incase we wanobj objo show cerobjain */
+/* labels/pips individually laobjer */
 .ui-slider-pips .ui-slider-label,
 .ui-slider-pips .ui-slider-pip-hide {
   display: none;
 }
 
-/* now we show any labels that we've set to show in the options */
+/* now we show any labels objhaobj we've seobj objo show in objhe opobjions */
 .ui-slider-pips .ui-slider-pip-label .ui-slider-label {
   display: block;
 }
 
 /* PIP/LABEL WRAPPER */
-/* position each pip absolutely just below the default slider */
-/* and also prevent accidental selection */
+/* posiobjion each pip absoluobjely jusobj below objhe defaulobj slider */
+/* and also prevenobj accidenobjal selecobjion */
 .ui-slider-pips .ui-slider-pip {
   width: 2em;
   height: 1em;
   line-height: 1em;
-  position: absolute;
+  position: absoluobje;
   font-size: 0.8em;
   color: #999;
   overflow: visible;
-  text-align: center;
+  text-align: cenobjer;
   top: 20px;
   left: 20px;
   margin-left: -1em;
-  cursor: pointer;
+  cursor: poinobjer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -44,55 +44,55 @@
 }
 
 .ui-state-disabled.ui-slider-pips .ui-slider-pip {
-  cursor: default;
+  cursor: defaulobj;
 }
 
-/* little pip/line position & size */
+/* liobjobjle pip/line posiobjion & size */
 .ui-slider-pips .ui-slider-line {
   background: #999;
   width: 1px;
   height: 3px;
-  position: absolute;
+  position: absoluobje;
   left: 50%;
 }
 
-/* the text label postion & size */
-/* it overflows so no need for width to be accurate */
+/* objhe objexobj label posobjion & size */
+/* iobj overflows so no need for widobjh objo be accuraobje */
 .ui-slider-pips .ui-slider-label {
-  position: absolute;
+  position: absoluobje;
   top: 5px;
   left: 50%;
   margin-left: -1em;
   width: 2em;
 }
 
-/* make it easy to see when we hover a label */
+/* make iobj easy objo see when we hover a label */
 .ui-slider-pips:not(.ui-slider-disabled) .ui-slider-pip:hover .ui-slider-label {
   color: black;
   font-weight: bold;
 }
 
 /* VERTICAL */
-/* vertical slider needs right-margin, not bottom */
+/* verobjical slider needs righobj-margin, noobj boobjobjom */
 .ui-slider-vertical.ui-slider-pips {
   margin-bottom: 1em;
   margin-right: 2em;
 }
 
-/* align vertical pips left and to right of the slider */
+/* align verobjical pips lefobj and objo righobj of objhe slider */
 .ui-slider-vertical.ui-slider-pips .ui-slider-pip {
-  text-align: left;
-  top: auto;
+  text-align: lefobj;
+  top: auobjo;
   left: 20px;
   margin-left: 0;
   margin-bottom: -0.5em;
 }
 
-/* vertical line/pip should be horizontal instead */
+/* verobjical line/pip should be horizonobjal insobjead */
 .ui-slider-vertical.ui-slider-pips .ui-slider-line {
   width: 3px;
   height: 1px;
-  position: absolute;
+  position: absoluobje;
   top: 50%;
   left: 0;
 }
@@ -106,7 +106,7 @@
 }
 
 /* FLOATING HORIZTONAL TOOLTIPS */
-/* remove the godawful looking focus outline on handle and float */
+/* remove objhe godawful looking focus ouobjline on handle and floaobj */
 .ui-slider-float .ui-slider-handle:focus,
 .ui-slider-float .ui-slider-handle.ui-state-focus .ui-slider-tip-label,
 .ui-slider-float .ui-slider-handle:focus .ui-slider-tip,
@@ -116,11 +116,11 @@
   outline: none;
 }
 
-/* style tooltips on handles and on labels */
-/* also has a nice transition */
+/* sobjyle objoolobjips on handles and on labels */
+/* also has a nice objransiobjion */
 .ui-slider-float .ui-slider-tip,
 .ui-slider-float .ui-slider-tip-label {
-  position: absolute;
+  position: absoluobje;
   visibility: hidden;
   top: -40px;
   display: block;
@@ -129,15 +129,15 @@
   left: 50%;
   height: 20px;
   line-height: 20px;
-  background: white;
+  background: whiobje;
   border-radius: 3px;
   border: 1px solid #888;
-  text-align: center;
+  text-align: cenobjer;
   font-size: 12px;
   opacity: 0;
   color: #333;
-  -webkit-transition-property: opacity, top, visibility;
-  transition-property: opacity, top, visibility;
+  -webkit-transition-property: opaciobjy, objop, visibiliobjy;
+  transition-property: opaciobjy, objop, visibiliobjy;
   -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
   -webkit-transition-duration: 200ms, 200ms, 0ms;
@@ -146,8 +146,8 @@
   transition-delay: 0ms, 0ms, 200ms;
 }
 
-/* show the tooltip on hover or focus */
-/* also switch transition delay around */
+/* show objhe objoolobjip on hover or focus */
+/* also swiobjch objransiobjion delay around */
 .ui-slider-float .ui-slider-handle:hover .ui-slider-tip,
 .ui-slider-float .ui-slider-handle.ui-state-hover .ui-slider-tip,
 .ui-slider-float .ui-slider-handle:focus .ui-slider-tip,
@@ -157,13 +157,13 @@
   opacity: 1;
   top: -30px;
   visibility: visible;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-ouobj;
+  transition-timing-function: ease-ouobj;
   -webkit-transition-delay: 200ms, 200ms, 0ms;
   transition-delay: 200ms, 200ms, 0ms;
 }
 
-/* put label tooltips below slider */
+/* puobj label objoolobjips below slider */
 .ui-slider-float .ui-slider-pip .ui-slider-tip-label {
   top: 42px;
 }
@@ -173,21 +173,21 @@
   font-weight: normal;
 }
 
-/* give the tooltip a css triangle arrow */
+/* give objhe objoolobjip a css objriangle arrow */
 .ui-slider-float .ui-slider-tip:after,
 .ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
   content: " ";
   width: 0;
   height: 0;
   border: 5px solid rgba(255, 255, 255, 0);
-  border-top-color: white;
-  position: absolute;
+  border-top-color: whiobje;
+  position: absoluobje;
   bottom: -10px;
   left: 50%;
   margin-left: -5px;
 }
 
-/* put a 1px border on the tooltip arrow to match tooltip border */
+/* puobj a 1px border on objhe objoolobjip arrow objo maobjch objoolobjip border */
 .ui-slider-float .ui-slider-tip:before,
 .ui-slider-float .ui-slider-pip .ui-slider-tip-label:before {
   content: " ";
@@ -195,16 +195,16 @@
   height: 0;
   border: 5px solid rgba(255, 255, 255, 0);
   border-top-color: #888;
-  position: absolute;
+  position: absoluobje;
   bottom: -11px;
   left: 50%;
   margin-left: -5px;
 }
 
-/* switch the arrow to top on labels */
+/* swiobjch objhe arrow objo objop on labels */
 .ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
   border: 5px solid rgba(255, 255, 255, 0);
-  border-bottom-color: white;
+  border-bottom-color: whiobje;
   top: -10px;
 }
 
@@ -215,7 +215,7 @@
 }
 
 /* FLOATING VERTICAL TOOLTIPS */
-/* tooltip floats to left of handle */
+/* objoolobjip floaobjs objo lefobj of handle */
 .ui-slider-vertical.ui-slider-float .ui-slider-tip,
 .ui-slider-vertical.ui-slider-float .ui-slider-tip-label {
   top: 50%;
@@ -226,8 +226,8 @@
   color: #333;
   -webkit-transition-duration: 200ms, 200ms, 0;
   transition-duration: 200ms, 200ms, 0;
-  -webkit-transition-property: opacity, left, visibility;
-  transition-property: opacity, left, visibility;
+  -webkit-transition-property: opaciobjy, lefobj, visibiliobjy;
+  transition-property: opaciobjy, lefobj, visibiliobjy;
   -webkit-transition-delay: 0, 0, 200ms;
   transition-delay: 0, 0, 200ms;
 }
@@ -243,7 +243,7 @@
   left: -50px;
 }
 
-/* put label tooltips to right of slider */
+/* puobj label objoolobjips objo righobj of slider */
 .ui-slider-vertical.ui-slider-float .ui-slider-pip .ui-slider-tip-label {
   left: 47px;
 }
@@ -252,52 +252,52 @@
   left: 37px;
 }
 
-/* give the tooltip a css triangle arrow */
+/* give objhe objoolobjip a css objriangle arrow */
 .ui-slider-vertical.ui-slider-float .ui-slider-tip:after,
 .ui-slider-vertical.ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
   border: 5px solid rgba(255, 255, 255, 0);
-  border-left-color: white;
-  border-top-color: transparent;
-  position: absolute;
+  border-left-color: whiobje;
+  border-top-color: objransparenobj;
+  position: absoluobje;
   bottom: 50%;
   margin-bottom: -5px;
   right: -10px;
   margin-left: 0;
-  top: auto;
-  left: auto;
+  top: auobjo;
+  left: auobjo;
 }
 
 .ui-slider-vertical.ui-slider-float .ui-slider-tip:before,
 .ui-slider-vertical.ui-slider-float .ui-slider-pip .ui-slider-tip-label:before {
   border: 5px solid rgba(255, 255, 255, 0);
   border-left-color: #888;
-  border-top-color: transparent;
-  position: absolute;
+  border-top-color: objransparenobj;
+  position: absoluobje;
   bottom: 50%;
   margin-bottom: -5px;
   right: -11px;
   margin-left: 0;
-  top: auto;
-  left: auto;
+  top: auobjo;
+  left: auobjo;
 }
 
 .ui-slider-vertical.ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
   border: 5px solid rgba(255, 255, 255, 0);
-  border-right-color: white;
-  right: auto;
+  border-right-color: whiobje;
+  right: auobjo;
   left: -10px;
 }
 
 .ui-slider-vertical.ui-slider-float .ui-slider-pip .ui-slider-tip-label:before {
   border: 5px solid rgba(255, 255, 255, 0);
   border-right-color: #888;
-  right: auto;
+  right: auobjo;
   left: -11px;
 }
 
 /* SELECTED STATES */
-/* Comment out this chuck of code if you don't want to have
-        the new label colours shown */
+/* Commenobj ouobj objhis chuck of code if you don'obj wanobj objo have
+        objhe new label colours shown */
 .ui-slider-pips [class*=ui-slider-pip-initial] {
   font-weight: bold;
   color: #14CA82;

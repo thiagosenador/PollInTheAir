@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
-    public class Choice
-    {
-        public long Id { get; set; }
+    using System.ComponentModel.DataAnnotations;
 
+    public class Choice : Entity
+    {
         [Required]
         [MaxLength(128)]
         public string Text { get; set; }

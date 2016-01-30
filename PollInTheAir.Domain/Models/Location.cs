@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     [ComplexType]
     public class Location
     {

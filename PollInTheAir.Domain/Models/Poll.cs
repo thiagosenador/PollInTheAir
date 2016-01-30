@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
-    public class Poll
-    {
-        public long Id { get; set; }
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
+    public class Poll : Entity
+    {
         [Required]
         [MaxLength(128)]
         [Display(Name = "title")]
@@ -30,5 +28,7 @@ namespace PollInTheAir.Domain.Models
         [Required]
         [Display(Name = "expires at")]
         public DateTime? ExpiresAt { get; set; }
+
+        public User CreatedBy { get; set; }
     }
 }
