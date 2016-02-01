@@ -181,6 +181,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PollAnswerController.cs" />
     <Compile Include="Controllers\PollController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +198,8 @@
     <Content Include="Views\Poll\CreateMultipleChoicesQuestion.cshtml" />
     <Content Include="Views\Poll\CreateFreeTextQuestion.cshtml" />
     <Content Include="Views\Poll\ReviewPollView.cshtml" />
+    <Content Include="Views\PollAnswer\AvailablePolls.cshtml" />
+    <None Include="Views\PollAnswer\AnswerPoll.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

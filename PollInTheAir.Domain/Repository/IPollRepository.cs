@@ -4,5 +4,6 @@
 
     public interface IPollRepository : IRepository<Poll>
     {
+        Poll RetrievePollStructure(long id);
     }
 }

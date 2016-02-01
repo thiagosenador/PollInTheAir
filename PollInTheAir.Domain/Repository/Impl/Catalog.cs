@@ -10,6 +10,8 @@
 
         private IQuestionRepository questionRepository;
 
+        private IChoiceRepository choiceRepository;
+
         private IPollAnswerRepository pollAnswerRepository;
 
         public Catalog()
@@ -33,6 +35,14 @@
             }
         }
 
+        public IChoiceRepository Choices
+        {
+            get
+            {
+                return this.choiceRepository ?? (this.choiceRepository = new ChoiceRepository(this.context));
+            }
+        }
+
         public IPollAnswerRepository PollAnswers
         {
             get
@@ -51,6 +61,11 @@
             if (this.questionRepository != null)
             {
                 this.questionRepository.Dispose();
+            }
+
+            if (this.choiceRepository != null)
+            {
+                this.choiceRepository.Dispose();
             }
 
             if (this.pollAnswerRepository != null)

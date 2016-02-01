@@ -8,8 +8,8 @@
     {
         [Required]
         [MaxLength(128)]
-        [Display(Name = "title")]
-        public string Title { get; set; }
+        [Display(Name = "name")]
+        public string Name { get; set; }
 
         [Required]
         public Location CreationLocation { get; set; }

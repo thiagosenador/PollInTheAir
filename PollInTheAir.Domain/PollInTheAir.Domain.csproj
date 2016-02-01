@@ -67,10 +67,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Impl\Catalog.cs" />
     <Compile Include="Repository\ICatalog.cs" />
+    <Compile Include="Repository\Impl\ChoiceRepository.cs" />
     <Compile Include="Repository\Impl\QuestionRepository.cs" />
     <Compile Include="Repository\Impl\PollAnswerRepository.cs" />
     <Compile Include="Repository\Impl\PollRepository.cs" />
     <Compile Include="Repository\IPollAnswerRepository.cs" />
+    <Compile Include="Repository\IChoiceRepository.cs" />
     <Compile Include="Repository\IPollRepository.cs" />
     <Compile Include="Repository\IQuestionRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />

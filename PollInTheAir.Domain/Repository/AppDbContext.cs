@@ -14,6 +14,8 @@
 
         public DbSet<Question> Questions { get; set; }
 
+        public DbSet<Choice> Choices { get; set; }
+
         public DbSet<PollAnswer> PollAnswers { get; set; }
     }
 }

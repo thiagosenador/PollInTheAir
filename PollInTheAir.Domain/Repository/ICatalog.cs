@@ -7,5 +7,7 @@
         IQuestionRepository Questions { get; }
 
         IPollAnswerRepository PollAnswers { get; }
+
+        IChoiceRepository Choices { get; }
     }
 }
