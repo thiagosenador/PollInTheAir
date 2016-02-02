@@ -1,0 +1,20 @@
+﻿@using PollInTheAir.Domain.Models
+
+@model string
+
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @Model <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+            <li><button class="btn btn-link" type="submit" name="questionType" value="@QuestionType.FreeText">free text</button></li>
+            <li><button class="btn btn-link" type="submit" name="questionType" value="@QuestionType.MultipleChoices">multiple choices</button></li>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-default" type="submit" name="questionType" value="@QuestionType.Undefined">finish</button>
+    </div>
+</div>

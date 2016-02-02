@@ -1,17 +1,18 @@
 namespace PollInTheAir.Domain.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    using PollInTheAir.Domain.Repository;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<AppDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PollInTheAir.Domain.Repository.AppDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(AppDbContext context)
+        protected override void Seed(PollInTheAir.Domain.Repository.AppDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

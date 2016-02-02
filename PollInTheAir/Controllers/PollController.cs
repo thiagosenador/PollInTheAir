@@ -25,7 +25,7 @@
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreatePoll(string questionType, Poll poll)
+        public RedirectToRouteResult CreatePoll(QuestionType questionType, Poll poll)
         {
             poll.Questions = new List<Question>();
 
@@ -35,8 +35,11 @@
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreateMultipleChoicesQuestion(List<string> choices, string questionType, MultipleChoicesQuestion question)
+        public RedirectToRouteResult CreateMultipleChoicesQuestion(List<string> choices, QuestionType questionType, Question question)
         {
+            question.Type = QuestionType.MultipleChoices;
+
+            // TODO TRY TO REMOVE THE CHOICES LIST
             foreach (var choice in choices)
             {
                 question.Choices.Add(new Choice { Text = choice });
@@ -48,8 +51,10 @@
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreateFreeTextQuestion(string questionType, Question question)
+        public RedirectToRouteResult CreateFreeTextQuestion(QuestionType questionType, Question question)
         {
+            question.Type = QuestionType.FreeText;
+
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
@@ -85,24 +90,19 @@
             return null;
         }
 
-        private RedirectToRouteResult GoToCreateQuestion(string questionType)
+        private RedirectToRouteResult GoToCreateQuestion(QuestionType questionType)
         {
-            if (questionType.Equals("free text"))
+            if (questionType.Equals(QuestionType.FreeText))
             {
                 return this.RedirectToAction("CreateFreeTextQuestion");
             }
 
-            if (questionType.Equals("multiple choices"))
+            if (questionType.Equals(QuestionType.MultipleChoices))
             {
                 return this.RedirectToAction("CreateMultipleChoicesQuestion");
             }
 
-            if (string.IsNullOrEmpty(questionType))
-            {
-                return this.RedirectToAction("FinishPollCreation");
-            }
-
-            return null;
+            return this.RedirectToAction("FinishPollCreation");
         }
     }
 }

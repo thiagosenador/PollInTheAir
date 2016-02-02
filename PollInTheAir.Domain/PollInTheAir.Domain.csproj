@@ -52,12 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\QuestionType.cs" />
     <Compile Include="Repository\AppDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Choice.cs" />
     <Compile Include="Models\FreeTextQuestionAnswer.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\MultipleChoicesQuestion.cs" />
     <Compile Include="Models\MultipleChoicesQuestionAnswer.cs" />
     <Compile Include="Models\Poll.cs" />
     <Compile Include="Models\PollAnswer.cs" />

@@ -1,4 +1,6 @@
-﻿@model PollInTheAir.Domain.Models.MultipleChoicesQuestion
+﻿@using PollInTheAir.Domain.Models;
+
+@model Question
 
 @{
     Layout = null;
@@ -91,22 +93,7 @@
                 </div>
             </div>
 
-            <div class="btn-toolbar" role="toolbar">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        add another question <span class="caret"></span>
-                    </button>
-
-                    <ul class="dropdown-menu">
-                        <li><button class="btn btn-link" type="submit" name="questionType" value="free text">free text</button></li>
-                        <li><button class="btn btn-link" type="submit" name="questionType" value="multiple choices">multiple choices</button></li>
-                    </ul>
-                </div>
-
-                <div class="btn-group">
-                    <button class="btn btn-default" type="submit" name="questionType" value="">finish</button>
-                </div>
-            </div>
+            @Html.Partial("CreateQuestionsButtonGroup", "add another question")
         }
     </div>
 </body>
