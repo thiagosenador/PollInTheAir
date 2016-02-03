@@ -9,7 +9,8 @@ namespace PollInTheAir.Domain.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(PollInTheAir.Domain.Repository.AppDbContext context)

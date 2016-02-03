@@ -1,4 +1,5 @@
-﻿@model PollInTheAir.Domain.Models.Poll
+﻿@using PollInTheAir.Domain.Models
+@model PollInTheAir.Web.ViewModels.AnswerPollViewModel
 
 @{
     Layout = null;
@@ -20,8 +21,42 @@
 <body>
     <div class="container">
         <div class="page-header">
-            <h1>@Model.Name</h1>
+            <h1>@Model.Poll.Name</h1>
         </div>
+
+        <div>@Model.CurrentQuestion.Statement</div>
+
+        @using (@Html.BeginForm("AnswerQuestion", "PollAnswer"))
+        {
+            @Html.Hidden("Question", @Model.CurrentQuestion)
+
+            if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
+            {
+                @Html.TextArea("Answers.Text", new { @rows = "3", @class = "form-control" })
+            }
+
+            else if (@Model.CurrentQuestion.Type.Equals(QuestionType.MultipleChoices))
+            {
+                foreach (var choice in @Model.CurrentQuestion.Choices)
+                {
+                    if (@Model.CurrentQuestion.CanSelectMultiple)
+                    {
+                        @Html.CheckBox(choice.Text, false, new { @class = "form-control" })
+                    }
+
+                    else
+                    {
+                        @Html.RadioButton(choice.Text, choice.Text, false, new { @class = "form-control" })
+                    }
+                }
+            }
+
+            Model.Increment();
+
+            <div>
+                <button class="btn btn-default" type="submit">answer</button>
+            </div>
+        }
     </div>
 </body>
 </html>

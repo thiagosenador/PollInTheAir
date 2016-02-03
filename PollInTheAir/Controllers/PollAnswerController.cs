@@ -2,7 +2,9 @@
 {
     using System.Web.Mvc;
 
+    using PollInTheAir.Domain.Models;
     using PollInTheAir.Domain.Repository;
+    using PollInTheAir.Web.ViewModels;
 
     public class PollAnswerController : Controller
     {
@@ -21,7 +23,16 @@
 
         public ActionResult AnswerPoll(long pollId)
         {
-            return this.View(this.catalog.Polls.RetrievePollStructure(pollId));
+            var poll = this.catalog.Polls.RetrievePollStructure(pollId);
+
+            var viewModel = new AnswerPollViewModel { Poll = poll };
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult AnswerQuestion(QuestionAnswer questionAnswer)
+        {
+            return null;
         }
     }
 }
