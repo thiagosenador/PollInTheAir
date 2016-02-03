@@ -35,16 +35,9 @@
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreateMultipleChoicesQuestion(List<string> choices, QuestionType questionType, Question question)
+        public RedirectToRouteResult CreateMultipleChoicesQuestion(QuestionType questionType, MultipleChoicesQuestion question)
         {
-            question.Type = QuestionType.MultipleChoices;
-
-            // TODO TRY TO REMOVE THE CHOICES LIST
-            foreach (var choice in choices)
-            {
-                question.Choices.Add(new Choice { Text = choice });
-            }
-
+            // TODO REORDER THE OPTIONS IN JQUERY WHEN DELETE CHOICE
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
@@ -53,8 +46,6 @@
         [HttpPost]
         public RedirectToRouteResult CreateFreeTextQuestion(QuestionType questionType, Question question)
         {
-            question.Type = QuestionType.FreeText;
-
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);

@@ -1,6 +1,6 @@
 ﻿@using PollInTheAir.Domain.Models;
 
-@model Question
+@model MultipleChoicesQuestion
 
 @{
     Layout = null;
@@ -15,6 +15,9 @@
 
     <script>
         $(function () {
+
+            var numberOfChoices = 0;
+
             $(document).on('click', '.btn-add', function (e) {
                 e.preventDefault();
 
@@ -22,7 +25,11 @@
                     currentEntry = $(this).parents('.entry:first'),
                     newEntry = $(currentEntry.clone()).appendTo(controlForm);
 
-                newEntry.find('input').val('');
+                ++numberOfChoices;
+
+                var textBox = newEntry.find('input');
+                textBox.attr('name', 'Choices[' + numberOfChoices +'].Text');
+                textBox.val('');
 
                 controlForm.find('.entry:not(:last) .btn-add')
                     .removeClass('btn-add')
@@ -82,7 +89,7 @@
 
                     <div class="controls">
                         <div class="entry input-group" style="margin-bottom: 10px">
-                            @Html.TextBox("choices", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
+                            @Html.TextBox("Choices[0].Text", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
                             <span class="input-group-btn">
                                 <button class="btn btn-primary btn-add" type="button">
                                     <span class="glyphicon glyphicon-plus"></span>
@@ -92,6 +99,8 @@
                     </div>
                 </div>
             </div>
+
+            @Html.Hidden("Type", QuestionType.MultipleChoices)
 
             @Html.Partial("CreateQuestionsButtonGroup", "add another question")
         }

@@ -13,7 +13,8 @@
 
         public Poll RetrievePollStructure(long id)
         {
-            return this.DbSet.Include(q => q.Questions).Include("Questions.Choices").First(p => p.Id.Equals(id));
+            // TODO INCLUDE CHOICES
+            return this.DbSet.Include(q => q.Questions).First(p => p.Id.Equals(id));
         }
     }
 }

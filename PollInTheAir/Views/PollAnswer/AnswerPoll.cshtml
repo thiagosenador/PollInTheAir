@@ -1,5 +1,6 @@
 ﻿@using PollInTheAir.Domain.Models
-@model PollInTheAir.Web.ViewModels.AnswerPollViewModel
+
+@model PollInTheAir.Web.ViewModel.AnswerPollViewModel
 
 @{
     Layout = null;
@@ -24,38 +25,18 @@
             <h1>@Model.Poll.Name</h1>
         </div>
 
-        <div>@Model.CurrentQuestion.Statement</div>
+        <div>
+            @Model.CurrentQuestion.Statement
+        </div>
 
-        @using (@Html.BeginForm("AnswerQuestion", "PollAnswer"))
+        @if (@Model.CurrentQuestion.GetType() == typeof(MultipleChoicesQuestion))
         {
-            @Html.Hidden("Question", @Model.CurrentQuestion)
+            @Html.Partial("AnswerMultipleChoicesQuestionView", (MultipleChoicesQuestion)@Model.CurrentQuestion)
+        }
 
-            if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
-            {
-                @Html.TextArea("Answers.Text", new { @rows = "3", @class = "form-control" })
-            }
-
-            else if (@Model.CurrentQuestion.Type.Equals(QuestionType.MultipleChoices))
-            {
-                foreach (var choice in @Model.CurrentQuestion.Choices)
-                {
-                    if (@Model.CurrentQuestion.CanSelectMultiple)
-                    {
-                        @Html.CheckBox(choice.Text, false, new { @class = "form-control" })
-                    }
-
-                    else
-                    {
-                        @Html.RadioButton(choice.Text, choice.Text, false, new { @class = "form-control" })
-                    }
-                }
-            }
-
-            Model.Increment();
-
-            <div>
-                <button class="btn btn-default" type="submit">answer</button>
-            </div>
+        @if (@Model.CurrentQuestion.GetType() == typeof(Question))
+        {
+            @Html.Partial("AnswerFreeTextQuestionView", @Model.CurrentQuestion)
         }
     </div>
 </body>

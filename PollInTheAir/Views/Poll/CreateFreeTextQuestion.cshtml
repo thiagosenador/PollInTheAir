@@ -39,6 +39,8 @@
                 </div>
             </div>
 
+            @Html.Hidden("Type", QuestionType.FreeText)
+
             @Html.Partial("CreateQuestionsButtonGroup", "add another question")
         }
     </div>

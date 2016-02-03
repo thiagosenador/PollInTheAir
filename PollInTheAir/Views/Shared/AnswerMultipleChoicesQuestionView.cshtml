@@ -1,0 +1,25 @@
+﻿@using PollInTheAir.Domain.Models
+
+@model MultipleChoicesQuestion
+
+@using (@Html.BeginForm("AnswerQuestion", "PollAnswer"))
+{
+    {
+        foreach (var choice in @Model.Choices)
+        {
+            if (@Model.CanSelectMultiple)
+            {
+                @Html.CheckBox(choice.Text, false, new { @class = "form-control" })
+            }
+
+            else
+            {
+                @Html.RadioButton(choice.Text, choice.Text, false, new { @class = "form-control" })
+            }
+        }
+
+        <div>
+            <button class="btn btn-default" type="submit">answer</button>
+        </div>
+    }
+}

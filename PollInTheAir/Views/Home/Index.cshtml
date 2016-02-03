@@ -22,15 +22,14 @@
                     lng: position.coords.longitude
                 };
 
-                $("#latitude").val(pos.lat);
-                $("#longitude").val(pos.lng);
+                $("#Latitude").val(pos.lat);
+                $("#Longitude").val(pos.lng);
             }
 
             function positionError(position) {
                 alert('positionError');
             }
         });
-
     </script>
 
     <title>Poll in the air</title>
@@ -48,8 +47,8 @@
 
             @using (Html.BeginForm("AvailablePolls", "PollAnswer", FormMethod.Post))
             {
-                @Html.Hidden("latitude")
-                @Html.Hidden("longitude")
+                @Html.Hidden("Latitude")
+                @Html.Hidden("Longitude")
 
                 <input type="submit" value="answer poll" class="btn btn-primary btn-lg" />
             }

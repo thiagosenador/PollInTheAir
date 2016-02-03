@@ -4,7 +4,7 @@
 
     using PollInTheAir.Domain.Models;
     using PollInTheAir.Domain.Repository;
-    using PollInTheAir.Web.ViewModels;
+    using PollInTheAir.Web.ViewModel;
 
     public class PollAnswerController : Controller
     {
@@ -15,7 +15,7 @@
             this.catalog = catalog;
         }
 
-        public ActionResult AvailablePolls(string latitude, string longitude)
+        public ActionResult AvailablePolls(Location location)
         {
             // TODO APPLY FILTERS
             return this.View(this.catalog.Polls.All());
@@ -30,7 +30,12 @@
             return this.View(viewModel);
         }
 
-        public ActionResult AnswerQuestion(QuestionAnswer questionAnswer)
+        public ActionResult AnswerFreeTextQuestion(FreeTextAnswer questionAnswer)
+        {
+            return null;
+        }
+
+        public ActionResult AnswerQuestion(MultipleChoicesQuestion questionAnswer)
         {
             return null;
         }

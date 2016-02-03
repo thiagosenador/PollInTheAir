@@ -1,4 +1,4 @@
-﻿namespace PollInTheAir.Web.ViewModels
+﻿namespace PollInTheAir.Web.ViewModel
 {
     using PollInTheAir.Domain.Models;
 
