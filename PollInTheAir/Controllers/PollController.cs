@@ -37,7 +37,6 @@
         [HttpPost]
         public RedirectToRouteResult CreateMultipleChoicesQuestion(QuestionType questionType, MultipleChoicesQuestion question)
         {
-            // TODO REORDER THE OPTIONS IN JQUERY WHEN DELETE CHOICE
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
@@ -67,7 +66,7 @@
         {
             Poll poll = (Poll)Session[PollKey];
 
-            return this.View("ReviewPollView", poll);
+            return this.View("ReviewPoll", poll);
         }
 
         public ActionResult PublishPoll()
