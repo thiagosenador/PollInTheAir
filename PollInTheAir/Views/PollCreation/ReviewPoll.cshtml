@@ -8,13 +8,15 @@
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width"/>
+
     <script src="~/Scripts/jquery-1.9.1.js"></script>
     <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
 
-    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css"/>
 
     <script>
-        $(function () {
+        $(function() {
             $("#sortable").sortable();
             $("#sortable").disableSelection();
         });
@@ -30,7 +32,7 @@
 
         <h1><small>@Html.LabelFor(m => m.Name)</small>@Model.Name</h1>
 
-        <h1><small>@Html.LabelFor(m => m.ExpiresAt)</small>@Model.ExpiresAt</h1>
+        <h1><small>@Html.LabelFor(m => m.ExpirationDate)</small>@Model.ExpirationDate</h1>
 
         <h3>@Html.LabelFor(m => m.Questions)</h3>
 
@@ -41,9 +43,7 @@
             }
         </div>
 
-
-
-        @Html.ActionLink("publish poll", "PublishPoll", "Poll", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("publish poll", "PublishPoll", "PollCreation", null, new { @class = "btn btn-default" })
     </div>
 </body>
 </html>

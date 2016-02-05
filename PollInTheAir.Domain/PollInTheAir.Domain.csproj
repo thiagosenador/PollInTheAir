@@ -78,8 +78,6 @@
     <Compile Include="Repository\IQuestionRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Impl\Repository.cs" />
-    <Compile Include="Services\Impl\PollService.cs" />
-    <Compile Include="Services\IPollService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

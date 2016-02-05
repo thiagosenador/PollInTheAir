@@ -4,28 +4,8 @@
 
     public class AnswerPollViewModel
     {
-        private int currentQuestionIndex;
+        public string PollName { get; set; }
 
-        public Poll Poll { get; set; }
-
-        public Question CurrentQuestion
-        {
-            get
-            {
-                Question question = null;
-
-                if (this.currentQuestionIndex < this.Poll.Questions.Count)
-                {
-                    question = this.Poll.Questions[this.currentQuestionIndex];
-                }
-
-                return question;
-            }
-        }
-
-        public void Increment()
-        {
-            ++this.currentQuestionIndex;
-        }
+        public Question CurrentQuestion { get; set; }
     }
 }

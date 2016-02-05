@@ -1,0 +1,36 @@
+﻿@using PollInTheAir.Domain.Models
+
+@model MultipleChoicesQuestion
+
+@using (@Html.BeginForm("FinishAnswerMultipleChoicesQuestion", "PollAnswer"))
+{
+    @Html.Hidden("QuestionId", @Model.Id)
+
+    for (int i = 0; i < @Model.Choices.Count; i++)
+    {
+        if (@Model.CanSelectMultiple)
+        {
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="selectedChoices" value="@Model.Choices[i].Id"/>
+                    @Model.Choices[i].Text
+                </label>
+            </div>
+        }
+
+        else
+        {
+            <div class="radio">
+                <label>
+                    @Html.RadioButton("selectedChoices", @Model.Choices[i].Id, false)
+                    @Model.Choices[i].Text
+                </label>
+            </div>
+        }
+    }
+
+    <div>
+        <button class="btn btn-default" type="submit">answer</button>
+    </div>
+
+}

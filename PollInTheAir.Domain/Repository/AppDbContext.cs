@@ -15,5 +15,10 @@
         public DbSet<Question> Questions { get; set; }
 
         public DbSet<PollAnswer> PollAnswers { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MultipleChoicesAnswer>().HasMany(m => m.SelectedChoices).WithRequired();
+        }
     }
 }

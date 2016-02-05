@@ -5,17 +5,17 @@
     using System.Web.Mvc;
 
     using PollInTheAir.Domain.Models;
-    using PollInTheAir.Domain.Services;
+    using PollInTheAir.Domain.Repository;
 
-    public class PollController : Controller
+    public class PollCreationController : Controller
     {
         private const string PollKey = "poll";
 
-        private readonly IPollService pollService;
+        private readonly ICatalog catalog;
 
-        public PollController(IPollService pollService)
+        public PollCreationController(ICatalog catalog)
         {
-            this.pollService = pollService;
+            this.catalog = catalog;
         }
 
         [HttpGet]
@@ -73,11 +73,11 @@
         {
             var poll = (Poll)this.Session[PollKey];
 
-            poll.CreatedAt = DateTime.Now;
+            poll.CreationDate = DateTime.Now;
 
-            this.pollService.CreatePoll(poll);
+            this.catalog.Polls.Create(poll);
 
-            return null;
+            return this.View("FinishPollPublish", poll);
         }
 
         private RedirectToRouteResult GoToCreateQuestion(QuestionType questionType)

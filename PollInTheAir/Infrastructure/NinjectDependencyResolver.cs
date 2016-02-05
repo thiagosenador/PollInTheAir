@@ -8,8 +8,6 @@
 
     using PollInTheAir.Domain.Repository;
     using PollInTheAir.Domain.Repository.Impl;
-    using PollInTheAir.Domain.Services;
-    using PollInTheAir.Domain.Services.Impl;
 
     public class NinjectDependencyResolver : IDependencyResolver
     {
@@ -35,7 +33,6 @@
         private void AddBindings()
         {
             this.kernel.Bind<ICatalog>().To<Catalog>();
-            this.kernel.Bind<IPollService>().To<PollService>();
         }
     }
 }

@@ -2,6 +2,8 @@
 {
     public abstract class QuestionAnswer : Entity
     {
-        public Question Question { get; set; }
+        public long QuestionId { get; set; }
+
+        public virtual Question Question { get; set; }
     }
 }

@@ -23,12 +23,12 @@
 
         [Required]
         [Display(Name = "created at")]
-        public DateTime? CreatedAt { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [Required]
         [Display(Name = "expires at")]
-        public DateTime? ExpiresAt { get; set; }
+        public DateTime ExpirationDate { get; set; }
 
-        public User CreatedBy { get; set; }
+        public User User { get; set; }
     }
 }

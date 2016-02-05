@@ -126,15 +126,12 @@
     <Content Include="Content\img\sprite-skin-flat.png" />
     <Content Include="Content\ion.rangeSlider.css" />
     <Content Include="Content\ion.rangeSlider.skinFlat.css" />
-    <Content Include="Content\normalize.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-datetimepicker-build.less" />
-    <Content Include="Content\_bootstrap-datetimepicker.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -158,7 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PollAnswerController.cs" />
-    <Compile Include="Controllers\PollController.cs" />
+    <Compile Include="Controllers\PollCreationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,16 +166,17 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Poll\CreatePoll.cshtml" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Poll\CreateMultipleChoicesQuestion.cshtml" />
-    <Content Include="Views\Poll\CreateFreeTextQuestion.cshtml" />
-    <Content Include="Views\Poll\ReviewPoll.cshtml" />
+    <Content Include="Views\PollCreation\CreatePoll.cshtml" />
+    <Content Include="Views\PollCreation\CreateMultipleChoicesQuestion.cshtml" />
+    <Content Include="Views\PollCreation\CreateFreeTextQuestion.cshtml" />
+    <Content Include="Views\PollCreation\ReviewPoll.cshtml" />
     <Content Include="Views\PollAnswer\AvailablePolls.cshtml" />
     <Content Include="Views\Shared\CreateQuestionsButtonGroup.cshtml" />
-    <None Include="Views\PollAnswer\AnswerPoll.cshtml" />
-    <Content Include="Views\Shared\AnswerFreeTextQuestionView.cshtml" />
-    <Content Include="Views\Shared\AnswerMultipleChoicesQuestionView.cshtml" />
+    <None Include="Views\PollAnswer\AnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\AnswerFreeTextQuestion.cshtml" />
+    <Content Include="Views\Shared\AnswerMultipleChoicesQuestion.cshtml" />
+    <None Include="Views\PollAnswer\FinishAnswerPoll.cshtml" />
+    <None Include="Views\PollCreation\FinishPollPublish.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

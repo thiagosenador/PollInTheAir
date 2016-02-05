@@ -1,0 +1,18 @@
+﻿@using PollInTheAir.Domain.Models
+
+@model Question
+
+
+@using (@Html.BeginForm("FinishAnswerFreeTextQuestion", "PollAnswer"))
+{
+    <div class="row">
+        <div class="form-group col-xs-8">
+            @Html.Hidden("QuestionId", @Model.Id)
+            @Html.TextArea("Comment", new { @rows = "3", @class = "form-control" })
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-default" type="submit">answer</button>
+    </div>
+}
