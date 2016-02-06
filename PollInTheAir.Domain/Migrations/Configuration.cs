@@ -50,31 +50,31 @@ namespace PollInTheAir.Domain.Migrations
             };
 
             context.Polls.Add(poll);
+            context.SaveChanges();
         }
 
         private void CreateAnswer(Repository.AppDbContext context)
         {
+            var c1 = new Choice { Id = 1 };
+            var c3 = new Choice { Id = 3 };
+
             var freeAnswer = new FreeTextAnswer { Comment = "my comments", QuestionId = 2 };
 
             var multipleAns = new MultipleChoicesAnswer
-                                  {
-                                      QuestionId = 1,
-                                      SelectedChoices =
-                                          new List<Choice>
-                                              {
-                                                  new Choice { Id = 1 },
-                                                  new Choice { Id = 3 }
-                                              }
-                                  };
+            {
+                QuestionId = 1,
+                SelectedChoices = new List<Choice> { c1, c3 }
+            };
 
             var answer = new PollAnswer
-                             {
-                                 AnswerDate = DateTime.Now,
-                                 PollId = 1,
-                                 QuestionAnswers = new List<QuestionAnswer> { freeAnswer, multipleAns }
-                             };
+            {
+                AnswerDate = DateTime.Now,
+                PollId = 1,
+                QuestionAnswers = new List<QuestionAnswer> { freeAnswer, multipleAns }
+            };
 
             context.PollAnswers.Add(answer);
+            context.SaveChanges();
         }
     }
 }

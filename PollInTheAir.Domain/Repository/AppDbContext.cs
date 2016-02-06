@@ -3,6 +3,7 @@
     using System.Data.Entity;
 
     using PollInTheAir.Domain.Models;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class AppDbContext : DbContext
     {
@@ -16,9 +17,13 @@
 
         public DbSet<PollAnswer> PollAnswers { get; set; }
 
+        public DbSet<Choice> Choice { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MultipleChoicesAnswer>().HasMany(m => m.SelectedChoices).WithRequired();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<MultipleChoicesAnswer>().HasMany(m => m.SelectedChoices).WithMany();
         }
     }
 }
