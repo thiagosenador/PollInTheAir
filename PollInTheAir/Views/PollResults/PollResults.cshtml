@@ -1,0 +1,51 @@
+﻿@using PollInTheAir.Domain.Models
+@model IEnumerable<PollAnswer>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+    <title>Poll in the air</title>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>@ViewBag.PollName</h1>
+        </div>
+
+        @foreach (var pollAnswer in @Model)
+        {
+            <p>@pollAnswer.AnswerDate</p>
+            <p>@pollAnswer.User</p>
+
+            foreach (var questionAnswer in pollAnswer.QuestionAnswers)
+            {
+                if (questionAnswer.Question.Type.Equals(QuestionType.FreeText))
+                {
+                    <p>@(((FreeTextAnswer)questionAnswer).Comment)</p>
+
+                    continue;
+                }
+
+                if (questionAnswer.Question.Type.Equals(QuestionType.MultipleChoices))
+                {
+                    var multipleChoices = (MultipleChoicesAnswer)questionAnswer;
+
+                    foreach (var selectedChoice in multipleChoices.SelectedChoices)
+                    {
+                        <p>@selectedChoice.Text</p>
+                    }
+                }
+            }
+        }
+    </div>
+</body>
+</html>

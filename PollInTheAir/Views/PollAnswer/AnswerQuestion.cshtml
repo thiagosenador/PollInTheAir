@@ -32,8 +32,7 @@
         {
             @Html.Partial("AnswerMultipleChoicesQuestion", (MultipleChoicesQuestion)@Model.CurrentQuestion)
         }
-
-        @if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
+        else if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
         {
             @Html.Partial("AnswerFreeTextQuestion", @Model.CurrentQuestion)
         }

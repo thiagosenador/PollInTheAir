@@ -13,6 +13,6 @@
 
         public DateTime AnswerDate { get; set; }
 
-        public List<QuestionAnswer> QuestionAnswers { get; set; }
+        public virtual List<QuestionAnswer> QuestionAnswers { get; set; }
     }
 }

@@ -8,9 +8,9 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width" />
 
-    <link rel="stylesheet" href="~/Content/bootstrap.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
 
     <title>Poll in the air</title>
 </head>
@@ -25,7 +25,6 @@
                 <tr>
                     <th>name</th>
                     <th>expires at</th>
-                    <th>created by</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -36,8 +35,7 @@
                     <tr>
                         <td>@poll.Name</td>
                         <td>@poll.ExpirationDate</td>
-                        <td></td>
-                        <td>@Html.ActionLink("answer", "AnswerPoll", "PollAnswer", new { pollId = @poll.Id }, null)</td>
+                        <td>@Html.ActionLink("view", "ViewPollResults", "PollResults", new { pollId = @poll.Id }, null)</td>
                     </tr>
                 }
             </tbody>

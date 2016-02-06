@@ -150,6 +150,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\PollResultsController.cs" />
     <Compile Include="ViewModel\AnswerPollViewModel.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -177,6 +178,8 @@
     <Content Include="Views\Shared\AnswerMultipleChoicesQuestion.cshtml" />
     <None Include="Views\PollAnswer\FinishAnswerPoll.cshtml" />
     <None Include="Views\PollCreation\FinishPollPublish.cshtml" />
+    <Content Include="Views\PollResults\AvailableResultPolls.cshtml" />
+    <Content Include="Views\PollResults\PollResults.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

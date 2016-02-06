@@ -2,6 +2,7 @@ namespace PollInTheAir.Domain.Migrations
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
 
     using PollInTheAir.Domain.Models;
@@ -55,6 +56,9 @@ namespace PollInTheAir.Domain.Migrations
 
         private void CreateAnswer(Repository.AppDbContext context)
         {
+            // var c1 = context.Choice.Find(1);
+            // var c3 = context.Choice.Find(3);
+
             var c1 = new Choice { Id = 1 };
             var c3 = new Choice { Id = 3 };
 
@@ -73,7 +77,7 @@ namespace PollInTheAir.Domain.Migrations
                 QuestionAnswers = new List<QuestionAnswer> { freeAnswer, multipleAns }
             };
 
-            context.PollAnswers.Add(answer);
+            context.PollAnswers.AddOrUpdate(answer);
             context.SaveChanges();
         }
     }

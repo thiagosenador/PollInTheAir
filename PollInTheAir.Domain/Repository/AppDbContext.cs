@@ -1,14 +1,15 @@
 ﻿namespace PollInTheAir.Domain.Repository
 {
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     using PollInTheAir.Domain.Models;
-    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class AppDbContext : DbContext
     {
         public AppDbContext() : base("InTheAirDB")
         {
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public DbSet<Poll> Polls { get; set; }

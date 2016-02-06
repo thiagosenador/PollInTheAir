@@ -30,8 +30,7 @@
 
         public ActionResult AnswerPoll(long pollId)
         {
-            // TODO DO I NEED THE EXTRA METHOD IN POLLREPOSITORY???
-            var poll = this.catalog.Polls.RetrievePollStructure(pollId);
+            var poll = this.catalog.Polls.Find(pollId);
 
             this.Session[PollKey] = poll;
             this.Session[PollAnswerKey] = new PollAnswer { PollId = poll.Id, QuestionAnswers = new List<QuestionAnswer>() };
@@ -72,6 +71,7 @@
             var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
 
             // TODO CAN REMOVE THE INPUT LIST???
+            // BUG CHOICES ARE BEING ADDED TWICE WHEN ANSWERING
             foreach (long choiceId in selectedChoices)
             {
                 questionAnswer.SelectedChoices.Add(new Choice { Id = choiceId });
