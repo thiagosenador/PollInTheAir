@@ -7,9 +7,11 @@
 
     public class AppDbContext : DbContext
     {
-        public AppDbContext() : base("InTheAirDB")
+        public AppDbContext() : base("name=InTheAir")
         {
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<Poll> Polls { get; set; }
