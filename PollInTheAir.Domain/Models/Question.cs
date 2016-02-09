@@ -9,5 +9,9 @@
         public string Statement { get; set; }
 
         public QuestionType? Type { get; set; }
+
+        public long PollId { get; set; }
+
+        public virtual Poll Poll { get; set; }
     }
 }

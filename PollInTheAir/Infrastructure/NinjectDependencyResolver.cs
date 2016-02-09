@@ -1,4 +1,7 @@
-﻿namespace PollInTheAir.Web.Infrastructure
+﻿using PollInTheAir.Domain.Service;
+using PollInTheAir.Domain.Service.Impl;
+
+namespace PollInTheAir.Web.Infrastructure
 {
     using System;
     using System.Collections.Generic;
@@ -33,6 +36,7 @@
         private void AddBindings()
         {
             this.kernel.Bind<ICatalog>().To<Catalog>();
+            this.kernel.Bind<IPollService>().To<PollService>();
         }
     }
 }

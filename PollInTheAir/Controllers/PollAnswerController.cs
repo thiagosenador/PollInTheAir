@@ -1,4 +1,6 @@
-﻿namespace PollInTheAir.Web.Controllers
+﻿using PollInTheAir.Domain.Service;
+
+namespace PollInTheAir.Web.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -15,9 +17,12 @@
 
         private readonly ICatalog catalog;
 
-        public PollAnswerController(ICatalog catalog)
+        private readonly IPollService pollService;
+
+        public PollAnswerController(ICatalog catalog, IPollService pollService)
         {
             this.catalog = catalog;
+            this.pollService = pollService;
         }
 
         public ActionResult AvailablePolls(Location location)
@@ -30,7 +35,7 @@
 
         public ActionResult AnswerPoll(long pollId)
         {
-            var poll = this.catalog.Polls.Find(pollId);
+            var poll = this.pollService.GetPoll(pollId);
 
             this.Session[PollKey] = poll;
             this.Session[PollAnswerKey] = new PollAnswer { PollId = poll.Id, QuestionAnswers = new List<QuestionAnswer>() };
