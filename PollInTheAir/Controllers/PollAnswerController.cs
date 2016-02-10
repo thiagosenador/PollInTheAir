@@ -59,7 +59,7 @@ namespace PollInTheAir.Web.Controllers
                 return this.View(viewModel);
             }
 
-            return this.RedirectToAction("FinishAnswerPoll");
+            return this.RedirectToAction("FinishPollAnswer");
         }
 
         public ActionResult FinishAnswerFreeTextQuestion(FreeTextAnswer questionAnswer)
@@ -87,7 +87,7 @@ namespace PollInTheAir.Web.Controllers
             return this.RedirectToAction("AnswerQuestion");
         }
 
-        public ActionResult FinishAnswerPoll()
+        public ActionResult FinishPollAnswer()
         {
             var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
             var poll = (Poll)this.Session[PollKey];

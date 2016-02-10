@@ -3,47 +3,30 @@
 @model Question
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@section PAGETITLE {
+    Create free text question
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
 
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-
-    <link rel="stylesheet" href="~/Content/bootstrap.css"/>
-
-    <title>Poll in the air</title>
-</head>
-<body>
-    <div class="container">
-        <div class="page-header">
-            <h1>Create free text question</h1>
+@using (Html.BeginForm("CreateFreeTextQuestion", "PollCreation"))
+{
+    <div class="row">
+        <div class="form-group col-xs-8">
+            @Html.LabelFor(m => m.Statement)
+            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4", @maxlength = "128" })
         </div>
-
-        @using (Html.BeginForm("CreateFreeTextQuestion", "PollCreation"))
-        {
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    @Html.LabelFor(m => m.Statement)
-                    @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4", @maxlength = "128" })
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    <textarea class="form-control" rows="3" readonly="readonly"></textarea>
-                </div>
-            </div>
-
-            @Html.Hidden("Type", QuestionType.FreeText)
-
-            @Html.Partial("CreateQuestionsButtonGroup", "add another question")
-        }
     </div>
-</body>
-</html>
+
+    <div class="row">
+        <div class="form-group col-xs-8">
+            <textarea class="form-control" rows="3" readonly="readonly"></textarea>
+        </div>
+    </div>
+
+    @Html.Hidden("Type", QuestionType.FreeText)
+
+    @Html.Partial("CreateQuestionsButtonGroup", "add another question")
+}

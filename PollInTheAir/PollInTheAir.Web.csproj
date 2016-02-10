@@ -147,6 +147,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +177,7 @@
     <None Include="Views\PollAnswer\AnswerQuestion.cshtml" />
     <Content Include="Views\Shared\AnswerFreeTextQuestion.cshtml" />
     <Content Include="Views\Shared\AnswerMultipleChoicesQuestion.cshtml" />
-    <None Include="Views\PollAnswer\FinishAnswerPoll.cshtml" />
+    <Content Include="Views\PollAnswer\FinishPollAnswer.cshtml" />
     <None Include="Views\PollCreation\FinishPollPublish.cshtml" />
     <Content Include="Views\PollResults\AvailableResultPolls.cshtml" />
     <Content Include="Views\PollResults\PollResults.cshtml" />

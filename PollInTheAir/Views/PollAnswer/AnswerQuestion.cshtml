@@ -3,39 +3,23 @@
 @model PollInTheAir.Web.ViewModel.AnswerPollViewModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@section PAGETITLE
+{
+    @Model.PollName
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
+<div>
+    <h3>@Model.CurrentQuestion.Statement</h3>
+</div>
 
-    <link rel="stylesheet" href="~/Content/bootstrap.css" />
-
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-
-    <title>Poll in the air</title>
-</head>
-<body>
-    <div class="container">
-        <div class="page-header">
-            <h1>@Model.PollName</h1>
-        </div>
-
-        <div>
-            <h3>@Model.CurrentQuestion.Statement</h3>
-        </div>
-
-        @if (@Model.CurrentQuestion.Type.Equals(QuestionType.MultipleChoices))
-        {
-            @Html.Partial("AnswerMultipleChoicesQuestion", (MultipleChoicesQuestion)@Model.CurrentQuestion)
-        }
-        else if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
-        {
-            @Html.Partial("AnswerFreeTextQuestion", @Model.CurrentQuestion)
-        }
-    </div>
-</body>
-</html>
+@if (@Model.CurrentQuestion.Type.Equals(QuestionType.MultipleChoices))
+{
+    @Html.Partial("AnswerMultipleChoicesQuestion", (MultipleChoicesQuestion)@Model.CurrentQuestion)
+}
+else if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
+{
+    @Html.Partial("AnswerFreeTextQuestion", @Model.CurrentQuestion)
+}

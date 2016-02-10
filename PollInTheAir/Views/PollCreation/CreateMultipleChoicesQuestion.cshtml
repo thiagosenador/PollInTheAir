@@ -3,21 +3,13 @@
 @model MultipleChoicesQuestion
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-
+@section SCRIPTS {
     <script>
-        $(function() {
-            $(document).on('click', '.btn-add', function(e) {
+        $(function () {
+            $(document).on('click', '.btn-add', function (e) {
                 e.preventDefault();
 
                 var controlForm = $('.controls'),
@@ -26,7 +18,7 @@
 
                 newEntry.find('input').val('');
 
-                $("[id=temp_name]").each(function(i) {
+                $("[id=temp_name]").each(function (i) {
                     $(this).attr('name', 'Choices[' + i + '].Text');
                 });
 
@@ -37,11 +29,11 @@
                     .addClass('btn-warning')
                     .html('<span class="glyphicon glyphicon-minus"></span>');
             }).on('click', '.btn-remove',
-                function(e) {
+                function (e) {
                     $(this).parents('.entry:first').remove();
                     e.preventDefault();
 
-                    $("[id=temp_name]").each(function(i) {
+                    $("[id=temp_name]").each(function (i) {
                         $(this).attr('name', 'Choices[' + i + '].Text');
                     });
 
@@ -49,64 +41,55 @@
                 });
         });
     </script>
+}
 
-    <link rel="stylesheet" href="~/Content/bootstrap.css"/>
-    <link rel="stylesheet" href="~/Content/bootstrap-theme.css"/>
+@section PAGETITLE {
+    Create multiple choices question
+}
 
-    <title>Poll in the air</title>
-</head>
-<body>
-    <div class="container">
-        <div class="page-header">
-            <h1>Create multiple choices question</h1>
+@using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation"))
+{
+    <div class="row">
+        <div class="form-group col-xs-8">
+            @Html.LabelFor(m => m.Statement)
+            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4" })
         </div>
-
-        @using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation"))
-        {
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    @Html.LabelFor(m => m.Statement)
-                    @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4" })
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    <label class="control-label">answers allowed</label>
-                    <div>
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary active">
-                                @Html.RadioButtonFor(m => m.CanSelectMultiple, false, new { @checked = true }) single
-                            </label>
-                            <label class="btn btn-primary">
-                                @Html.RadioButtonFor(m => m.CanSelectMultiple, true) multiple
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    <label class="control-label">choices</label>
-
-                    <div class="controls">
-                        <div class="entry input-group" style="margin-bottom: 10px">
-                            @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary btn-add" type="button">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            @Html.Hidden("Type", QuestionType.MultipleChoices)
-
-            @Html.Partial("CreateQuestionsButtonGroup", "add another question")
-        }
     </div>
-</body>
-</html>
+
+    <div class="row">
+        <div class="form-group col-xs-8">
+            <label class="control-label">answers allowed</label>
+            <div>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        @Html.RadioButtonFor(m => m.CanSelectMultiple, false, new { @checked = true }) single
+                    </label>
+                    <label class="btn btn-primary">
+                        @Html.RadioButtonFor(m => m.CanSelectMultiple, true) multiple
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-8">
+            <label class="control-label">choices</label>
+
+            <div class="controls">
+                <div class="entry input-group" style="margin-bottom: 10px">
+                    @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-add" type="button">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Hidden("Type", QuestionType.MultipleChoices)
+
+    @Html.Partial("CreateQuestionsButtonGroup", "add another question")
+}
