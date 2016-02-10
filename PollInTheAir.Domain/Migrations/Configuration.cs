@@ -19,7 +19,7 @@ namespace PollInTheAir.Domain.Migrations
         {
             this.CreatePoll(context);
 
-            // this.CreateAnswer(context);
+            this.CreateAnswer(context);
         }
 
         private void CreatePoll(Repository.AppDbContext context)
@@ -56,11 +56,11 @@ namespace PollInTheAir.Domain.Migrations
 
         private void CreateAnswer(Repository.AppDbContext context)
         {
-            // var c1 = context.Choice.Find(1);
-            // var c3 = context.Choice.Find(3);
+            var c1 = context.Choice.Find(1);
+            var c3 = context.Choice.Find(3);
 
-            var c1 = new Choice { Id = 1 };
-            var c3 = new Choice { Id = 3 };
+            // var c1 = new Choice { Id = 1 };
+            // var c3 = new Choice { Id = 3 };
 
             var freeAnswer = new FreeTextAnswer { Comment = "my comments", QuestionId = 2 };
 
