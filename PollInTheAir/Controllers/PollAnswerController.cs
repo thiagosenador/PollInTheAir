@@ -1,4 +1,5 @@
-﻿using PollInTheAir.Domain.Service;
+﻿using System.Linq;
+using PollInTheAir.Domain.Service;
 
 namespace PollInTheAir.Web.Controllers
 {
@@ -15,6 +16,7 @@ namespace PollInTheAir.Web.Controllers
         private const string PollAnswerKey = "poll_answer";
         private const string PollKey = "current_poll";
 
+        // TODO REMOVE CATALOG REFERENCE
         private readonly ICatalog catalog;
 
         private readonly IPollService pollService;
@@ -71,16 +73,15 @@ namespace PollInTheAir.Web.Controllers
             return this.RedirectToAction("AnswerQuestion");
         }
 
-        public ActionResult FinishAnswerMultipleChoicesQuestion(long[] selectedChoices, MultipleChoicesAnswer questionAnswer)
+        public ActionResult FinishAnswerMultipleChoicesQuestion(MultipleChoicesQuestion multipleChoicesQuestion)
         {
-            var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
-
-            // TODO CAN REMOVE THE INPUT LIST???
-            // BUG CHOICES ARE BEING ADDED TWICE WHEN ANSWERING
-            foreach (long choiceId in selectedChoices)
+            var questionAnswer = new MultipleChoicesAnswer
             {
-                questionAnswer.SelectedChoices.Add(new Choice { Id = choiceId });
-            }
+                SelectedChoices = new List<Choice>(multipleChoicesQuestion.Choices.Where(c => c.Selected)),
+                QuestionId = multipleChoicesQuestion.Id
+            };
+
+            var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
 
             pollAnswer.QuestionAnswers.Add(questionAnswer);
 
@@ -94,7 +95,7 @@ namespace PollInTheAir.Web.Controllers
 
             pollAnswer.AnswerDate = DateTime.Now;
 
-            this.catalog.PollAnswers.Create(pollAnswer);
+            this.pollService.AddPollAnswer(pollAnswer);
 
             return this.View(poll);
         }

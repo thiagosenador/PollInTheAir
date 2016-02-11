@@ -4,5 +4,6 @@
 
     public interface IPollAnswerRepository : IRepository<PollAnswer>
     {
+        void AddPollAnswer(PollAnswer pollAnswer);
     }
 }

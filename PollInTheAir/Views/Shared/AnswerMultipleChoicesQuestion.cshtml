@@ -4,7 +4,7 @@
 
 @using (@Html.BeginForm("FinishAnswerMultipleChoicesQuestion", "PollAnswer"))
 {
-    @Html.Hidden("QuestionId", @Model.Id)
+    @Html.Hidden("Id", @Model.Id)
 
     for (int i = 0; i < @Model.Choices.Count; i++)
     {
@@ -12,8 +12,9 @@
         {
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="selectedChoices" value="@Model.Choices[i].Id" />
+                    @Html.CheckBoxFor(c => c.Choices[i].Selected)
                     @Model.Choices[i].Text
+                    @Html.HiddenFor(c => c.Choices[i].Id)
                 </label>
             </div>
         }
@@ -22,8 +23,10 @@
         {
             <div class="radio">
                 <label>
-                    @Html.RadioButton("selectedChoices", @Model.Choices[i].Id, false)
+                    @Html.RadioButtonFor(c => c.Choices[0].Id, @Model.Choices[i].Id)
                     @Model.Choices[i].Text
+                    @Html.Hidden("Choices[0].Selected", true)
+
                 </label>
             </div>
         }

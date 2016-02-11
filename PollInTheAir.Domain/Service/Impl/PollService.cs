@@ -20,5 +20,10 @@ namespace PollInTheAir.Domain.Service.Impl
 
             return poll;
         }
+
+        public void AddPollAnswer(PollAnswer pollAnswer)
+        {
+            this.catalog.PollAnswers.AddPollAnswer(pollAnswer);
+        }
     }
 }

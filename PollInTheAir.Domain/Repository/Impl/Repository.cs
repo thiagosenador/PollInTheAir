@@ -37,6 +37,11 @@
             }
         }
 
+        protected AppDbContext Context
+        {
+            get { return this.context; }
+        }
+
         public void Dispose()
         {
             if (this.context != null)

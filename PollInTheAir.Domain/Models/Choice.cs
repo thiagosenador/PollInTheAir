@@ -1,4 +1,7 @@
-﻿namespace PollInTheAir.Domain.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Policy;
+
+namespace PollInTheAir.Domain.Models
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -6,5 +9,8 @@
     {
         [MaxLength(128)]
         public string Text { get; set; }
+
+        [NotMapped]
+        public bool Selected { get; set; }
     }
 }
