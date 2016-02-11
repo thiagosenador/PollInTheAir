@@ -6,7 +6,7 @@
 @using (@Html.BeginForm("FinishAnswerFreeTextQuestion", "PollAnswer"))
 {
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             @Html.Hidden("QuestionId", @Model.Id)
             @Html.TextArea("Comment", new {@rows = "3", @class = "form-control"})
         </div>

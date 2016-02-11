@@ -10,23 +10,20 @@
     Create free text question
 }
 
-
 @using (Html.BeginForm("CreateFreeTextQuestion", "PollCreation"))
 {
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             @Html.LabelFor(m => m.Statement)
-            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4", @maxlength = "128" })
+            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @maxlength = "128" })
         </div>
     </div>
 
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             <textarea class="form-control" rows="3" readonly="readonly"></textarea>
         </div>
     </div>
 
-    @Html.Hidden("Type", QuestionType.FreeText)
-
-    @Html.Partial("CreateQuestionsButtonGroup", "add another question")
+    @Html.Partial("CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", true }, { "SectionTitle", "add more questions" } })
 }

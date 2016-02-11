@@ -50,14 +50,14 @@
 @using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation"))
 {
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             @Html.LabelFor(m => m.Statement)
-            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control col-xs-4" })
+            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             <label class="control-label">answers allowed</label>
             <div>
                 <div class="btn-group" data-toggle="buttons">
@@ -73,7 +73,7 @@
     </div>
 
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             <label class="control-label">choices</label>
 
             <div class="controls">
@@ -89,7 +89,5 @@
         </div>
     </div>
 
-    @Html.Hidden("Type", QuestionType.MultipleChoices)
-
-    @Html.Partial("CreateQuestionsButtonGroup", "add another question")
+    @Html.Partial("CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", true }, { "SectionTitle", "add more questions" } })
 }

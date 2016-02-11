@@ -151,14 +151,14 @@
 @using (Html.BeginForm("CreatePoll", "PollCreation"))
 {
     <div class="row">
-        <div class="form-group col-xs-8">
+        <div class="form-group">
             @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control col-xs-4", @maxlength = "128" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @maxlength = "128" })
         </div>
     </div>
 
     <div class="row">
-        <div class="form-group col-xs-3">
+        <div class="form-group">
             @Html.LabelFor(m => m.ExpirationDate)
 
             <div class='input-group date'>
@@ -171,20 +171,20 @@
         </div>
     </div>
 
-            <div class="row">
-                <div class="form-group col-xs-8">
-                    @Html.Label("range")
+    <div class="row">
+        <div class="form-group">
+            @Html.Label("range")
 
-                    <div>
-                        @Html.TextBoxFor(m => m.Range)
-                    </div>
-
-                    <div id="map"></div>
-
-                    @Html.HiddenFor(m => m.CreationLocation.Latitude, new { @id = "latitude" })
-                    @Html.HiddenFor(m => m.CreationLocation.Longitude, new { @id = "longitude" })
-                </div>
+            <div>
+                @Html.TextBoxFor(m => m.Range)
             </div>
 
-            @Html.Partial("CreateQuestionsButtonGroup", "add question")
+            <div id="map"></div>
+
+            @Html.HiddenFor(m => m.CreationLocation.Latitude, new {@id = "latitude"})
+            @Html.HiddenFor(m => m.CreationLocation.Longitude, new {@id = "longitude"})
+        </div>
+    </div>
+    
+    @Html.Partial("CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", false }, { "SectionTitle", "create questions" } })
 }

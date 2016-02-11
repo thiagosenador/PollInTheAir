@@ -1,20 +1,24 @@
 ﻿@using PollInTheAir.Domain.Models
 
-@model string
+<div class="row">
+    <div class="form-group">
+        @Html.Label((string)ViewData["SectionTitle"])
+    </div>
+</div>
 
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            @Model <span class="caret"></span>
-        </button>
-
-        <ul class="dropdown-menu">
-            <li><button class="btn btn-link" type="submit" name="questionType" value="@QuestionType.FreeText">free text</button></li>
-            <li><button class="btn btn-link" type="submit" name="questionType" value="@QuestionType.MultipleChoices">multiple choices</button></li>
-        </ul>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <button class="btn btn-default" type="submit" name="questionType" value="@QuestionType.FreeText">free text</button>
     </div>
 
-    <div class="btn-group">
-        <button class="btn btn-default" type="submit" name="questionType" value="@QuestionType.Undefined">finish</button>
+    <div class="btn-group" role="group">
+        <button class="btn btn-default" type="submit" name="questionType" value="@QuestionType.MultipleChoices">multiple choices</button>
     </div>
+
+    @if ((bool)ViewData["ShowFinishButton"])
+    {
+        <div class="btn-group" role="group">
+            <button class="btn btn-default" type="submit" name="questionType" value="@QuestionType.Undefined">finish</button>
+        </div>
+    }
 </div>
