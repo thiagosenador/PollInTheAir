@@ -37,6 +37,8 @@
         [HttpPost]
         public RedirectToRouteResult CreateMultipleChoicesQuestion(QuestionType questionType, MultipleChoicesQuestion question)
         {
+            question.Type = QuestionType.MultipleChoices;
+
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
@@ -45,6 +47,8 @@
         [HttpPost]
         public RedirectToRouteResult CreateFreeTextQuestion(QuestionType questionType, Question question)
         {
+            question.Type = QuestionType.FreeText;
+
             ((Poll)Session[PollKey]).Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);

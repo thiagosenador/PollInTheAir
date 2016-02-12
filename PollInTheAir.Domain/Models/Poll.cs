@@ -7,6 +7,7 @@
     public class Poll : Entity
     {
         [MaxLength(128)]
+        [Required(ErrorMessage = "please enter the poll name!")]
         [Display(Name = "name")]
         public string Name { get; set; }
 
