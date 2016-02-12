@@ -7,5 +7,7 @@ namespace PollInTheAir.Domain.Service
         Poll GetPoll(long pollId);
 
         void AddPollAnswer(PollAnswer pollAnswer);
+
+        PollResultsSummary GetPollResults(long pollId);
     }
 }

@@ -8,10 +8,6 @@
 
         private IPollRepository pollRepository;
 
-        private IQuestionRepository questionRepository;
-
-        private IChoiceRepository choiceRepository;
-
         private IPollAnswerRepository pollAnswerRepository;
 
         public Catalog()
@@ -24,22 +20,6 @@
             get
             {
                 return this.pollRepository ?? (this.pollRepository = new PollRepository(this.context));
-            }
-        }
-
-        public IQuestionRepository Questions
-        {
-            get
-            {
-                return this.questionRepository ?? (this.questionRepository = new QuestionRepository(this.context));
-            }
-        }
-
-        public IChoiceRepository Choices
-        {
-            get
-            {
-                return this.choiceRepository ?? (this.choiceRepository = new ChoiceRepository(this.context));
             }
         }
 
@@ -56,16 +36,6 @@
             if (this.pollRepository != null)
             {
                 this.pollRepository.Dispose();
-            }
-
-            if (this.questionRepository != null)
-            {
-                this.questionRepository.Dispose();
-            }
-
-            if (this.choiceRepository != null)
-            {
-                this.choiceRepository.Dispose();
             }
 
             if (this.pollAnswerRepository != null)

@@ -1,4 +1,6 @@
-﻿namespace PollInTheAir.Domain.Repository.Impl
+﻿using System.Collections.Generic;
+
+namespace PollInTheAir.Domain.Repository.Impl
 {
     using System.Data.Entity;
     using System.Linq;
@@ -11,9 +13,21 @@
         {
         }
 
-        public Poll RetrievePollStructure(long id)
+        public Poll RetrievePollStructure(long pollId)
         {
-            return this.DbSet.Include(q => q.Questions).First(p => p.Id.Equals(id));
+            var free = this.Context.Questions.OfType<Question>().Where(q => q.Type == QuestionType.FreeText && q.PollId.Equals(pollId)).ToList();
+            var multiple = this.Context.Questions.OfType<MultipleChoicesQuestion>().Include(c => c.Choices).Where(q => q.PollId.Equals(pollId)).ToList();
+
+            var questions = new List<Question>();
+            questions.AddRange(free);
+            questions.AddRange(multiple);
+
+            questions.Sort((x, y) => x.Id.CompareTo(y.Id));
+
+            var poll = this.Context.Polls.Find(pollId);
+            poll.Questions = questions;
+
+            return poll;
         }
     }
 }

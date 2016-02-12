@@ -22,6 +22,8 @@
 
         public DbSet<Choice> Choice { get; set; }
 
+        public DbSet<QuestionAnswer> QuestionAnswer { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

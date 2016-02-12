@@ -1,4 +1,6 @@
-﻿namespace PollInTheAir.Web.Controllers
+﻿using PollInTheAir.Domain.Service;
+
+namespace PollInTheAir.Web.Controllers
 {
     using System.Web.Mvc;
 
@@ -6,11 +8,15 @@
 
     public class PollResultsController : Controller
     {
+        // TODO REMOVE CATALOG
         private readonly ICatalog catalog;
 
-        public PollResultsController(ICatalog catalog)
+        private readonly IPollService pollService;
+
+        public PollResultsController(ICatalog catalog, IPollService pollService)
         {
             this.catalog = catalog;
+            this.pollService = pollService;
         }
 
         public ActionResult AvailableResultPolls()
@@ -27,9 +33,9 @@
 
             this.ViewBag.PollName = poll.Name;
 
-            var pollAnswers = this.catalog.PollAnswers.Filter(p => p.Poll.Id.Equals(pollId));
+            var pollAnswers = this.pollService.GetPollResults(pollId);
 
-            return this.View("PollResults", pollAnswers);
+            return this.View("PollResults", null);
         }
     }
 }

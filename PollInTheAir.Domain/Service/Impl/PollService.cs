@@ -14,16 +14,17 @@ namespace PollInTheAir.Domain.Service.Impl
 
         public Poll GetPoll(long pollId)
         {
-            var poll = this.catalog.Polls.Find(pollId);
-
-            poll.Questions = this.catalog.Questions.GetQuestionsOfPoll(pollId);
-
-            return poll;
+            return this.catalog.Polls.RetrievePollStructure(pollId);
         }
 
         public void AddPollAnswer(PollAnswer pollAnswer)
         {
             this.catalog.PollAnswers.AddPollAnswer(pollAnswer);
+        }
+
+        public PollResultsSummary GetPollResults(long pollId)
+        {
+            return this.catalog.PollAnswers.GetPollResults(pollId);
         }
     }
 }

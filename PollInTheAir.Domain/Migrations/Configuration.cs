@@ -19,7 +19,7 @@ namespace PollInTheAir.Domain.Migrations
         {
             this.CreatePoll(context);
 
-            // this.CreateAnswer(context);
+            this.CreateAnswer(context);
         }
 
         private void CreatePoll(Repository.AppDbContext context)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+using System.Data.Entity;
+using System.Linq;
 
 namespace PollInTheAir.Domain.Repository.Impl
 {
@@ -33,6 +34,24 @@ namespace PollInTheAir.Domain.Repository.Impl
             }
 
             this.Create(pollAnswer);
+        }
+
+        public PollResultsSummary GetPollResults(long pollId)
+        {
+            var pollAnswer = this.Context.PollAnswers.Include(p => p.Poll).Include(p => p.QuestionAnswers).First(p => p.PollId.Equals(pollId));
+
+            var summary = new PollResultsSummary
+            {
+                Poll = pollAnswer.Poll,
+                QuestionResultsSummaries = new List<QuestionResultsSummary>()
+            };
+
+            foreach (var questionAnswer in pollAnswer.QuestionAnswers)
+            {
+                
+            }
+
+            return null;
         }
     }
 }

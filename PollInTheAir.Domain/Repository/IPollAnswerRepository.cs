@@ -5,5 +5,7 @@
     public interface IPollAnswerRepository : IRepository<PollAnswer>
     {
         void AddPollAnswer(PollAnswer pollAnswer);
+
+        PollResultsSummary GetPollResults(long pollId);
     }
 }
