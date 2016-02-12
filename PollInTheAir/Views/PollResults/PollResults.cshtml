@@ -1,37 +1,26 @@
 ﻿@using PollInTheAir.Domain.Models
 
-@model IEnumerable<PollAnswer>
+@model PollResultsSummary
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section PAGETITLE {
-    @ViewBag.PollName
+    Results of @Model.Poll.Name
 }
 
-@foreach (var pollAnswer in @Model)
+<p>Total answers: @Model.AnswersCount</p>
+
+@foreach (var summary in @Model.QuestionResultsSummaries)
 {
-    <p>@pollAnswer.AnswerDate</p>
-    <p>@pollAnswer.User</p>
-
-    foreach (var questionAnswer in pollAnswer.QuestionAnswers)
+    if (summary is FreeTextQuestionResultsSummary)
     {
-        if (questionAnswer.Question.Type.Equals(QuestionType.FreeText))
-        {
-            <p>@(((FreeTextAnswer)questionAnswer).Comment)</p>
+        @Html.Partial("PollResults/_FreeTextQuestionResult", summary as FreeTextQuestionResultsSummary)
+    }
 
-            continue;
-        }
-
-        if (questionAnswer.Question.Type.Equals(QuestionType.MultipleChoices))
-        {
-            var multipleChoices = (MultipleChoicesAnswer)questionAnswer;
-
-            foreach (var selectedChoice in multipleChoices.SelectedChoices)
-            {
-                <p>@selectedChoice.Text</p>
-            }
-        }
+    else if (summary is MultipleChoicesQuestionResultsSummary)
+    {
+        @Html.Partial("PollResults/_MultipleChoicesQuestionResult", summary as MultipleChoicesQuestionResultsSummary)
     }
 }

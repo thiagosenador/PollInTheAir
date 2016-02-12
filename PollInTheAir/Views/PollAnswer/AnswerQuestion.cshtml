@@ -17,9 +17,9 @@
 
 @if (@Model.CurrentQuestion.Type.Equals(QuestionType.MultipleChoices))
 {
-    @Html.Partial("AnswerMultipleChoicesQuestion", (MultipleChoicesQuestion)@Model.CurrentQuestion)
+    @Html.Partial("PollAnswer/_AnswerMultipleChoicesQuestion", (MultipleChoicesQuestion)@Model.CurrentQuestion)
 }
 else if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
 {
-    @Html.Partial("AnswerFreeTextQuestion", @Model.CurrentQuestion)
+    @Html.Partial("PollAnswer/_AnswerFreeTextQuestion", @Model.CurrentQuestion)
 }

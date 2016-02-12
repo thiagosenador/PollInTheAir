@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace PollInTheAir.Domain.Repository.Impl
@@ -20,7 +19,7 @@ namespace PollInTheAir.Domain.Repository.Impl
                 {
                     var attachedChoices = new List<Choice>();
 
-                    var multipleChoicesAnswer = (MultipleChoicesAnswer) questionAnswer;
+                    var multipleChoicesAnswer = (MultipleChoicesAnswer)questionAnswer;
 
                     foreach (var selectedChoice in multipleChoicesAnswer.SelectedChoices)
                     {
@@ -38,20 +37,60 @@ namespace PollInTheAir.Domain.Repository.Impl
 
         public PollResultsSummary GetPollResults(long pollId)
         {
-            var pollAnswer = this.Context.PollAnswers.Include(p => p.Poll).Include(p => p.QuestionAnswers).First(p => p.PollId.Equals(pollId));
+            var answersList = new List<QuestionResultsSummary>();
+            answersList.AddRange(this.CreateFreeTextAnswersSummaries(pollId));
+            answersList.AddRange(this.CreateMultipleChoicesAnswersSummaries(pollId));
 
-            var summary = new PollResultsSummary
+            answersList.Sort((x, y) => x.Question.Id.CompareTo(y.Question.Id));
+
+            var pollResults = new PollResultsSummary
             {
-                Poll = pollAnswer.Poll,
-                QuestionResultsSummaries = new List<QuestionResultsSummary>()
+                QuestionResultsSummaries = answersList,
+                Poll = this.Context.Polls.Find(pollId),
+                AnswersCount = this.GetTotalPollAnswers(pollId)
             };
 
-            foreach (var questionAnswer in pollAnswer.QuestionAnswers)
-            {
-                
-            }
+            return pollResults;
+        }
 
-            return null;
+        private List<FreeTextQuestionResultsSummary> CreateFreeTextAnswersSummaries(long pollId)
+        {
+            return
+                this.Context.PollAnswers
+                    .Where(p => p.PollId.Equals(pollId))
+                    .SelectMany(q => q.QuestionAnswers).OfType<FreeTextAnswer>()
+                    .GroupBy(q => q.Question)
+                    .Select(k => new FreeTextQuestionResultsSummary
+                    {
+                        Question = k.Key,
+                        Comments = (List<string>)k.Select(c => c.Comment)
+                    })
+                    .ToList();
+        }
+
+        private List<MultipleChoicesQuestionResultsSummary> CreateMultipleChoicesAnswersSummaries(long pollId)
+        {
+            return
+                this.Context.PollAnswers
+                    .Where(p => p.PollId.Equals(pollId))
+                    .SelectMany(q => q.QuestionAnswers).OfType<MultipleChoicesAnswer>()
+                    .GroupBy(q => q.Question)
+                    .Select(k => new MultipleChoicesQuestionResultsSummary
+                    {
+                        Question = k.Key,
+                        ChoicesSummary = k.SelectMany(c => c.SelectedChoices).GroupBy(i => i.Text)
+                            .Select(t => new ChoiceSummary
+                            {
+                                Choice = t.Key,
+                                Total = t.Count()
+                            }).OrderByDescending(t => t.Total)
+                    })
+                    .ToList();
+        }
+
+        private int GetTotalPollAnswers(long pollId)
+        {
+            return this.Context.PollAnswers.Count(p => p.PollId.Equals(pollId));
         }
     }
 }

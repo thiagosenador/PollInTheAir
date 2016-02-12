@@ -41,6 +41,10 @@
                 });
         });
     </script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/intheair_validation.js"></script>
 }
 
 @section PAGETITLE {
@@ -49,45 +53,40 @@
 
 @using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation"))
 {
-    <div class="row">
-        <div class="form-group">
-            @Html.LabelFor(m => m.Statement)
-            @Html.TextBoxFor(m => m.Statement, new { @class = "form-control" })
-        </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Statement)
+        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Statement)
     </div>
 
-    <div class="row">
-        <div class="form-group">
-            <label class="control-label">answers allowed</label>
-            <div>
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                        @Html.RadioButtonFor(m => m.CanSelectMultiple, false, new { @checked = true }) single
-                    </label>
-                    <label class="btn btn-primary">
-                        @Html.RadioButtonFor(m => m.CanSelectMultiple, true) multiple
-                    </label>
-                </div>
+    <div class="form-group">
+        <label class="control-label">answers allowed</label>
+        <div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active">
+                    @Html.RadioButtonFor(m => m.CanSelectMultiple, false, new { @checked = true }) single
+                </label>
+                <label class="btn btn-primary">
+                    @Html.RadioButtonFor(m => m.CanSelectMultiple, true) multiple
+                </label>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="form-group">
-            <label class="control-label">choices</label>
+    <div class="form-group">
+        <label class="control-label">choices</label>
 
-            <div class="controls">
-                <div class="entry input-group" style="margin-bottom: 10px">
-                    @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary btn-add" type="button">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
-                    </span>
-                </div>
+        <div class="controls">
+            <div class="entry input-group" style="margin-bottom: 10px">
+                @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-add" type="button">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
             </div>
         </div>
     </div>
 
-    @Html.Partial("CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", true }, { "SectionTitle", "add more questions" } })
+    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", true }, { "SectionTitle", "add more questions" } })
 }

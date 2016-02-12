@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace PollInTheAir.Domain.Models
 {
@@ -7,6 +8,8 @@ namespace PollInTheAir.Domain.Models
     public class PollResultsSummary
     {
         public Poll Poll { get; set; }
+
+        public int AnswersCount { get; set; }
 
         public List<QuestionResultsSummary> QuestionResultsSummaries { get; set; }
     }
@@ -23,6 +26,15 @@ namespace PollInTheAir.Domain.Models
 
     public class MultipleChoicesQuestionResultsSummary : QuestionResultsSummary
     {
-        public Dictionary<Choice, int> ChoicesSummary { get; set; }
+        public IOrderedEnumerable<ChoiceSummary> ChoicesSummary { get; set; }
+    }
+
+    public class ChoiceSummary
+    {
+        public string Choice { get; set; }
+
+        public int Total { get; set; }
+
+
     }
 }

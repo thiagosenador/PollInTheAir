@@ -137,6 +137,7 @@
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\intheair_validation.js" />
     <Content Include="Scripts\ion.rangeSlider.js" />
     <Content Include="Scripts\ion.rangeSlider.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -180,14 +181,16 @@
     <Content Include="Views\PollCreation\CreateFreeTextQuestion.cshtml" />
     <Content Include="Views\PollCreation\ReviewPoll.cshtml" />
     <Content Include="Views\PollAnswer\AvailablePolls.cshtml" />
-    <Content Include="Views\Shared\CreateQuestionsButtonGroup.cshtml" />
+    <Content Include="Views\Shared\PollCreation\_CreateQuestionsButtonGroup.cshtml" />
     <None Include="Views\PollAnswer\AnswerQuestion.cshtml" />
-    <Content Include="Views\Shared\AnswerFreeTextQuestion.cshtml" />
-    <Content Include="Views\Shared\AnswerMultipleChoicesQuestion.cshtml" />
+    <Content Include="Views\Shared\PollAnswer\_AnswerFreeTextQuestion.cshtml" />
+    <Content Include="Views\Shared\PollAnswer\_AnswerMultipleChoicesQuestion.cshtml" />
     <Content Include="Views\PollAnswer\FinishPollAnswer.cshtml" />
     <None Include="Views\PollCreation\FinishPollPublish.cshtml" />
     <Content Include="Views\PollResults\AvailableResultPolls.cshtml" />
     <Content Include="Views\PollResults\PollResults.cshtml" />
+    <Content Include="Views\Shared\PollResults\_FreeTextQuestionResult.cshtml" />
+    <Content Include="Views\Shared\PollResults\_MultipleChoicesQuestionResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,21 @@
+﻿@using PollInTheAir.Domain.Models
+
+@model Question
+
+@section SCRIPTS {
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/intheair_validation.js"></script>
+}
+
+@using (@Html.BeginForm("FinishAnswerFreeTextQuestion", "PollAnswer"))
+{
+    <div class="form-group">
+        @Html.Hidden("QuestionId", @Model.Id)
+        @Html.TextArea("Comment", new { @rows = "3", @class = "form-control" })
+    </div>
+
+    <div>
+        <button class="btn btn-default" type="submit">answer</button>
+    </div>
+}

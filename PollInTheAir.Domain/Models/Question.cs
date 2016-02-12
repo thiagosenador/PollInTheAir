@@ -5,6 +5,7 @@
     public class Question : Entity
     {
         [MaxLength(128)]
+        [Required(ErrorMessage = "please enter a name!")]
         [Display(Name = "statement")]
         public string Statement { get; set; }
 

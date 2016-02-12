@@ -21,7 +21,9 @@
         [Display(Name = "created at")]
         public DateTime CreationDate { get; set; }
 
+        [Required(ErrorMessage = "please provide a expiration date!")]
         [Display(Name = "expires at")]
+        [DataType(DataType.Date, ErrorMessage = "Wrong format !!!!")]
         public DateTime ExpirationDate { get; set; }
 
         public User User { get; set; }

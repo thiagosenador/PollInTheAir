@@ -29,13 +29,9 @@ namespace PollInTheAir.Web.Controllers
 
         public ActionResult ViewPollResults(long pollId)
         {
-            var poll = this.catalog.Polls.Find(pollId);
-
-            this.ViewBag.PollName = poll.Name;
-
             var pollAnswers = this.pollService.GetPollResults(pollId);
 
-            return this.View("PollResults", null);
+            return this.View("PollResults", pollAnswers);
         }
     }
 }

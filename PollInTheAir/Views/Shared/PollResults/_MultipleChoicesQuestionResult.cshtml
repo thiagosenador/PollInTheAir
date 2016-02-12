@@ -1,0 +1,10 @@
+﻿@using PollInTheAir.Domain.Models
+
+@model MultipleChoicesQuestionResultsSummary
+
+<b>@Model.Question.Statement</b>
+
+@foreach (var choiceSummary in @Model.ChoicesSummary)
+{
+    <p>@choiceSummary.Choice = @choiceSummary.Total</p>
+}

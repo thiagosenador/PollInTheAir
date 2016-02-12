@@ -2,7 +2,6 @@ namespace PollInTheAir.Domain.Migrations
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
 
     using PollInTheAir.Domain.Models;
@@ -17,9 +16,12 @@ namespace PollInTheAir.Domain.Migrations
 
         protected override void Seed(Repository.AppDbContext context)
         {
-            // this.CreatePoll(context);
+            this.CreatePoll(context);
 
-            // this.CreateAnswer(context);
+            this.CreateAnswer(context);
+            this.CreateAnswer(context);
+            this.CreateAnswer(context);
+            this.CreateAnswer(context);
         }
 
         private void CreatePoll(Repository.AppDbContext context)
@@ -30,12 +32,12 @@ namespace PollInTheAir.Domain.Migrations
                 Statement = "multiple choices",
                 CanSelectMultiple = true,
                 Choices =
-                                       new List<Choice>
-                                           {
-                                               new Choice { Text = "11111" },
-                                               new Choice { Text = "22222" },
-                                               new Choice { Text = "33333" }
-                                           }
+                    new List<Choice>
+                    {
+                        new Choice {Text = "11111"},
+                        new Choice {Text = "22222"},
+                        new Choice {Text = "33333"}
+                    }
             };
 
             var freeText = new Question { Statement = "free text", Type = QuestionType.FreeText };

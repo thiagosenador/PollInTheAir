@@ -15,11 +15,8 @@ namespace PollInTheAir.Domain.Test
         [TestMethod]
         public void SandboxTest()
         {
-            this.CreateAnswer(new AppDbContext());
-        }
+            var context = new AppDbContext();
 
-        private void CreateAnswer(AppDbContext context)
-        {
             var c1 = new Choice { Id = 1 };
             var c3 = new Choice { Id = 3 };
 
@@ -40,6 +37,14 @@ namespace PollInTheAir.Domain.Test
 
             context.PollAnswers.AddOrUpdate(answer);
             context.SaveChanges();
+        }
+
+        [TestMethod]
+        public void CallResponse()
+        {
+            var r = new PollAnswerRepository(new AppDbContext());
+
+            var res = r.GetPollResults(1);
         }
     }
 }
