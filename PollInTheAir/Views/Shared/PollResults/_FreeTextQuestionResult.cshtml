@@ -2,8 +2,6 @@
 
 @model FreeTextQuestionResultsSummary
 
-<b>@Model.Question.Statement</b>
-
 @foreach (var comment in @Model.Comments)
 {
     <p>@comment</p>

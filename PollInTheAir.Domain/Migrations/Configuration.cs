@@ -16,12 +16,12 @@ namespace PollInTheAir.Domain.Migrations
 
         protected override void Seed(Repository.AppDbContext context)
         {
-            this.CreatePoll(context);
+            //this.CreatePoll(context);
 
-            this.CreateAnswer(context);
-            this.CreateAnswer(context);
-            this.CreateAnswer(context);
-            this.CreateAnswer(context);
+            //this.CreateAnswer(context);
+            //this.CreateAnswer(context);
+            //this.CreateAnswer(context);
+            //this.CreateAnswer(context);
         }
 
         private void CreatePoll(Repository.AppDbContext context)

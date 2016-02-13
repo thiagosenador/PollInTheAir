@@ -2,9 +2,38 @@
 
 @model MultipleChoicesQuestionResultsSummary
 
-<b>@Model.Question.Statement</b>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
 
-@foreach (var choiceSummary in @Model.ChoicesSummary)
-{
-    <p>@choiceSummary.Choice = @choiceSummary.Total</p>
-}
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        alert('@Model.Question.Statement');
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Choice');
+        data.addColumn('number', 'Total');
+
+        @foreach (var summary in @Model.ChoicesSummary)
+        {
+            <text>
+            data.addRow(['@summary.Choice', @summary.Total]);
+            </text>
+        }
+
+        // Set chart options
+        var options = {
+            'width': 300,
+            'height': 300
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('question_@Model.Question.Id'));
+        chart.draw(data, options);
+    }
+</script>
+
+<div id="question_@Model.Question.Id"></div>

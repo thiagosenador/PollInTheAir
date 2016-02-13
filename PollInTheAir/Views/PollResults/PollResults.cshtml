@@ -14,13 +14,18 @@
 
 @foreach (var summary in @Model.QuestionResultsSummaries)
 {
-    if (summary is FreeTextQuestionResultsSummary)
-    {
-        @Html.Partial("PollResults/_FreeTextQuestionResult", summary as FreeTextQuestionResultsSummary)
-    }
+    <div class="panel panel-default">
+        <div class="panel-heading">@summary.Question.Statement</div>
+        <div class="panel-body">
+            @if (summary is FreeTextQuestionResultsSummary)
+            {
+                @Html.Partial("PollResults/_FreeTextQuestionResult", summary as FreeTextQuestionResultsSummary)
+            }
 
-    else if (summary is MultipleChoicesQuestionResultsSummary)
-    {
-        @Html.Partial("PollResults/_MultipleChoicesQuestionResult", summary as MultipleChoicesQuestionResultsSummary)
-    }
+            else if (summary is MultipleChoicesQuestionResultsSummary)
+            {
+                @Html.Partial("PollResults/_MultipleChoicesQuestionResult", summary as MultipleChoicesQuestionResultsSummary)
+            }
+        </div>
+    </div>
 }
