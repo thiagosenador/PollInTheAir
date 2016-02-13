@@ -10,23 +10,13 @@
     Create free text question
 }
 
-@section SCRIPTS {
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script src="~/Scripts/intheair_validation.js"></script>
-}
-
 @using (Html.BeginForm("CreateFreeTextQuestion", "PollCreation"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Statement)
-        @Html.TextBoxFor(m => m.Statement, new {@class = "form-control", @maxlength = "128"})
+        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @maxlength = "128", @required = "required" })
         @Html.ValidationMessageFor(m => m.Statement)
     </div>
 
-    <div class="form-group">
-        <textarea class="form-control" rows="3" readonly="readonly"></textarea>
-    </div>
-
-    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", new ViewDataDictionary {{"ShowFinishButton", true}, {"SectionTitle", "add more questions"}})
+    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", true)
 }

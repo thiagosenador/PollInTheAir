@@ -14,7 +14,6 @@
             <th>name</th>
             <th>expires at</th>
             <th>created by</th>
-            <th>actions</th>
         </tr>
     </thead>
 
@@ -22,10 +21,9 @@
         @foreach (var poll in Model)
         {
             <tr>
-                <td>@poll.Name</td>
+                <td>@Html.ActionLink(poll.Name, "AnswerPoll", "PollAnswer", new { pollId = @poll.Id }, null)</td>
                 <td>@poll.ExpirationDate</td>
                 <td></td>
-                <td>@Html.ActionLink("answer", "AnswerPoll", "PollAnswer", new { pollId = @poll.Id }, null)</td>
             </tr>
         }
     </tbody>

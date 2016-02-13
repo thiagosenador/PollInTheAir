@@ -13,9 +13,10 @@
 
     <style type="text/css">
         #map {
-            width: 100%;
-            height: 400px;
+            width: 95%;
+            height: 300px;
             margin-bottom: 15px;
+            margin: 0 auto;
             border: 2px solid #fff;
         }
 
@@ -26,12 +27,9 @@
 }
 
 @section SCRIPTS {
-    <script src="~/Scripts/moment-with-locales.js"></script>
-    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
-    <script src="~/Scripts/ion.rangeSlider.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script src="~/Scripts/intheair_validation.js"></script>
+    <script src="~/Scripts/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Scripts/ion.rangeSlider.min.js"></script>
 
     <script>
         // DATETIME PICKER
@@ -155,16 +153,14 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @maxlength = "128" })
-        @Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @maxlength = "128", @required = "required" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.ExpirationDate)
 
         <div class='input-group date'>
-            @Html.TextBoxFor(m => m.ExpirationDate, new { @class = "form-control", @maxlength = "20" })
-            @Html.ValidationMessageFor(m => m.ExpirationDate)
+            @Html.TextBoxFor(m => m.ExpirationDate, new { @class = "form-control", @maxlength = "20", @required = "required" })
 
             <span class="input-group-addon" id="datepickerIcon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -185,5 +181,5 @@
         @Html.HiddenFor(m => m.CreationLocation.Longitude, new { @id = "longitude" })
     </div>
 
-    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", false }, { "SectionTitle", "create questions" } })
-}
+    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", false)
+    }

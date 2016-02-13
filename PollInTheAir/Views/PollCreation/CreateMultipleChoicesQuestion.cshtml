@@ -41,10 +41,6 @@
                 });
         });
     </script>
-
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script src="~/Scripts/intheair_validation.js"></script>
 }
 
 @section PAGETITLE {
@@ -55,7 +51,7 @@
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Statement)
-        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @required = "required" })
         @Html.ValidationMessageFor(m => m.Statement)
     </div>
 
@@ -78,7 +74,7 @@
 
         <div class="controls">
             <div class="entry input-group" style="margin-bottom: 10px">
-                @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
+                @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128", @required = "required" })
                 <span class="input-group-btn">
                     <button class="btn btn-primary btn-add" type="button">
                         <span class="glyphicon glyphicon-plus"></span>
@@ -88,5 +84,5 @@
         </div>
     </div>
 
-    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", new ViewDataDictionary { { "ShowFinishButton", true }, { "SectionTitle", "add more questions" } })
+    @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", true)
 }
