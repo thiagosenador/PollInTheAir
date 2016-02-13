@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PollInTheAir.Domain.Models;
-using PollInTheAir.Domain.Repository;
-using PollInTheAir.Domain.Repository.Impl;
-
-namespace PollInTheAir.Domain.Test
+﻿namespace PollInTheAir.Domain.Test
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using PollInTheAir.Domain.Models;
+    using PollInTheAir.Domain.Repository;
+    using PollInTheAir.Domain.Repository.Impl;
+
     [TestClass]
     public class Sandbox
     {

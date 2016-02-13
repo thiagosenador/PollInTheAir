@@ -1,7 +1,7 @@
-﻿using PollInTheAir.Domain.Models;
-
-namespace PollInTheAir.Domain.Service
+﻿namespace PollInTheAir.Domain.Service
 {
+    using PollInTheAir.Domain.Models;
+
     public interface IPollService
     {
         Poll GetPoll(long pollId);

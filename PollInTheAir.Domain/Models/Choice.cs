@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Policy;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Choice : Entity
     {

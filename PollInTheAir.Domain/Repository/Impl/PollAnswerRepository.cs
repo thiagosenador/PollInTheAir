@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace PollInTheAir.Domain.Repository.Impl
+﻿namespace PollInTheAir.Domain.Repository.Impl
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     using PollInTheAir.Domain.Models;
 
     public class PollAnswerRepository : Repository<PollAnswer>, IPollAnswerRepository

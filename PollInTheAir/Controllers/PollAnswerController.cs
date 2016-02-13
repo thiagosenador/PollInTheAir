@@ -1,14 +1,13 @@
-﻿using System.Linq;
-using PollInTheAir.Domain.Service;
-
-namespace PollInTheAir.Web.Controllers
+﻿namespace PollInTheAir.Web.Controllers
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
 
     using PollInTheAir.Domain.Models;
     using PollInTheAir.Domain.Repository;
+    using PollInTheAir.Domain.Service;
     using PollInTheAir.Web.ViewModel;
 
     public class PollAnswerController : Controller

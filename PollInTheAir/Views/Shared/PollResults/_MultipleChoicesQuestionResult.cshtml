@@ -2,16 +2,10 @@
 
 @model MultipleChoicesQuestionResultsSummary
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-
-        alert('@Model.Question.Statement');
-
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Choice');
@@ -20,14 +14,15 @@
         @foreach (var summary in @Model.ChoicesSummary)
         {
             <text>
-            data.addRow(['@summary.Choice', @summary.Total]);
-            </text>
+        data.addRow(['@summary.Choice', @summary.Total]);
+        </text>
         }
 
         // Set chart options
         var options = {
-            'width': 300,
-            'height': 300
+            width: 300,
+            height: 300,
+            is3D: true
         };
 
         // Instantiate and draw our chart, passing in some options.

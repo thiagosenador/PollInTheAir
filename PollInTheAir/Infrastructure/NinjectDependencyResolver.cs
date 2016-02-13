@@ -1,7 +1,4 @@
-﻿using PollInTheAir.Domain.Service;
-using PollInTheAir.Domain.Service.Impl;
-
-namespace PollInTheAir.Web.Infrastructure
+﻿namespace PollInTheAir.Web.Infrastructure
 {
     using System;
     using System.Collections.Generic;
@@ -11,6 +8,8 @@ namespace PollInTheAir.Web.Infrastructure
 
     using PollInTheAir.Domain.Repository;
     using PollInTheAir.Domain.Repository.Impl;
+    using PollInTheAir.Domain.Service;
+    using PollInTheAir.Domain.Service.Impl;
 
     public class NinjectDependencyResolver : IDependencyResolver
     {

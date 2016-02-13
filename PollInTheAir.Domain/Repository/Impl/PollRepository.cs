@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace PollInTheAir.Domain.Repository.Impl
+﻿namespace PollInTheAir.Domain.Repository.Impl
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 

@@ -1,8 +1,8 @@
-﻿using PollInTheAir.Domain.Models;
-using PollInTheAir.Domain.Repository;
-
-namespace PollInTheAir.Domain.Service.Impl
+﻿namespace PollInTheAir.Domain.Service.Impl
 {
+    using PollInTheAir.Domain.Models;
+    using PollInTheAir.Domain.Repository;
+
     public class PollService : IPollService
     {
         private readonly ICatalog catalog;

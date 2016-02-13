@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-
-namespace PollInTheAir.Domain.Models
+﻿namespace PollInTheAir.Domain.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+
     [NotMapped]
     public class PollResultsSummary
     {

@@ -1,10 +1,9 @@
-﻿using PollInTheAir.Domain.Service;
-
-namespace PollInTheAir.Web.Controllers
+﻿namespace PollInTheAir.Web.Controllers
 {
     using System.Web.Mvc;
 
     using PollInTheAir.Domain.Repository;
+    using PollInTheAir.Domain.Service;
 
     public class PollResultsController : Controller
     {

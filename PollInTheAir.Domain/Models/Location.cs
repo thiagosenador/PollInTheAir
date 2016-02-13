@@ -1,6 +1,5 @@
 ﻿namespace PollInTheAir.Domain.Models
 {
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     [ComplexType]

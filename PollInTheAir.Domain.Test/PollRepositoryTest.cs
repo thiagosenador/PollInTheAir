@@ -1,12 +1,11 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-
-namespace PollInTheAir.Domain.Test
+﻿namespace PollInTheAir.Domain.Test
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using PollInTheAir.Domain.Models;
