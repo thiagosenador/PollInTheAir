@@ -7,6 +7,7 @@
     public class Poll : Entity
     {
         [MaxLength(128)]
+        [Required(ErrorMessage = "required!!!")]
         [Display(Name = "name")]
         public string Name { get; set; }
 
@@ -21,6 +22,7 @@
         public DateTime CreationDate { get; set; }
 
         [Display(Name = "expires at")]
+        [Required(ErrorMessage = "required!!!")]
         [DataType(DataType.Date, ErrorMessage = "Wrong format !!!!")]
         public DateTime ExpirationDate { get; set; }
 

@@ -41,17 +41,38 @@
                 });
         });
     </script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/intheair.validation.js"></script>
+
+    <script>
+
+        //$(document).ready(function() {
+        //    $("#questionForm").validate();
+        //});
+        // NEED TO ADD THE REQUIRED CLASS TO FIELD
+
+        $("#temp_name").validate({
+            rules: {
+                name: "required"
+            },
+            messages: {
+                name: "Please specify your name"
+            }
+        });
+    </script>
 }
 
 @section PAGETITLE {
     Create multiple choices question
 }
 
-@using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation"))
+@using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation", FormMethod.Post, new { @id = "questionForm"}))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Statement)
-        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @required = "required" })
+        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Statement)
     </div>
 
@@ -74,7 +95,7 @@
 
         <div class="controls">
             <div class="entry input-group" style="margin-bottom: 10px">
-                @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128", @required = "required" })
+                @Html.TextBox("temp_name", null, new { @class = "form-control", @placeholder = "type a choice", @maxlength = "128" })
                 <span class="input-group-btn">
                     <button class="btn btn-primary btn-add" type="button">
                         <span class="glyphicon glyphicon-plus"></span>

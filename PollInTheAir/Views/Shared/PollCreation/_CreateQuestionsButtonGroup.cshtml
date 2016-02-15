@@ -8,11 +8,11 @@
     }
 </style>
 
-<button class="btn btn-default btn-block" type="submit" name="questionType" value="@QuestionType.FreeText">add free text question</button>
+<button class="btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.FreeText">add free text question</button>
 
-<button class="btn btn-default btn-block" type="submit" name="questionType" value="@QuestionType.MultipleChoices">add multiple choices question</button>
+<button class="btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.MultipleChoices">add multiple choices question</button>
 
 @if (@Model)
 {
-    <button id="finishButton" class="btn btn-default btn-block" type="submit" name="questionType" value="@QuestionType.Undefined">finish</button>
+    <button id="finishButton" class="btn btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.Undefined">finish</button>
 }

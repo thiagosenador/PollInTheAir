@@ -30,6 +30,9 @@
     <script src="~/Scripts/moment-with-locales.min.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
     <script src="~/Scripts/ion.rangeSlider.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/intheair.validation.js"></script>
 
     <script>
         // DATETIME PICKER
@@ -153,19 +156,21 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @maxlength = "128", @required = "required" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @maxlength = "128" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.ExpirationDate)
 
         <div class='input-group date'>
-            @Html.TextBoxFor(m => m.ExpirationDate, new { @class = "form-control", @maxlength = "20", @required = "required" })
+            @Html.TextBoxFor(m => m.ExpirationDate, new { @class = "form-control", @maxlength = "20" })
 
             <span class="input-group-addon" id="datepickerIcon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
         </div>
+        @Html.ValidationMessageFor(m => m.ExpirationDate)
     </div>
 
     <div class="form-group">
@@ -182,4 +187,4 @@
     </div>
 
     @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", false)
-    }
+}

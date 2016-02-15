@@ -6,6 +6,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section SCRIPTS {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/intheair.validation.js"></script>
+}
+
 @section PAGETITLE {
     Create free text question
 }
@@ -14,7 +20,7 @@
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Statement)
-        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @maxlength = "128", @required = "required" })
+        @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @maxlength = "128" })
         @Html.ValidationMessageFor(m => m.Statement)
     </div>
 
