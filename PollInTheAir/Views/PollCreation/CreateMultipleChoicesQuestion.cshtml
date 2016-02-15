@@ -7,44 +7,11 @@
 }
 
 @section SCRIPTS {
-    <script>
-        $(function () {
-            $(document).on('click', '.btn-add', function (e) {
-                e.preventDefault();
-
-                var controlForm = $('.controls'),
-                    currentEntry = $(this).parents('.entry:first'),
-                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
-
-                newEntry.find('input').val('');
-
-                $("[id=temp_name]").each(function (i) {
-                    $(this).attr('name', 'Choices[' + i + '].Text');
-                });
-
-                controlForm.find('.entry:not(:last) .btn-add')
-                    .removeClass('btn-add')
-                    .addClass('btn-remove')
-                    .removeClass('btn-primary')
-                    .addClass('btn-warning')
-                    .html('<span class="glyphicon glyphicon-minus"></span>');
-            }).on('click', '.btn-remove',
-                function (e) {
-                    $(this).parents('.entry:first').remove();
-                    e.preventDefault();
-
-                    $("[id=temp_name]").each(function (i) {
-                        $(this).attr('name', 'Choices[' + i + '].Text');
-                    });
-
-                    return false;
-                });
-        });
-    </script>
 
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/intheair.validation.js"></script>
+    <script src="~/Scripts/intheair.multiplequestioncreation.js"></script>
 
     <script>
 
@@ -68,7 +35,7 @@
     Create multiple choices question
 }
 
-@using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation", FormMethod.Post, new { @id = "questionForm"}))
+@using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation", FormMethod.Post, new { @id = "questionForm" }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Statement)
