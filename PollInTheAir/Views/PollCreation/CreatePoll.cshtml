@@ -40,6 +40,7 @@
         $(function () {
             $('#ExpirationDate').datetimepicker({
                 minDate: moment().add(1, 'hour'),
+                maxDate: moment().add(1, 'month'),
                 locale: 'en-us',
                 showClose: true
             });
