@@ -2,39 +2,6 @@
 
 @model MultipleChoicesQuestion
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section SCRIPTS {
-
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/intheair.validation.js"></script>
-    <script src="~/Scripts/intheair.multiplequestioncreation.js"></script>
-
-    <script>
-
-        //$(document).ready(function() {
-        //    $("#questionForm").validate();
-        //});
-        // NEED TO ADD THE REQUIRED CLASS TO FIELD
-
-        $("#temp_name").validate({
-            rules: {
-                name: "required"
-            },
-            messages: {
-                name: "Please specify your name"
-            }
-        });
-    </script>
-}
-
-@section PAGETITLE {
-    Create multiple choices question
-}
-
 @using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation", FormMethod.Post, new { @id = "questionForm" }))
 {
     <div class="form-group">
@@ -73,4 +40,13 @@
     </div>
 
     @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", true)
+}
+
+@section PAGETITLE {
+    Create multiple choices question
+}
+
+@section SCRIPTS {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/intheair.multiplequestioncreation.js")
 }

@@ -1,33 +1,6 @@
 ﻿@using PollInTheAir.Domain.Models
+
 @model PollInTheAir.Domain.Models.Poll
-
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section SCRIPTS {
-    <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
-
-    <script>
-        $(function () {
-            $("#sortable").sortable();
-            $("#sortable").disableSelection();
-        });
-    </script>
-}
-
-@section STYLES
-{
-    <style>
-        .glyphicon {
-            padding-left: 50px;
-        }
-    </style>
-}
-
-@section PAGETITLE {
-    Review your poll
-}
 
 <h1><small>@Html.LabelFor(m => m.Name)</small>@Model.Name</h1>
 
@@ -54,3 +27,27 @@
 </div>
 
 @Html.ActionLink("publish poll", "PublishPoll", "PollCreation", null, new { @class = "btn btn-default" })
+
+@section PAGETITLE {
+    Review your poll
+}
+
+@section SCRIPTS {
+    @Scripts.Render("~/Scripts/jquery-ui-1.11.4.min.js")
+
+    <script>
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+}
+
+@section STYLES
+{
+    <style>
+        .glyphicon {
+            padding-left: 50px;
+        }
+    </style>
+}

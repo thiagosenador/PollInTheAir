@@ -2,48 +2,6 @@
 
 @model Poll
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section STYLES {
-    <link rel="stylesheet" href="~/Content/bootstrap-datetimepicker.css" />
-    <link rel="stylesheet" href="~/Content/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="~/Content/ion.rangeSlider.skinFlat.css" />
-
-    <style type="text/css">
-        #map {
-            width: 95%;
-            height: 300px;
-            margin-bottom: 15px;
-            margin: 0 auto;
-            border: 2px solid #fff;
-        }
-
-        #slider {
-            margin-bottom: 40px;
-        }
-    </style>
-}
-
-@section SCRIPTS {
-    <script src="~/Scripts/moment-with-locales.min.js"></script>
-    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
-    <script src="~/Scripts/ion.rangeSlider.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/intheair.validation.js"></script>
-    <script src="~/Scripts/intheair.pollcreation.js"></script>
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTKJ2aBQb-q0LmbjCu2C-8TwGsgS7S1H4&callback=initMap">
-    </script>
-}
-
-@section PAGETITLE {
-    Create poll
-}
-
 @using (Html.BeginForm("CreatePoll", "PollCreation"))
 {
 
@@ -80,4 +38,40 @@
     </div>
 
     @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", false)
+}
+
+@section PAGETITLE {
+    Create poll
+}
+
+@section SCRIPTS {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/moment-with-locales.min.js")
+    @Scripts.Render("~/Scripts/bootstrap-datetimepicker.min.js")
+    @Scripts.Render("~/Scripts/ion.rangeSlider.min.js")
+    @Scripts.Render("~/Scripts/intheair.pollcreation.js")
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTKJ2aBQb-q0LmbjCu2C-8TwGsgS7S1H4&callback=initMap">
+    </script>
+}
+
+@section STYLES {
+    @Styles.Render("~/Content/bootstrap-datetimepicker.css")
+    @Styles.Render("~/Content/ion.rangeSlider.css")
+    @Styles.Render("~/Content/ion.rangeSlider.skinFlat.css")
+
+    <style type="text/css">
+        #map {
+            width: 95%;
+            height: 300px;
+            margin-bottom: 15px;
+            margin: 0 auto;
+            border: 2px solid #fff;
+        }
+
+        #slider {
+            margin-bottom: 40px;
+        }
+    </style>
 }

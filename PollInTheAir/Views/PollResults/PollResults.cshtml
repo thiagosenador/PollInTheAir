@@ -2,22 +2,6 @@
 
 @model PollResultsSummary
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section PAGETITLE {
-    Results of @Model.Poll.Name
-}
-
-@section SCRIPTS
-{
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
-    </script>
-}
-
 <p>Total answers: @Model.AnswersCount</p>
 
 @foreach (var summary in @Model.QuestionResultsSummaries)
@@ -36,4 +20,16 @@
             }
         </div>
     </div>
+}
+
+@section PAGETITLE {
+    Results of @Model.Poll.Name
+}
+
+@section SCRIPTS
+{
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+    </script>
 }

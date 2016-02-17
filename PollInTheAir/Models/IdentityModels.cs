@@ -21,7 +21,7 @@ namespace PollInTheAir.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("InTheAir", false)
+            : base("name=InTheAir", false)
         {
         }
 

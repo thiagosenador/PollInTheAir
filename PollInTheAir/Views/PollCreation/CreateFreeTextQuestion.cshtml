@@ -2,20 +2,6 @@
 
 @model Question
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section SCRIPTS {
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/intheair.validation.js"></script>
-}
-
-@section PAGETITLE {
-    Create free text question
-}
-
 @using (Html.BeginForm("CreateFreeTextQuestion", "PollCreation"))
 {
     <div class="form-group">
@@ -25,4 +11,12 @@
     </div>
 
     @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", true)
+}
+
+@section PAGETITLE {
+    Create free text question
+}
+
+@section SCRIPTS {
+    @Scripts.Render("~/bundles/jqueryval")
 }

@@ -1,13 +1,5 @@
 ﻿@model IEnumerable<PollInTheAir.Domain.Models.Poll>
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section PAGETITLE {
-    Available polls
-}
-
 <table class="table table-hover">
     <thead>
         <tr>
@@ -26,3 +18,7 @@
         }
     </tbody>
 </table>
+
+@section PAGETITLE {
+    Available polls
+}
