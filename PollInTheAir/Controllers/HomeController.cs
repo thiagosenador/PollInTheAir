@@ -2,6 +2,8 @@
 {
     using System.Web.Mvc;
 
+    [RequireHttps]
+    [Authorize]
     public class HomeController : Controller
     {
         public ViewResult Index()
