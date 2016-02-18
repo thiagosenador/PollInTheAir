@@ -28,7 +28,7 @@ namespace PollInTheAir.Web
                 Provider = new CookieAuthenticationProvider
                 {
                     OnValidateIdentity =
-                        SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                        SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
                             TimeSpan.FromMinutes(30), (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });

@@ -5,11 +5,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PollInTheAir.Web.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class User : IdentityUser
     {
         public string Hometown { get; set; }
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -18,7 +18,7 @@ namespace PollInTheAir.Web.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("name=InTheAir", false)

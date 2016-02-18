@@ -3,22 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PollInTheAir.Web.ViewModel
 {
-    // Models returned by AccountController actions.
-    public class ExternalLoginConfirmationViewModel
-    {
-        [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-
-        [Display(Name = "Hometown")]
-        public string Hometown { get; set; }
-    }
-
-    public class ExternalLoginListViewModel
-    {
-        public string ReturnUrl { get; set; }
-    }
-
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
@@ -35,7 +19,6 @@ namespace PollInTheAir.Web.ViewModel
         [Required]
         [Display(Name = "Code")]
         public string Code { get; set; }
-        public string ReturnUrl { get; set; }
 
         [Display(Name = "Remember this browser?")]
         public bool RememberBrowser { get; set; }

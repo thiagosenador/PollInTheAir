@@ -9,7 +9,7 @@
 
         public virtual Poll Poll { get; set; }
 
-        public User User { get; set; }
+        // public User User { get; set; }
 
         public DateTime AnswerDate { get; set; }
 

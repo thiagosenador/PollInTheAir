@@ -26,6 +26,6 @@
         [DataType(DataType.Date, ErrorMessage = "Wrong format !!!!")]
         public DateTime ExpirationDate { get; set; }
 
-        public User User { get; set; }
+        // public User User { get; set; }
     }
 }
