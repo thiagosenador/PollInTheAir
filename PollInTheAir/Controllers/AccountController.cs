@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PollInTheAir.Web.Models;
 using PollInTheAir.Web.ViewModel;
+using PollInTheAir.Domain.Models;
 
 namespace PollInTheAir.Web.Controllers
 {
@@ -159,7 +159,7 @@ namespace PollInTheAir.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email, Hometown = model.Hometown };
+                var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
