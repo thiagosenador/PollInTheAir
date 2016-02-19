@@ -7,12 +7,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using PollInTheAir.Domain.Models;
-using PollInTheAir.Domain.Models.Identity;
 using PollInTheAir.Domain.Repository;
 
 namespace PollInTheAir.Web
 {
-    public class ApplicationUserManager : UserManager<User, string>
+    public class ApplicationUserManager : UserManager<User>
     {
         public class ApplicationEmailService : IIdentityMessageService
         {
@@ -32,14 +31,14 @@ namespace PollInTheAir.Web
             }
         }
 
-        public ApplicationUserManager(UserStore<User, ApplicationRole, string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim> store)
+        public ApplicationUserManager(UserStore<User> store)
             : base(store)
         {
         }
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
             IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<User, ApplicationRole, string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>(context.Get<AppDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<AppDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<User>(manager)
             {

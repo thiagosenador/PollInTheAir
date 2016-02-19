@@ -2,11 +2,10 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using PollInTheAir.Domain.Models.Identity;
 
 namespace PollInTheAir.Domain.Models
 {
-    public class User : IdentityUser<string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
+    public class User : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, string> manager)
         {

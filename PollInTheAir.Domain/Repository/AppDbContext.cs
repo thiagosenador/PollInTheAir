@@ -9,7 +9,7 @@ namespace PollInTheAir.Domain.Repository
 
     using PollInTheAir.Domain.Models;
 
-    public class AppDbContext : IdentityDbContext<User, ApplicationRole, string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
+    public class AppDbContext : IdentityDbContext<User>
     {
         public AppDbContext() : base("name=InTheAir")
         {
@@ -40,10 +40,6 @@ namespace PollInTheAir.Domain.Repository
 
             // Configure Asp Net Identity Tables
             modelBuilder.Entity<User>().ToTable("User");
-            modelBuilder.Entity<ApplicationRole>().ToTable("Role");
-            modelBuilder.Entity<ApplicationUserRole>().ToTable("UserRole");
-            modelBuilder.Entity<ApplicationUserLogin>().ToTable("UserLogin");
-            modelBuilder.Entity<ApplicationUserClaim>().ToTable("UserClaim");
 
             modelBuilder.Entity<MultipleChoicesAnswer>().HasMany(m => m.SelectedChoices).WithMany();
         }
