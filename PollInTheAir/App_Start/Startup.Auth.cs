@@ -5,6 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using PollInTheAir.Domain.Models;
+using PollInTheAir.Domain.Repository;
 
 namespace PollInTheAir.Web
 {
@@ -14,7 +15,7 @@ namespace PollInTheAir.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
-            app.CreatePerOwinContext(Domain.Repository.IdentityDbContext.Create);
+            app.CreatePerOwinContext(AppDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
