@@ -96,4 +96,11 @@ namespace PollInTheAir.Web.ViewModel
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class SignInSignUpViewModel
+    {
+        public LoginViewModel LoginViewModel { get; set; }
+
+        public RegisterViewModel RegisterViewModel { get; set; }
+    }
 }
