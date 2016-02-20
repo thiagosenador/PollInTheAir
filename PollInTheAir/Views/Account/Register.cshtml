@@ -1,37 +1,6 @@
 ﻿@model PollInTheAir.Web.ViewModel.RegisterViewModel
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email)
-        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Email)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Hometown)
-        @Html.TextBoxFor(m => m.Hometown, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Hometown)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Password)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword)
-        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.ConfirmPassword)
-    </div>
-
-    <div class="form-group">
-        <input type="submit" class="btn btn-default" value="Register" />
-    </div>
-}
 
 @section SCRIPTS {
     @Scripts.Render("~/bundles/jqueryval")

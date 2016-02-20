@@ -1,20 +1,323 @@
-﻿html {
-    background: url(img/background_land.jpg) no-repeat center center fixed;
+﻿body {
+    overflow-x: hidden;
+}
+
+a, a:hover, a:focus, a:active, a.active {
+    outline: 0;
+}
+
+a {
+    color: #fed136;
+}
+
+    a:hover, a:focus, a:active, a.active {
+        color: #fec503;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.bg-light-gray {
+    background-color: #f7f7f7;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .open .dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color: #fec503;
+        border-color: #f6bf01;
+    }
+
+    .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        background-image: none;
+    }
+
+    .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+        background-color: #fed136;
+        border-color: #fed136;
+    }
+
+    .btn-primary .badge {
+        color: #fed136;
+        background-color: #fff;
+    }
+
+.btn-xl {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 20px 40px;
+}
+
+    .btn-xl:hover, .btn-xl:focus, .btn-xl:active, .btn-xl.active, .open .dropdown-toggle.btn-xl {
+        color: #fff;
+        background-color: #fec503;
+        border-color: #f6bf01;
+    }
+
+    .btn-xl:active, .btn-xl.active, .open .dropdown-toggle.btn-xl {
+        background-image: none;
+    }
+
+    .btn-xl.disabled, .btn-xl[disabled], fieldset[disabled] .btn-xl, .btn-xl.disabled:hover, .btn-xl[disabled]:hover, fieldset[disabled] .btn-xl:hover, .btn-xl.disabled:focus, .btn-xl[disabled]:focus, fieldset[disabled] .btn-xl:focus, .btn-xl.disabled:active, .btn-xl[disabled]:active, fieldset[disabled] .btn-xl:active, .btn-xl.disabled.active, .btn-xl[disabled].active, fieldset[disabled] .btn-xl.active {
+        background-color: #fed136;
+        border-color: #fed136;
+    }
+
+.navbar-default {
+    background-color: #222;
+}
+
+    .navbar-default .navbar-brand {
+        color: #fed136;
+    }
+
+        .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:active, .navbar-default .navbar-brand.active {
+            color: #fec503;
+        }
+
+    .navbar-default .navbar-collapse {
+        border-color: rgba(255,255,255,.02);
+    }
+
+    .navbar-default .navbar-toggle {
+        background-color: #fed136;
+        border-color: #fed136;
+    }
+
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #fff;
+        }
+
+        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+            background-color: #fed136;
+        }
+
+    .navbar-default .nav li a {
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+        .navbar-default .nav li a:hover, .navbar-default .nav li a:focus {
+            color: #fed136;
+            outline: 0;
+        }
+
+    .navbar-default .navbar-nav > .active > a {
+        border-radius: 0;
+        color: #fff;
+        background-color: #fed136;
+    }
+
+        .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+            color: #fff;
+            background-color: #fec503;
+        }
+
+@media (min-width:768px) {
+    .navbar-default {
+        padding: 20px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+        border: 0;
+    }
+
+        .navbar-default .navbar-brand {
+            font-size: 2em;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+        }
+
+        .navbar-default .navbar-nav > .active > a {
+            border-radius: 3px;
+        }
+
+        .navbar-default.navbar-shrink {
+            background-color: #222;
+            padding: 10px 0;
+        }
+
+            .navbar-default.navbar-shrink .navbar-brand {
+                font-size: 1.5em;
+            }
+}
+
+header {
+    background-image: url(img/background_land.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff;
 }
 
-body {
-    background: none;
+    header .intro-text {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+        header .intro-text .intro-lead-in {
+            font-style: italic;
+            font-size: 22px;
+            line-height: 22px;
+            margin-bottom: 25px;
+        }
+
+        header .intro-text .intro-heading {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 50px;
+            line-height: 50px;
+            margin-bottom: 25px;
+        }
+
+@media (min-width:768px) {
+    header .intro-text {
+        padding-top: 300px;
+        padding-bottom: 200px;
+    }
+
+        header .intro-text .intro-lead-in {
+            font-style: italic;
+            font-size: 40px;
+            line-height: 40px;
+            margin-bottom: 25px;
+        }
+
+        header .intro-text .intro-heading {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 75px;
+            line-height: 75px;
+            margin-bottom: 50px;
+        }
 }
 
-label{
-    color: whitesmoke;
+section {
+    padding: 100px 0;
 }
 
-.well {
-   background-color: rgba(0, 0, 0, 0.4);
-   border: none;
+    section h2.section-heading {
+        font-size: 40px;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    section h3.section-subheading {
+        font-size: 16px;
+        text-transform: none;
+        font-style: italic;
+        font-weight: 400;
+        margin-bottom: 75px;
+    }
+
+@media (min-width:768px) {
+    section {
+        padding: 150px 0;
+    }
+}
+
+.service-heading {
+    margin: 15px 0;
+    text-transform: none;
+}
+
+section#contact .section-heading {
+    color: #fff;
+}
+
+section#contact .form-group {
+    margin-bottom: 25px;
+}
+
+    section#contact .form-group input, section#contact .form-group textarea {
+        padding: 20px;
+    }
+
+        section#contact .form-group input.form-control {
+            height: auto;
+        }
+
+        section#contact .form-group textarea.form-control {
+            height: 236px;
+        }
+
+section#contact .form-control:focus {
+    border-color: #fed136;
+    box-shadow: none;
+}
+
+section#contact ::-webkit-input-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact :-moz-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact ::-moz-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact :-ms-input-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact .text-danger {
+    color: #e74c3c;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+
+    footer span.copyright {
+        line-height: 40px;
+        text-transform: uppercase;
+        text-transform: none;
+    }
+
+.btn:focus, .btn:active, .btn.active, .btn:active:focus {
+    outline: 0;
+}
+
+.navbar-fixed-top .navbar-collapse {
+    max-height: 100%;
+}
+
+.dropdown-menu {
+    min-width: 300px;
 }
