@@ -12,8 +12,7 @@ namespace PollInTheAir.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.unobtrusive*",
-                "~/Scripts/jquery.validate*",
-                "~/Scripts/intheair.validation.js"));
+                "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-{version}.js",

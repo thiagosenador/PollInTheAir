@@ -9,11 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-    @RenderSection("SCRIPTS", false)
-
     @Styles.Render("~/Content/css")
 
     @RenderSection("STYLES", false)
@@ -72,5 +67,9 @@
         @RenderBody()
 
     </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("SCRIPTS", false)
 </body>
 </html>
