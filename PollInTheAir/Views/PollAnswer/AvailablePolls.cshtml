@@ -23,7 +23,7 @@
             <tr>
                 <td>@Html.ActionLink(poll.Name, "AnswerPoll", "PollAnswer", new { pollId = @poll.Id }, null)</td>
                 <td>@poll.ExpirationDate</td>
-                <td></td>
+                <td>@poll.User.UserName</td>
             </tr>
         }
     </tbody>

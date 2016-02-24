@@ -9,6 +9,9 @@
         [Display(Name = "statement")]
         public string Statement { get; set; }
 
+        public short Order { get; set; }
+
+        [Required]
         public QuestionType? Type { get; set; }
 
         public long PollId { get; set; }

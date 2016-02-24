@@ -1,5 +1,6 @@
 ﻿namespace PollInTheAir.Domain.Repository.Impl
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
@@ -21,12 +22,27 @@
             questions.AddRange(free);
             questions.AddRange(multiple);
 
-            questions.Sort((x, y) => x.Id.CompareTo(y.Id));
+            questions.Sort((x, y) => x.Order.CompareTo(y.Order));
 
             var poll = this.Context.Polls.Find(pollId);
             poll.Questions = questions;
 
             return poll;
+        }
+
+        public IEnumerable<Poll> RetrievePollsAvailableForAnswer(Location location, User currentUser)
+        {
+            // TODO APPLY LOCATION FILTER
+            return this.Context.Polls.Include(p => p.User)
+                .Where(p =>
+                p.ExpirationDate.CompareTo(DateTime.Now) > 0
+                && !p.UserId.Equals(currentUser.Id)
+                && !this.Context.PollAnswers.Any(a => a.PollId.Equals(p.Id) && a.UserId.Equals(currentUser.Id)));
+        }
+
+        public IEnumerable<Poll> RetrievePollsAvailableForResult(User currentUser)
+        {
+            return this.Context.Polls.Where(p => p.UserId.Equals(currentUser.Id));
         }
     }
 }

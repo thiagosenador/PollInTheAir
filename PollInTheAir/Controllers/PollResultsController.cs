@@ -1,27 +1,22 @@
 ﻿namespace PollInTheAir.Web.Controllers
 {
     using System.Web.Mvc;
-
+    using Microsoft.AspNet.Identity;
     using PollInTheAir.Domain.Repository;
     using PollInTheAir.Domain.Service;
 
     public class PollResultsController : Controller
     {
-        // TODO REMOVE CATALOG
-        private readonly ICatalog catalog;
-
         private readonly IPollService pollService;
 
-        public PollResultsController(ICatalog catalog, IPollService pollService)
+        public PollResultsController(IPollService pollService)
         {
-            this.catalog = catalog;
             this.pollService = pollService;
         }
 
         public ActionResult AvailableResultPolls()
         {
-            // TODO APPLY FILTERS
-            var availablePools = this.catalog.Polls.All();
+            var availablePools = this.pollService.GetAvailablePollsForResult(new Domain.Models.User { Id = User.Identity.GetUserId() });
 
             return this.View(availablePools);
         }

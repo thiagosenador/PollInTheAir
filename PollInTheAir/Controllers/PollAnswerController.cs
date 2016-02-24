@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-
+    using Microsoft.AspNet.Identity;
     using PollInTheAir.Domain.Models;
     using PollInTheAir.Domain.Repository;
     using PollInTheAir.Domain.Service;
@@ -15,21 +15,18 @@
         private const string PollAnswerKey = "poll_answer";
         private const string PollKey = "current_poll";
 
-        // TODO REMOVE CATALOG REFERENCE
-        private readonly ICatalog catalog;
-
         private readonly IPollService pollService;
 
-        public PollAnswerController(ICatalog catalog, IPollService pollService)
+        public PollAnswerController(IPollService pollService)
         {
-            this.catalog = catalog;
             this.pollService = pollService;
         }
 
         public ActionResult AvailablePolls(Location location)
         {
-            // TODO APPLY LOCATION FILTER
-            var availablePools = this.catalog.Polls.Filter(p => p.ExpirationDate.CompareTo(DateTime.Now) > 0);
+            var user = new User { Id = User.Identity.GetUserId() };
+
+            var availablePools = this.pollService.GetAvailablePollsForAnswer(location, user);
 
             return this.View(availablePools);
         }
@@ -91,8 +88,8 @@
         {
             var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
             var poll = (Poll)this.Session[PollKey];
-
             pollAnswer.AnswerDate = DateTime.Now;
+            pollAnswer.UserId = User.Identity.GetUserId();
 
             this.pollService.AddPollAnswer(pollAnswer);
 

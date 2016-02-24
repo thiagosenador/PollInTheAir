@@ -20,6 +20,10 @@
         }
     </style>
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("SCRIPTS", false)
+
     <title>Poll in the air</title>
 </head>
 
@@ -67,9 +71,5 @@
         @RenderBody()
 
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("SCRIPTS", false)
 </body>
 </html>

@@ -41,7 +41,7 @@
             answersList.AddRange(this.CreateFreeTextAnswersSummaries(pollId));
             answersList.AddRange(this.CreateMultipleChoicesAnswersSummaries(pollId));
 
-            answersList.Sort((x, y) => x.Question.Id.CompareTo(y.Question.Id));
+            answersList.Sort((x, y) => x.Question.Order.CompareTo(y.Question.Order));
 
             var pollResults = new PollResultsSummary
             {

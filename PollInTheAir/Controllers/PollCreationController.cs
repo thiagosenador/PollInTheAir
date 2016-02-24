@@ -3,19 +3,20 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using Domain.Service;
+    using Microsoft.AspNet.Identity;
 
     using PollInTheAir.Domain.Models;
-    using PollInTheAir.Domain.Repository;
 
     public class PollCreationController : Controller
     {
         private const string PollKey = "poll";
 
-        private readonly ICatalog catalog;
+        private readonly IPollService pollService;
 
-        public PollCreationController(ICatalog catalog)
+        public PollCreationController(IPollService pollService)
         {
-            this.catalog = catalog;
+            this.pollService = pollService;
         }
 
         [HttpGet]
@@ -37,9 +38,12 @@
         [HttpPost]
         public RedirectToRouteResult CreateMultipleChoicesQuestion(QuestionType questionType, MultipleChoicesQuestion question)
         {
-            question.Type = QuestionType.MultipleChoices;
+            var poll = (Poll)Session[PollKey];
 
-            ((Poll)Session[PollKey]).Questions.Add(question);
+            question.Type = QuestionType.MultipleChoices;
+            question.Order = (short)poll.Questions.Count;
+
+            poll.Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
         }
@@ -47,9 +51,12 @@
         [HttpPost]
         public RedirectToRouteResult CreateFreeTextQuestion(QuestionType questionType, Question question)
         {
-            question.Type = QuestionType.FreeText;
+            var poll = (Poll)Session[PollKey];
 
-            ((Poll)Session[PollKey]).Questions.Add(question);
+            question.Type = QuestionType.FreeText;
+            question.Order = (short)poll.Questions.Count;
+
+            poll.Questions.Add(question);
 
             return this.GoToCreateQuestion(questionType);
         }
@@ -76,10 +83,10 @@
         public ActionResult PublishPoll()
         {
             var poll = (Poll)this.Session[PollKey];
-
             poll.CreationDate = DateTime.Now;
+            poll.UserId = User.Identity.GetUserId();
 
-            this.catalog.Polls.Create(poll);
+            this.pollService.CreatePoll(poll);
 
             return this.View("FinishPollPublish", poll);
         }

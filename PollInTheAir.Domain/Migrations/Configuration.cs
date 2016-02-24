@@ -4,7 +4,7 @@ namespace PollInTheAir.Domain.Migrations
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
 
-    using PollInTheAir.Domain.Models;
+    using Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Repository.AppDbContext>
     {
@@ -16,6 +16,20 @@ namespace PollInTheAir.Domain.Migrations
 
         protected override void Seed(Repository.AppDbContext context)
         {
+            //catch (DbEntityValidationException dbEx)
+            //{
+
+            //    foreach (var validationErrors in dbEx.EntityValidationErrors)
+            //    {
+            //        foreach (var validationError in validationErrors.ValidationErrors)
+            //        {
+            //            Trace.TraceInformation("Property: {0} Error: {1}",
+            //                                    validationError.PropertyName,
+            //                                    validationError.ErrorMessage);
+            //        }
+            //    }
+            //}
+
             //this.CreatePoll(context);
 
             //this.CreateAnswer(context);
