@@ -1,1 +1,7 @@
-﻿
+﻿.navbar {
+   background: rgba(10, 10, 10, 0.7);
+   margin-bottom: 0;
+   border: none;
+}
+
+.navbar li { color: #000 } 

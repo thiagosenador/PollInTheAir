@@ -1,8 +1,4 @@
-﻿body {
-    overflow-x: hidden;
-}
-
-a, a:hover, a:focus, a:active, a.active {
+﻿a, a:hover, a:focus, a:active, a.active {
     outline: 0;
 }
 

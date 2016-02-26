@@ -2,10 +2,15 @@
 {
     using System.Web.Mvc;
 
-    [RequireHttps]
-    [Authorize]
     public class HomeController : Controller
     {
+        public ViewResult Home()
+        {
+            return this.View();
+        }
+
+        [RequireHttps]
+        [Authorize]
         public ViewResult Index()
         {
             return this.View();

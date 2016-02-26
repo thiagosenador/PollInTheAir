@@ -281,7 +281,7 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -289,6 +289,8 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\Error.cshtml" />
     <Content Include="Views\Account\Lockout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Views\PollAnswer\AnswerQuestion.cshtml" />
     <Content Include="Views\Shared\PollAnswer\_AnswerFreeTextQuestion.cshtml" />
     <Content Include="Views\Shared\PollAnswer\_AnswerMultipleChoicesQuestion.cshtml" />

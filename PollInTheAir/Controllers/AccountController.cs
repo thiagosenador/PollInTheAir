@@ -63,7 +63,6 @@ namespace PollInTheAir.Web.Controllers
             return new EmptyResult();
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login()
@@ -71,7 +70,6 @@ namespace PollInTheAir.Web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -142,7 +140,6 @@ namespace PollInTheAir.Web.Controllers
             }
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -367,7 +364,7 @@ namespace PollInTheAir.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Home", "Home");
         }
 
         //
