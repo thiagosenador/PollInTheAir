@@ -1,7 +1,8 @@
 ﻿@using Microsoft.Owin.Security
 
 <hr />
-<p>Log in using your social accounts</p>
+
+<p class="text-center">Log in using your social accounts</p>
 
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
@@ -10,19 +11,17 @@
         {
             @Html.AntiForgeryToken()
 
-            <div id="socialLoginList">
+            <div id="socialLoginList" class="text-center">
                 @foreach (AuthenticationDescription p in loginProviders)
-                    {
-                    <p style="text-align:center">
-                        <button type="submit"
-                                class="zocial @p.AuthenticationType.ToLower()"
-                                id="@p.AuthenticationType"
-                                name="provider"
-                                value="@p.AuthenticationType"
-                                title="Log in using your @p.Caption account">
-                            @p.AuthenticationType
-                        </button>
-                    </p>
+                {
+                    <button type="submit"
+                            class="btn btn-info"
+                            id="@p.AuthenticationType"
+                            name="provider"
+                            value="@p.AuthenticationType"
+                            title="Log in using your @p.Caption account">
+                        @p.AuthenticationType
+                    </button>
                 }
             </div>
         }

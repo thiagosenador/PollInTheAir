@@ -1,7 +1,56 @@
 ﻿.navbar {
-   background: rgba(10, 10, 10, 0.7);
-   margin-bottom: 0;
-   border: none;
+    background: rgba(10, 10, 10, 0.7);
+    margin-bottom: 0;
+    border: none;
 }
 
-.navbar li { color: #000 } 
+/* login page */
+html, body, .container-table {
+    height: 100%;
+}
+
+.container-table {
+    display: table;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: -webkit-flex; /* For Safari */
+    -webkit-justify-content: center; /* For Safari */
+    -webkit-align-items: center; /* For Safari */
+}
+
+#loginButton {
+    width: 50%;
+}
+
+#loginBody {
+    background-image: url(img/login.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.well {
+    background-color: rgba(245, 245, 245, 0.4);
+    border: none;
+}
+
+#home_button {
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 30px;
+}
