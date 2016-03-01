@@ -93,7 +93,7 @@ namespace PollInTheAir.Web.Controllers
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { model.LoginViewModel.RememberMe });
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("LOGIN_FAILED", "Invalid login attempt!");
                     return View(model);
             }
         }

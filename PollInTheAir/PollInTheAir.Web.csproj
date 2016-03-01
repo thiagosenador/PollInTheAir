@@ -316,6 +316,10 @@
       <Project>{188fa1ae-aaa3-42c3-8c15-c5e6f944c60c}</Project>
       <Name>PollInTheAir.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{875e632e-1b42-4933-8ff9-2356ef02d97e}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PollInTheAir.Domain", "Poll
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PollInTheAir.Domain.Test", "PollInTheAir.Domain.Test\PollInTheAir.Domain.Test.csproj", "{F9CD9027-4191-40C0-9ABC-6E2D7476A62D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{875E632E-1B42-4933-8FF9-2356EF02D97E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F9CD9027-4191-40C0-9ABC-6E2D7476A62D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9CD9027-4191-40C0-9ABC-6E2D7476A62D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9CD9027-4191-40C0-9ABC-6E2D7476A62D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875E632E-1B42-4933-8FF9-2356EF02D97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875E632E-1B42-4933-8FF9-2356EF02D97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875E632E-1B42-4933-8FF9-2356EF02D97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875E632E-1B42-4933-8FF9-2356EF02D97E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

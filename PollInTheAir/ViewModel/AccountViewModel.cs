@@ -35,8 +35,8 @@ namespace PollInTheAir.Web.ViewModel
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "email", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "emailRequired")]
         [EmailAddress]
         public string Email { get; set; }
 
