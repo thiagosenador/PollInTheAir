@@ -95,5 +95,14 @@ namespace Resources {
                 return ResourceManager.GetString("rememberMe", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to welcome!.
+        /// </summary>
+        public static string welcome {
+            get {
+                return ResourceManager.GetString("welcome", resourceCulture);
+            }
+        }
     }
 }

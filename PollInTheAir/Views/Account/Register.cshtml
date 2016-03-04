@@ -20,34 +20,44 @@
     <title>Poll in the air</title>
 </head>
 
-<body>
-    <div class="container">
-        @using (Html.BeginForm("Register", "Account"))
-        {
-            @Html.AntiForgeryToken()
+<body id="loginBody">
+    <div id="home_icon">
+        <a href="@Url.Action("Home", "Home")">
+            <span class="glyphicon glyphicon-home" aria-hidden="true" id="home_button"></span>
+        </a>
+    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterViewModel.Email)
-                @Html.TextBoxFor(m => m.RegisterViewModel.Email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.RegisterViewModel.Email)
-            </div>
+    <div class="container container-table col-md-3 col-md-offset-7">
+        <div class="row vertical-center-row">
+            <div class="well">
+                @using (Html.BeginForm("Register", "Account"))
+                {
+                    @Html.AntiForgeryToken()
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterViewModel.Password)
-                @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.RegisterViewModel.Password)
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.RegisterViewModel.Email)
+                        @Html.TextBoxFor(m => m.RegisterViewModel.Email, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.RegisterViewModel.Email)
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.RegisterViewModel.ConfirmPassword)
-                @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.RegisterViewModel.ConfirmPassword)
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.RegisterViewModel.Password)
+                        @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.RegisterViewModel.Password)
+                    </div>
 
-            <div class="form-group">
-                <input type="submit" class="btn btn-default" value="Register" />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.RegisterViewModel.ConfirmPassword)
+                        @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.RegisterViewModel.ConfirmPassword)
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default" value="Register" />
+                    </div>
+                }
             </div>
-        }
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

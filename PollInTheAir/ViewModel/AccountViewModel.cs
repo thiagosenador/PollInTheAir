@@ -42,10 +42,10 @@ namespace PollInTheAir.Web.ViewModel
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "password", ResourceType = typeof(Resources.Resources))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "rememberMe", ResourceType = typeof(Resources.Resources))]
         public bool RememberMe { get; set; }
     }
 

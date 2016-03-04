@@ -129,4 +129,7 @@
   <data name="rememberMe" xml:space="preserve">
     <value>lembrar</value>
   </data>
+  <data name="welcome" xml:space="preserve">
+    <value>bem vindo!</value>
+  </data>
 </root>
