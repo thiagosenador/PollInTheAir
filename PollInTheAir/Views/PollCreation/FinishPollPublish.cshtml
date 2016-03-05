@@ -1,8 +1,7 @@
 ﻿@model PollInTheAir.Domain.Models.Poll
 
-<p>Your '@Model.Name' poll were published successfully!</p>
-<p>Thank you for your participation!!!</p>
+<p>@string.Format(Resources.Resources.pollIsAvailable, Model.Name)</p>
 
 @section PAGETITLE {
-    Your poll is now available!!!
+    @Resources.Resources.pollIsAvailable
 }

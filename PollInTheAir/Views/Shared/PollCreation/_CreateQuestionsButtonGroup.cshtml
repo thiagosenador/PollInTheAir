@@ -10,15 +10,15 @@
 
 <button class="btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.FreeText">
     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-    add free text question
+    @Resources.Resources.addFreeText
 </button>
 
 <button class="btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.MultipleChoices">
     <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-    add multiple choices question
+    @Resources.Resources.addMultiple
 </button>
 
 @if (@Model)
 {
-    <button id="finishButton" class="btn btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.Undefined">finish</button>
+    <button id="finishButton" class="btn btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.Undefined">@Resources.Resources.finish</button>
 }

@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to add free text question.
+        /// </summary>
+        public static string addFreeText {
+            get {
+                return ResourceManager.GetString("addFreeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to add multiple choices question.
+        /// </summary>
+        public static string addMultiple {
+            get {
+                return ResourceManager.GetString("addMultiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to answer poll.
         /// </summary>
         public static string answerPoll {
@@ -70,11 +88,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to answers allowed.
+        /// </summary>
+        public static string answersAllowed {
+            get {
+                return ResourceManager.GetString("answersAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Poll in the air.
         /// </summary>
         public static string appTitle {
             get {
                 return ResourceManager.GetString("appTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to available polls.
+        /// </summary>
+        public static string availablePolls {
+            get {
+                return ResourceManager.GetString("availablePolls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to choices.
+        /// </summary>
+        public static string choices {
+            get {
+                return ResourceManager.GetString("choices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to created by.
+        /// </summary>
+        public static string createdBy {
+            get {
+                return ResourceManager.GetString("createdBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to create free text question.
+        /// </summary>
+        public static string createFreeText {
+            get {
+                return ResourceManager.GetString("createFreeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to create multiple choices question.
+        /// </summary>
+        public static string createMultiple {
+            get {
+                return ResourceManager.GetString("createMultiple", resourceCulture);
             }
         }
         
@@ -142,6 +214,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to finish.
+        /// </summary>
+        public static string finish {
+            get {
+                return ResourceManager.GetString("finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to log in using your social accounts.
+        /// </summary>
+        public static string logInSocialAccounts {
+            get {
+                return ResourceManager.GetString("logInSocialAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to log off.
+        /// </summary>
+        public static string logOff {
+            get {
+                return ResourceManager.GetString("logOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to multiple.
+        /// </summary>
+        public static string multiple {
+            get {
+                return ResourceManager.GetString("multiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to my polls.
         /// </summary>
         public static string myPolls {
@@ -196,6 +304,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to your &apos;{0}&apos; poll were published successfully!.
+        /// </summary>
+        public static string pollAvailabelMsg {
+            get {
+                return ResourceManager.GetString("pollAvailabelMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to your poll is now available!.
+        /// </summary>
+        public static string pollIsAvailable {
+            get {
+                return ResourceManager.GetString("pollIsAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to publish poll.
+        /// </summary>
+        public static string publishPoll {
+            get {
+                return ResourceManager.GetString("publishPoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to questions.
         /// </summary>
         public static string questions {
@@ -214,11 +349,74 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to register.
+        /// </summary>
+        public static string register {
+            get {
+                return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to remember me.
         /// </summary>
         public static string rememberMe {
             get {
                 return ResourceManager.GetString("rememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to results of &apos;{0}&apos; poll.
+        /// </summary>
+        public static string resultsOfPoll {
+            get {
+                return ResourceManager.GetString("resultsOfPoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to review your poll.
+        /// </summary>
+        public static string reviewPoll {
+            get {
+                return ResourceManager.GetString("reviewPoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to single.
+        /// </summary>
+        public static string single {
+            get {
+                return ResourceManager.GetString("single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thank you for your participation!.
+        /// </summary>
+        public static string thanksParticipation {
+            get {
+                return ResourceManager.GetString("thanksParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to your answers for &apos;{0}&apos; poll were saved successfully!.
+        /// </summary>
+        public static string thanksParticipationMsg {
+            get {
+                return ResourceManager.GetString("thanksParticipationMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to total answers.
+        /// </summary>
+        public static string totalAnswers {
+            get {
+                return ResourceManager.GetString("totalAnswers", resourceCulture);
             }
         }
         

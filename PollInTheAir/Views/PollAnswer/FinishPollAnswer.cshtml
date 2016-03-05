@@ -5,8 +5,7 @@
 }
 
 @section PAGETITLE {
-    Thank you for your participation!!!
+    @Resources.Resources.thanksParticipation
 }
 
-<p>Your answers for '@Model.Name' poll were saved successfully!</p>
-<p>Thank you for your participation!!!</p>
+<p>@string.Format(Resources.Resources.thanksParticipationMsg, Model.Name)</p>

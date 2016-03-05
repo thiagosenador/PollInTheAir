@@ -2,7 +2,7 @@
 
 @model PollResultsSummary
 
-<p>Total answers: @Model.AnswersCount</p>
+<p>@Resources.Resources.totalAnswers:  @Model.AnswersCount</p>
 
 @foreach (var summary in @Model.QuestionResultsSummaries)
 {
@@ -23,7 +23,7 @@
 }
 
 @section PAGETITLE {
-    Results of @Model.Poll.Name
+    @string.Format(Resources.Resources.resultsOfPoll, @Model.Poll.Name)
 }
 
 @section SCRIPTS

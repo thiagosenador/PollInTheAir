@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addFreeText" xml:space="preserve">
+    <value>adicionar pergunta de texto livre</value>
+  </data>
+  <data name="addMultiple" xml:space="preserve">
+    <value>adicionar pergunta de múltipla escolha</value>
+  </data>
   <data name="answerPoll" xml:space="preserve">
     <value>responder enquete</value>
   </data>
@@ -143,6 +149,9 @@
   </data>
   <data name="expirationDateRequired" xml:space="preserve">
     <value>data de expiração é obrigatória!</value>
+  </data>
+  <data name="finish" xml:space="preserve">
+    <value>finilizar</value>
   </data>
   <data name="myPolls" xml:space="preserve">
     <value>minhas enquetes</value>

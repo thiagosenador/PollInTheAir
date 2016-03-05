@@ -24,7 +24,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("SCRIPTS", false)
 
-    <title>Poll in the air</title>
+    <title>@Resources.Resources.appTitle</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                @Html.ActionLink("InTheAir", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink(@Resources.Resources.appTitle, "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
@@ -54,7 +54,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li role="separator" class="divider"></li>
-                                <li><a href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a></li>
+                                <li><a href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">@Resources.Resources.logOff</a></li>
                             </ul>
                         </li>
                     </ul>

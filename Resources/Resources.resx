@@ -117,11 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addFreeText" xml:space="preserve">
+    <value>add free text question</value>
+  </data>
+  <data name="addMultiple" xml:space="preserve">
+    <value>add multiple choices question</value>
+  </data>
   <data name="answerPoll" xml:space="preserve">
     <value>answer poll</value>
   </data>
+  <data name="answersAllowed" xml:space="preserve">
+    <value>answers allowed</value>
+  </data>
   <data name="appTitle" xml:space="preserve">
     <value>Poll in the air</value>
+  </data>
+  <data name="availablePolls" xml:space="preserve">
+    <value>available polls</value>
+  </data>
+  <data name="choices" xml:space="preserve">
+    <value>choices</value>
+  </data>
+  <data name="createdBy" xml:space="preserve">
+    <value>created by</value>
+  </data>
+  <data name="createFreeText" xml:space="preserve">
+    <value>create free text question</value>
+  </data>
+  <data name="createMultiple" xml:space="preserve">
+    <value>create multiple choices question</value>
   </data>
   <data name="createPoll" xml:space="preserve">
     <value>create poll</value>
@@ -144,6 +168,18 @@
   <data name="expirationDateRequired" xml:space="preserve">
     <value>expiration date is required!</value>
   </data>
+  <data name="finish" xml:space="preserve">
+    <value>finish</value>
+  </data>
+  <data name="logInSocialAccounts" xml:space="preserve">
+    <value>log in using your social accounts</value>
+  </data>
+  <data name="logOff" xml:space="preserve">
+    <value>log off</value>
+  </data>
+  <data name="multiple" xml:space="preserve">
+    <value>multiple</value>
+  </data>
   <data name="myPolls" xml:space="preserve">
     <value>my polls</value>
   </data>
@@ -162,14 +198,44 @@
   <data name="poll" xml:space="preserve">
     <value>poll</value>
   </data>
+  <data name="pollAvailabelMsg" xml:space="preserve">
+    <value>your '{0}' poll were published successfully!</value>
+  </data>
+  <data name="pollIsAvailable" xml:space="preserve">
+    <value>your poll is now available!</value>
+  </data>
+  <data name="publishPoll" xml:space="preserve">
+    <value>publish poll</value>
+  </data>
   <data name="questions" xml:space="preserve">
     <value>questions</value>
   </data>
   <data name="range" xml:space="preserve">
     <value>range</value>
   </data>
+  <data name="register" xml:space="preserve">
+    <value>register</value>
+  </data>
   <data name="rememberMe" xml:space="preserve">
     <value>remember me</value>
+  </data>
+  <data name="resultsOfPoll" xml:space="preserve">
+    <value>results of '{0}' poll</value>
+  </data>
+  <data name="reviewPoll" xml:space="preserve">
+    <value>review your poll</value>
+  </data>
+  <data name="single" xml:space="preserve">
+    <value>single</value>
+  </data>
+  <data name="thanksParticipation" xml:space="preserve">
+    <value>thank you for your participation!</value>
+  </data>
+  <data name="thanksParticipationMsg" xml:space="preserve">
+    <value>your answers for '{0}' poll were saved successfully!</value>
+  </data>
+  <data name="totalAnswers" xml:space="preserve">
+    <value>total answers</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>welcome!</value>
