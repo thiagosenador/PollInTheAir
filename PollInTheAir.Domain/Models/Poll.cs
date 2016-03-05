@@ -7,23 +7,23 @@
     public class Poll : Entity
     {
         [MaxLength(128)]
-        [Required(ErrorMessage = "required!!!")]
-        [Display(Name = "name")]
+        [Display(Name = "name", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "nameRequired")]
         public string Name { get; set; }
 
         public Location CreationLocation { get; set; }
 
+        [Display(Name = "range", ResourceType = typeof(Resources.Resources))]
         public float Range { get; set; }
 
-        [Display(Name = "questions")]
+        [Display(Name = "questions", ResourceType = typeof(Resources.Resources))]
         public virtual List<Question> Questions { get; set; }
 
-        [Display(Name = "created at")]
+        [Display(Name = "creationDate", ResourceType = typeof(Resources.Resources))]
         public DateTime CreationDate { get; set; }
 
-        [Display(Name = "expires at")]
-        [Required(ErrorMessage = "required!!!")]
-        [DataType(DataType.Date, ErrorMessage = "Wrong format !!!!")]
+        [Display(Name = "expirationDate", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "expirationDateRequired")]
         public DateTime ExpirationDate { get; set; }
 
         [Required]

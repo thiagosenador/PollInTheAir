@@ -117,14 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="answerPoll" xml:space="preserve">
+    <value>answer poll</value>
+  </data>
+  <data name="appTitle" xml:space="preserve">
+    <value>Poll in the air</value>
+  </data>
+  <data name="createPoll" xml:space="preserve">
+    <value>create poll</value>
+  </data>
+  <data name="creationDate" xml:space="preserve">
+    <value>created in</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>email</value>
   </data>
   <data name="emailRequired" xml:space="preserve">
     <value>email is required!</value>
   </data>
+  <data name="errorMsgTitle" xml:space="preserve">
+    <value>ouch! something went wrong!</value>
+  </data>
+  <data name="expirationDate" xml:space="preserve">
+    <value>expires in</value>
+  </data>
+  <data name="expirationDateRequired" xml:space="preserve">
+    <value>expiration date is required!</value>
+  </data>
+  <data name="myPolls" xml:space="preserve">
+    <value>my polls</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="nameRequired" xml:space="preserve">
+    <value>name is required!</value>
+  </data>
+  <data name="noLocationErrorMsg" xml:space="preserve">
+    <value>we need your location in order to proceed! Some features may get disabled!</value>
+  </data>
   <data name="password" xml:space="preserve">
     <value>password</value>
+  </data>
+  <data name="poll" xml:space="preserve">
+    <value>poll</value>
+  </data>
+  <data name="questions" xml:space="preserve">
+    <value>questions</value>
+  </data>
+  <data name="range" xml:space="preserve">
+    <value>range</value>
   </data>
   <data name="rememberMe" xml:space="preserve">
     <value>remember me</value>

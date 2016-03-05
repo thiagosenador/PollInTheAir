@@ -1,10 +1,12 @@
 ﻿// DATETIME PICKER
 
 $(function () {
+    var locale = window.navigator.userLanguage || window.navigator.language;
+
 	$('#ExpirationDate').datetimepicker({
 		minDate: moment().add(1, 'hour'),
 		maxDate: moment().add(1, 'month'),
-		locale: 'en-us',
+		locale: moment.locale(locale),
 		showClose: true
 	});
 

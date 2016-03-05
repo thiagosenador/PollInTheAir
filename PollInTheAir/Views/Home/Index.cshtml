@@ -2,22 +2,22 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="well">
-                <h2>poll</h2>
+                <h2>@Resources.Resources.poll</h2>
 
                 @using (Html.BeginForm("AvailablePolls", "PollAnswer", FormMethod.Post))
-            {
+                {
                     <div>
-                        @Html.ActionLink("create poll", "CreatePoll", "PollCreation", null, new { @class = "btn btn-primary btn-lg", @id = "CreatePollButton" })
+                        @Html.ActionLink(Resources.Resources.createPoll, "CreatePoll", "PollCreation", null, new { @class = "btn btn-primary btn-lg", @id = "CreatePollButton" })
                     </div>
                     <div>
                         @Html.Hidden("Latitude")
                         @Html.Hidden("Longitude")
 
-                        <input id="AnswerPollButton" type="submit" value="answer poll" class="btn btn-primary btn-lg" />
+                        <input id="AnswerPollButton" type="submit" value="@Resources.Resources.answerPoll" class="btn btn-primary btn-lg" />
                     </div>
 
                     <div>
-                        @Html.ActionLink("my polls", "AvailableResultPolls", "PollResults", null, new { @class = "btn btn-primary btn-lg", @id = "ViewPollButton" })
+                        @Html.ActionLink(Resources.Resources.myPolls, "AvailableResultPolls", "PollResults", null, new { @class = "btn btn-primary btn-lg", @id = "ViewPollButton" })
                     </div>
                 }
             </div>
@@ -37,11 +37,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Ooops! Something went wrong!</h4>
+                    <h4 class="modal-title">@Resources.Resources.myPolls</h4>
                 </div>
                 <div class="modal-body">
-                    <p>We need your location in order to proceed!</p>
-                    <p>Some features may get disabled!</p>
+                    <p>@Resources.Resources.noLocationErrorMsg</p>
                 </div>
             </div>
         </div>
@@ -49,7 +48,7 @@
 </div>
 
 @section PAGETITLE {
-    Poll in the air
+    @Resources.Resources.appTitle
 }
 
 @section SCRIPTS {

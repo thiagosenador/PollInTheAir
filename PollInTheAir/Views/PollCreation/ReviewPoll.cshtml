@@ -1,53 +1,55 @@
 ﻿@using PollInTheAir.Domain.Models
 
-@model PollInTheAir.Domain.Models.Poll
+@model Poll
 
-<h1><small>@Html.LabelFor(m => m.Name)</small>@Model.Name</h1>
-
-<h1><small>@Html.LabelFor(m => m.ExpirationDate)</small>@Model.ExpirationDate</h1>
-
-<h3>@Html.LabelFor(m => m.Questions)</h3>
-
-<div id="sortable" class="list-group">
-    @foreach (var question in Model.Questions)
-    {
-        <a href="#" class="list-group-item">
-            @if (question.Type.Equals(QuestionType.FreeText))
-            {
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            }
-            else if (question.Type.Equals(QuestionType.MultipleChoices))
-            {
-                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-            }
-
-            @question.Statement
-        </a>
-    }
+<div class="row">
+    <div class="col-md-1">@Html.LabelFor(m => m.Name)</div>
+    <div class="col-md-5">
+        @Model.Name
+    </div>
 </div>
 
-@Html.ActionLink("publish poll", "PublishPoll", "PollCreation", null, new { @class = "btn btn-default" })
+<div class="row">
+    <div class="col-md-1">@Html.LabelFor(m => m.ExpirationDate)</div>
+    <div class="col-md-5">
+        @Model.ExpirationDate
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">@Html.LabelFor(m => m.Range)</div>
+    <div class="col-md-5">
+        @Model.Range
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">@Html.LabelFor(m => m.Questions)</div>
+    <div class="col-md-5">
+        @foreach (var question in Model.Questions)
+        {
+            <div>
+                @if (question.Type.Equals(QuestionType.FreeText))
+                {
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                }
+                else if (question.Type.Equals(QuestionType.MultipleChoices))
+                {
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                }
+
+                @question.Statement
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">
+        @Html.ActionLink("publish poll", "PublishPoll", "PollCreation", null, new { @class = "btn btn-default" })
+    </div>
+</div>
 
 @section PAGETITLE {
     Review your poll
-}
-
-@section SCRIPTS {
-    @Scripts.Render("~/Scripts/jquery-ui-1.11.4.min.js")
-
-    <script>
-        $(function () {
-            $("#sortable").sortable();
-            $("#sortable").disableSelection();
-        });
-    </script>
-}
-
-@section STYLES
-{
-    <style>
-        .glyphicon {
-            padding-left: 50px;
-        }
-    </style>
 }

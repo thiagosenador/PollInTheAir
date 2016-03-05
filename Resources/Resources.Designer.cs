@@ -61,6 +61,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to answer poll.
+        /// </summary>
+        public static string answerPoll {
+            get {
+                return ResourceManager.GetString("answerPoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Poll in the air.
+        /// </summary>
+        public static string appTitle {
+            get {
+                return ResourceManager.GetString("appTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to create poll.
+        /// </summary>
+        public static string createPoll {
+            get {
+                return ResourceManager.GetString("createPoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to created in.
+        /// </summary>
+        public static string creationDate {
+            get {
+                return ResourceManager.GetString("creationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to email.
         /// </summary>
         public static string email {
@@ -79,11 +115,101 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ouch! something went wrong!.
+        /// </summary>
+        public static string errorMsgTitle {
+            get {
+                return ResourceManager.GetString("errorMsgTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to expires in.
+        /// </summary>
+        public static string expirationDate {
+            get {
+                return ResourceManager.GetString("expirationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to expiration date is required!.
+        /// </summary>
+        public static string expirationDateRequired {
+            get {
+                return ResourceManager.GetString("expirationDateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to my polls.
+        /// </summary>
+        public static string myPolls {
+            get {
+                return ResourceManager.GetString("myPolls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name.
+        /// </summary>
+        public static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name is required!.
+        /// </summary>
+        public static string nameRequired {
+            get {
+                return ResourceManager.GetString("nameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to we need your location in order to proceed! Some features may get disabled!.
+        /// </summary>
+        public static string noLocationErrorMsg {
+            get {
+                return ResourceManager.GetString("noLocationErrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to password.
         /// </summary>
         public static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to poll.
+        /// </summary>
+        public static string poll {
+            get {
+                return ResourceManager.GetString("poll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to questions.
+        /// </summary>
+        public static string questions {
+            get {
+                return ResourceManager.GetString("questions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to range.
+        /// </summary>
+        public static string range {
+            get {
+                return ResourceManager.GetString("range", resourceCulture);
             }
         }
         
