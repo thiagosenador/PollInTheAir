@@ -6,6 +6,7 @@
     public class Choice : Entity
     {
         [MaxLength(128)]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "choiceRequired")]
         public string Text { get; set; }
 
         [NotMapped]

@@ -7,6 +7,7 @@
     public class FreeTextAnswer : QuestionAnswer
     {
         [MaxLength(128)]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "commentRequired")]
         public string Comment { get; set; }
     }
 }

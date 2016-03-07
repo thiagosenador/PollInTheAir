@@ -10,8 +10,7 @@ namespace PollInTheAir.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            // TODO ENABLE SECURITY
-            // ConfigureAuth(app);
+            ConfigureAuth(app);
         }
     }
 }

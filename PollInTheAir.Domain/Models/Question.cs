@@ -5,8 +5,8 @@
     public class Question : Entity
     {
         [MaxLength(128)]
-        [Required(ErrorMessage = "required!!!")]
-        [Display(Name = "statement")]
+        [Display(Name = "statement", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "statementRequired")]
         public string Statement { get; set; }
 
         public short Order { get; set; }

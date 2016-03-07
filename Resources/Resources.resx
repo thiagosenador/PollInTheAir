@@ -240,4 +240,19 @@
   <data name="welcome" xml:space="preserve">
     <value>welcome!</value>
   </data>
+  <data name="answer" xml:space="preserve">
+    <value>answer</value>
+  </data>
+  <data name="commentRequired" xml:space="preserve">
+    <value>please provide a valid comment!</value>
+  </data>
+  <data name="choiceRequired" xml:space="preserve">
+    <value>a valid choice is required!</value>
+  </data>
+  <data name="statement" xml:space="preserve">
+    <value>statement</value>
+  </data>
+  <data name="statementRequired" xml:space="preserve">
+    <value>a valid statement is required!</value>
+  </data>
 </root>

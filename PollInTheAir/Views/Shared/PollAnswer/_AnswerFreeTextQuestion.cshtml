@@ -6,7 +6,8 @@
 {
     <div class="form-group">
         @Html.Hidden("QuestionId", @Model.Id)
-        @Html.TextArea("Comment", new { @rows = "3", @class = "form-control" })
+        @Html.TextArea("Comment", new { @rows = "3", @class = "form-control", @data_val = "true", @data_val_required = Resources.Resources.commentRequired })
+        <p class="help-block">@Html.ValidationMessage("Comment")</p>
     </div>
 
     <div>

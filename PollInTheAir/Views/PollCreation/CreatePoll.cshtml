@@ -12,7 +12,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ExpirationDate)
+        @Html.LabelFor(m => m.ExpirationDate, new { @class = "control-label" })
 
         <div class='input-group date'>
             @Html.TextBoxFor(m => m.ExpirationDate, new { @class = "form-control", @maxlength = "20" })
@@ -21,7 +21,7 @@
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
         </div>
-        @Html.ValidationMessageFor(m => m.ExpirationDate)
+        <p class="help-block">@Html.ValidationMessageFor(m => m.ExpirationDate)</p>
     </div>
 
     <div class="form-group">

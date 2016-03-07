@@ -8,8 +8,9 @@
 
         newEntry.find('input').val('');
 
-        $("[id=temp_name]").each(function (i) {
-            $(this).attr('name', 'Choices[' + i + '].Text');
+        $("[id=choiceField]").each(function (i) {
+            var newId = 'Choices[' + i + '].Text'
+            $(this).attr('name', newId);
         });
 
         controlForm.find('.entry:not(:last) .btn-add')
@@ -23,7 +24,7 @@
             $(this).parents('.entry:first').remove();
             e.preventDefault();
 
-            $("[id=temp_name]").each(function (i) {
+            $("[id=choiceField]").each(function (i) {
                 $(this).attr('name', 'Choices[' + i + '].Text');
             });
 

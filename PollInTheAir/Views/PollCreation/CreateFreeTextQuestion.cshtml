@@ -5,9 +5,9 @@
 @using (Html.BeginForm("CreateFreeTextQuestion", "PollCreation"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.Statement)
+        @Html.LabelFor(m => m.Statement, new { @class = "control-label" })
         @Html.TextBoxFor(m => m.Statement, new { @class = "form-control", @maxlength = "128" })
-        @Html.ValidationMessageFor(m => m.Statement)
+        <p class="help-block">@Html.ValidationMessageFor(m => m.Statement)</p>
     </div>
 
     @Html.Partial("PollCreation/_CreateQuestionsButtonGroup", true)

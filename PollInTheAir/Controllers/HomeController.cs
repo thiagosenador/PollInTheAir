@@ -9,8 +9,8 @@
             return this.View();
         }
 
-        //[RequireHttps]
-        //[Authorize]
+        [RequireHttps]
+        [Authorize]
         public ViewResult Index()
         {
             return this.View();

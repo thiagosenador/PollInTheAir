@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to answer.
+        /// </summary>
+        public static string answer {
+            get {
+                return ResourceManager.GetString("answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to answer poll.
         /// </summary>
         public static string answerPoll {
@@ -115,11 +124,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to a valid choice is required!.
+        /// </summary>
+        public static string choiceRequired {
+            get {
+                return ResourceManager.GetString("choiceRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to choices.
         /// </summary>
         public static string choices {
             get {
                 return ResourceManager.GetString("choices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to please provide a valid comment!.
+        /// </summary>
+        public static string commentRequired {
+            get {
+                return ResourceManager.GetString("commentRequired", resourceCulture);
             }
         }
         
@@ -390,6 +417,24 @@ namespace Resources {
         public static string single {
             get {
                 return ResourceManager.GetString("single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to statement.
+        /// </summary>
+        public static string statement {
+            get {
+                return ResourceManager.GetString("statement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to a valid statement is required!.
+        /// </summary>
+        public static string statementRequired {
+            get {
+                return ResourceManager.GetString("statementRequired", resourceCulture);
             }
         }
         

@@ -5,9 +5,9 @@
 @using (Html.BeginForm("CreateMultipleChoicesQuestion", "PollCreation", FormMethod.Post, new { @id = "questionForm" }))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.Statement)
+        @Html.LabelFor(m => m.Statement, new { @class = "control-label" })
         @Html.TextBoxFor(m => m.Statement, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Statement)
+        <p class="help-block">@Html.ValidationMessageFor(m => m.Statement)</p>
     </div>
 
     <div class="form-group">
@@ -29,7 +29,7 @@
 
         <div class="controls">
             <div class="entry input-group" style="margin-bottom: 10px">
-                @Html.TextBox("temp_name", null, new { @class = "form-control", @maxlength = "128" })
+                @Html.TextBox("choiceField", "", new { @class = "form-control", @maxlength = "128", @required = "true" })
                 <span class="input-group-btn">
                     <button class="btn btn-primary btn-add" type="button">
                         <span class="glyphicon glyphicon-plus"></span>
