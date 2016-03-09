@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity.Spatial;
     using System.Web.Mvc;
     using Domain.Service;
     using Microsoft.AspNet.Identity;
@@ -26,9 +27,10 @@
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreatePoll(QuestionType questionType, Poll poll)
+        public RedirectToRouteResult CreatePoll(QuestionType questionType, Poll poll, Location location)
         {
             poll.Questions = new List<Question>();
+            poll.CreationLocation = DbGeography.PointFromText(string.Format("POINT({0} {1})", location.Longitude, location.Latitude), 4326);
 
             this.Session[PollKey] = poll;
 

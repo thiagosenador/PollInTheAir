@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.Spatial;
     using System.Linq;
 
     using PollInTheAir.Domain.Models;
@@ -32,17 +33,19 @@
 
         public IEnumerable<Poll> RetrievePollsAvailableForAnswer(Location location, User currentUser)
         {
-            // TODO APPLY LOCATION FILTER
+            var myLocation = DbGeography.PointFromText(string.Format("POINT({0} {1})", location.Longitude, location.Latitude), 4326);
+
             return this.Context.Polls.Include(p => p.User)
                 .Where(p =>
                 p.ExpirationDate.CompareTo(DateTime.Now) > 0
                 && !p.UserId.Equals(currentUser.Id)
-                && !this.Context.PollAnswers.Any(a => a.PollId.Equals(p.Id) && a.UserId.Equals(currentUser.Id)));
+                && !this.Context.PollAnswers.Any(a => a.PollId.Equals(p.Id) && a.UserId.Equals(currentUser.Id))
+                && p.CreationLocation.Distance(myLocation) < p.Range).ToList();
         }
 
         public IEnumerable<Poll> RetrievePollsAvailableForResult(User currentUser)
         {
-            return this.Context.Polls.Where(p => p.UserId.Equals(currentUser.Id));
+            return this.Context.Polls.Where(p => p.UserId.Equals(currentUser.Id)).ToList();
         }
     }
 }

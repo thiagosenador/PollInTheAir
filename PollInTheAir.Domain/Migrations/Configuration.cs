@@ -62,7 +62,7 @@ namespace PollInTheAir.Domain.Migrations
                 Range = 50,
                 CreationDate = DateTime.Now,
                 ExpirationDate = new DateTime(2020, 01, 01),
-                CreationLocation = new Location { Latitude = 90.0f, Longitude = 50.0f },
+                // CreationLocation = new Location { Latitude = 90.0f, Longitude = 50.0f },
                 Questions = new List<Question> { multiple, freeText },
             };
 

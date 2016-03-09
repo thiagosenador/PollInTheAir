@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Data.Entity.Spatial;
 
     public class Poll : Entity
     {
@@ -11,7 +12,7 @@
         [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "nameRequired")]
         public string Name { get; set; }
 
-        public Location CreationLocation { get; set; }
+        public DbGeography CreationLocation { get; set; }
 
         [Display(Name = "range", ResourceType = typeof(Resources.Resources))]
         public float Range { get; set; }
