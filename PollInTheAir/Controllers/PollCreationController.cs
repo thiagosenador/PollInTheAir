@@ -85,7 +85,6 @@
         public ActionResult PublishPoll()
         {
             var poll = (Poll)this.Session[PollKey];
-            poll.CreationDate = DateTime.Now;
             poll.UserId = User.Identity.GetUserId();
 
             this.pollService.CreatePoll(poll);

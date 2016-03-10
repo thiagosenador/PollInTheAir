@@ -255,4 +255,13 @@
   <data name="statementRequired" xml:space="preserve">
     <value>a valid statement is required!</value>
   </data>
+  <data name="description" xml:space="preserve">
+    <value>description</value>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>image</value>
+  </data>
+  <data name="imageRequired" xml:space="preserve">
+    <value>the image is required!</value>
+  </data>
 </root>

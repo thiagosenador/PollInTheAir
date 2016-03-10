@@ -5,5 +5,7 @@
         IPollRepository Polls { get; }
 
         IPollAnswerRepository PollAnswers { get; }
+
+        INoteRepository Notes { get; }
     }
 }

@@ -10,6 +10,8 @@
 
         private IPollAnswerRepository pollAnswerRepository;
 
+        private INoteRepository noteRepository;
+
         public Catalog()
         {
             this.context = new AppDbContext();
@@ -28,6 +30,14 @@
             get
             {
                 return this.pollAnswerRepository ?? (this.pollAnswerRepository = new PollAnswerRepository(this.context));
+            }
+        }
+
+        public INoteRepository Notes
+        {
+            get
+            {
+                return this.noteRepository ?? (this.noteRepository = new NoteRepository(this.context));
             }
         }
 

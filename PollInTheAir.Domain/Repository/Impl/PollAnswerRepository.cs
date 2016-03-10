@@ -23,7 +23,7 @@
 
                     foreach (var selectedChoice in multipleChoicesAnswer.SelectedChoices)
                     {
-                        var attachedChoice = this.Context.Choice.Attach(selectedChoice);
+                        var attachedChoice = this.Context.Choices.Attach(selectedChoice);
 
                         attachedChoices.Add(attachedChoice);
                     }

@@ -2,7 +2,6 @@
 {
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
-    using PollInTheAir.Domain.Repository;
     using PollInTheAir.Domain.Service;
 
     public class PollResultsController : Controller

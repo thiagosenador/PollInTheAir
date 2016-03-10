@@ -16,6 +16,7 @@
 
         public void CreatePoll(Poll poll)
         {
+            poll.CreationDate = DateTime.Now;
             this.catalog.Polls.Create(poll);
         }
 
@@ -26,6 +27,7 @@
 
         public void AddPollAnswer(PollAnswer pollAnswer)
         {
+            pollAnswer.AnswerDate = DateTime.Now;
             this.catalog.PollAnswers.AddPollAnswer(pollAnswer);
         }
 

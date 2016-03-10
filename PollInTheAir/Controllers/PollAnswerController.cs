@@ -87,10 +87,10 @@
         public ActionResult FinishPollAnswer()
         {
             var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
-            var poll = (Poll)this.Session[PollKey];
-            pollAnswer.AnswerDate = DateTime.Now;
             pollAnswer.UserId = User.Identity.GetUserId();
 
+            var poll = (Poll)this.Session[PollKey];
+            
             this.pollService.AddPollAnswer(pollAnswer);
 
             return this.View(poll);

@@ -28,9 +28,13 @@ namespace PollInTheAir.Domain.Repository
 
         public DbSet<PollAnswer> PollAnswers { get; set; }
 
-        public DbSet<Choice> Choice { get; set; }
+        public DbSet<Choice> Choices { get; set; }
 
-        public DbSet<QuestionAnswer> QuestionAnswer { get; set; }
+        public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
+
+        public DbSet<Note> Notes { get; set; }
+
+        public DbSet<NoteComment> NoteComments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
