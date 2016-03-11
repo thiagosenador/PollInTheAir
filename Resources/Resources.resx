@@ -264,4 +264,10 @@
   <data name="imageRequired" xml:space="preserve">
     <value>the image is required!</value>
   </data>
+  <data name="createNote" xml:space="preserve">
+    <value>create note</value>
+  </data>
+  <data name="notes" xml:space="preserve">
+    <value>notes</value>
+  </data>
 </root>

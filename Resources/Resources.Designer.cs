@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to create note.
+        /// </summary>
+        public static string createNote {
+            get {
+                return ResourceManager.GetString("createNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to create poll.
         /// </summary>
         public static string createPoll {
@@ -336,6 +345,15 @@ namespace Resources {
         public static string noLocationErrorMsg {
             get {
                 return ResourceManager.GetString("noLocationErrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to notes.
+        /// </summary>
+        public static string notes {
+            get {
+                return ResourceManager.GetString("notes", resourceCulture);
             }
         }
         
