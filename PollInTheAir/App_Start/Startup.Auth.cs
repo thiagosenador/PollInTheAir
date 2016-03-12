@@ -40,7 +40,6 @@ namespace PollInTheAir.Web
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-
             app.UseGoogleAuthentication("1058035413863-pmbgn6n7slu0nph17l96nu65r9oeuqui.apps.googleusercontent.com", "J5wsfYCsgClB9G5miL7Bj8A7");
 
             var facebookOptions = new FacebookAuthenticationOptions()

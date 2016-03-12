@@ -1,7 +1,5 @@
 ﻿namespace PollInTheAir.Domain.Service.Impl
 {
-    using System;
-    using System.Collections.Generic;
     using Models;
     using Repository;
 
@@ -12,6 +10,11 @@
         public NoteService(ICatalog catalog)
         {
             this.catalog = catalog;
+        }
+
+        public Note CreateNote(Note note)
+        {
+            return this.catalog.Notes.Create(note);
         }
     }
 }

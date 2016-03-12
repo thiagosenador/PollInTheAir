@@ -15,7 +15,7 @@
 
         public ActionResult AvailableResultPolls()
         {
-            var availablePools = this.pollService.GetAvailablePollsForResult(new Domain.Models.User { Id = User.Identity.GetUserId() });
+            var availablePools = this.pollService.GetAvailablePollsForResult(new Domain.Models.User { Id = this.User.Identity.GetUserId() });
 
             return this.View(availablePools);
         }

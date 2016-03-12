@@ -3,14 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
-    using System.Data.Entity.Spatial;
     using System.Linq;
 
     using PollInTheAir.Domain.Models;
-
+    using Service;
     public class PollRepository : Repository<Poll>, IPollRepository
     {
-        public PollRepository(AppDbContext context) : base(context)
+        public PollRepository(AppDbContext context)
+            : base(context)
         {
         }
 
@@ -33,7 +33,7 @@
 
         public IEnumerable<Poll> RetrievePollsAvailableForAnswer(Location location, User currentUser)
         {
-            var myLocation = DbGeography.PointFromText(string.Format("POINT({0} {1})", location.Longitude, location.Latitude), 4326);
+            var myLocation = LocationUtil.ParseLocation(location);
 
             return this.Context.Polls.Include(p => p.User)
                 .Where(p =>

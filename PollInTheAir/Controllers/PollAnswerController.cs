@@ -1,12 +1,10 @@
 ﻿namespace PollInTheAir.Web.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using PollInTheAir.Domain.Models;
-    using PollInTheAir.Domain.Repository;
     using PollInTheAir.Domain.Service;
     using PollInTheAir.Web.ViewModel;
 
@@ -24,7 +22,7 @@
 
         public ActionResult AvailablePolls(Location location)
         {
-            var user = new User { Id = User.Identity.GetUserId() };
+            var user = new User { Id = this.User.Identity.GetUserId() };
 
             var availablePools = this.pollService.GetAvailablePollsForAnswer(location, user);
 
@@ -87,10 +85,10 @@
         public ActionResult FinishPollAnswer()
         {
             var pollAnswer = (PollAnswer)this.Session[PollAnswerKey];
-            pollAnswer.UserId = User.Identity.GetUserId();
+            pollAnswer.UserId = this.User.Identity.GetUserId();
 
             var poll = (Poll)this.Session[PollKey];
-            
+
             this.pollService.AddPollAnswer(pollAnswer);
 
             return this.View(poll);

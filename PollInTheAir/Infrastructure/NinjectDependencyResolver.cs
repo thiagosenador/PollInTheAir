@@ -3,13 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-
-    using Ninject;
-
     using Domain.Repository;
     using Domain.Repository.Impl;
     using Domain.Service;
     using Domain.Service.Impl;
+    using Ninject;
 
     public class NinjectDependencyResolver : IDependencyResolver
     {

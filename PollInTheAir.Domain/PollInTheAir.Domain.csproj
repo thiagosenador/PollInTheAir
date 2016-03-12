@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\FreeTextAnswer.cs" />
     <Compile Include="Models\Identity\ApplicationUserRole.cs" />
     <Compile Include="Models\Identity\ApplicationUserLogin.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Service\Impl\PollService.cs" />
     <Compile Include="Service\INoteService.cs" />
     <Compile Include="Service\IPollService.cs" />
+    <Compile Include="Service\LocationUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

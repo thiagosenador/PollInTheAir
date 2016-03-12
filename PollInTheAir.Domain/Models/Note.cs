@@ -14,10 +14,8 @@ namespace PollInTheAir.Domain.Models
         [Required]
         public DbGeography CreationLocation { get; set; }
 
-        [MaxLength(128)]
-        [Display(Name = "image", ResourceType = typeof(Resources.Resources))]
-        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "imageRequired")]
-        public byte[] Image { get; set; }
+        [Display(Name = "file", ResourceType = typeof(Resources.Resources))]
+        public virtual File File { get; set; }
 
         [Display(Name = "range", ResourceType = typeof(Resources.Resources))]
         public float Range { get; set; }

@@ -16,20 +16,20 @@ namespace PollInTheAir.Web
 
     using PollInTheAir.Web.Infrastructure;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             Bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -37,7 +37,7 @@ namespace PollInTheAir.Web
         {
             Bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -67,6 +67,6 @@ namespace PollInTheAir.Web
         private static void RegisterServices(IKernel kernel)
         {
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
-        }        
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace PollInTheAir.Web.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Data.Entity.Spatial;
     using System.Web.Mvc;
@@ -30,7 +29,7 @@
         public RedirectToRouteResult CreatePoll(QuestionType questionType, Poll poll, Location location)
         {
             poll.Questions = new List<Question>();
-            poll.CreationLocation = DbGeography.PointFromText(string.Format("POINT({0} {1})", location.Longitude, location.Latitude), 4326);
+            poll.CreationLocation = LocationUtil.ParseLocation(location);
 
             this.Session[PollKey] = poll;
 
@@ -40,7 +39,7 @@
         [HttpPost]
         public RedirectToRouteResult CreateMultipleChoicesQuestion(QuestionType questionType, MultipleChoicesQuestion question)
         {
-            var poll = (Poll)Session[PollKey];
+            var poll = (Poll)this.Session[PollKey];
 
             question.Type = QuestionType.MultipleChoices;
             question.Order = (short)poll.Questions.Count;
@@ -53,7 +52,7 @@
         [HttpPost]
         public RedirectToRouteResult CreateFreeTextQuestion(QuestionType questionType, Question question)
         {
-            var poll = (Poll)Session[PollKey];
+            var poll = (Poll)this.Session[PollKey];
 
             question.Type = QuestionType.FreeText;
             question.Order = (short)poll.Questions.Count;
@@ -77,7 +76,7 @@
 
         public ViewResult FinishPollCreation()
         {
-            Poll poll = (Poll)Session[PollKey];
+            Poll poll = (Poll)this.Session[PollKey];
 
             return this.View("ReviewPoll", poll);
         }
@@ -85,7 +84,7 @@
         public ActionResult PublishPoll()
         {
             var poll = (Poll)this.Session[PollKey];
-            poll.UserId = User.Identity.GetUserId();
+            poll.UserId = this.User.Identity.GetUserId();
 
             this.pollService.CreatePoll(poll);
 
