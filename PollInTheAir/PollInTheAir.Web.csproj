@@ -264,6 +264,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PollResultsController.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Utils\GoogleMapsUtil.cs" />
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\AnswerPollViewModel.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
