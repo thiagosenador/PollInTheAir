@@ -1,4 +1,8 @@
-﻿a, a:hover, a:focus, a:active, a.active {
+﻿.navbar {
+    margin-bottom: 0;
+}
+
+a, a:hover, a:focus, a:active, a.active {
     outline: 0;
 }
 

@@ -29,13 +29,14 @@
 
         <div class="controls">
             <div class="entry input-group" style="margin-bottom: 10px">
-                @Html.TextBox("choiceField", "", new { @class = "form-control", @maxlength = "128", @required = "true" })
+                @Html.TextBox("choiceField", "", new {@class = "form-control", @maxlength = "128", @data_val = "true", @data_val_required = "thiago msg!!!"})
                 <span class="input-group-btn">
                     <button class="btn btn-primary btn-add" type="button">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </span>
             </div>
+            <p class="help-block">@Html.ValidationMessage("choiceField")</p>
         </div>
     </div>
 

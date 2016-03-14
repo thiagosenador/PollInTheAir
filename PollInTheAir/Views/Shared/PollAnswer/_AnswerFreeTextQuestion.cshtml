@@ -2,7 +2,7 @@
 
 @model Question
 
-@using (@Html.BeginForm("FinishAnswerFreeTextQuestion", "PollAnswer"))
+@using (@Html.BeginForm("FinishAnswerFreeTextQuestion", "PollAnswer", FormMethod.Post, new { @id = "answerForm" }))
 {
     <div class="form-group">
         @Html.Hidden("QuestionId", @Model.Id)
@@ -13,8 +13,4 @@
     <div>
         <button class="btn btn-default" type="submit">@Resources.Resources.answer</button>
     </div>
-}
-
-@section SCRIPTS {
-    @Scripts.Render("~/bundles/jqueryval")
 }

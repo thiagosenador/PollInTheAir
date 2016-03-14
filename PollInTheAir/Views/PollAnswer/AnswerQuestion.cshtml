@@ -6,11 +6,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section PAGETITLE
-{
-    @Model.PollName
-}
-
 <div>
     <h3>@Model.CurrentQuestion.Statement</h3>
 </div>
@@ -22,4 +17,14 @@
 else if (@Model.CurrentQuestion.Type.Equals(QuestionType.FreeText))
 {
     @Html.Partial("PollAnswer/_AnswerFreeTextQuestion", @Model.CurrentQuestion)
+}
+
+@section PAGETITLE
+{
+    @Model.PollName
+}
+
+@section SCRIPTS
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }

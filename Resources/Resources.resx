@@ -273,4 +273,25 @@
   <data name="image" xml:space="preserve">
     <value>image</value>
   </data>
+  <data name="confirmPassword" xml:space="preserve">
+    <value>confirm password</value>
+  </data>
+  <data name="passwordConfirmErrorMsg" xml:space="preserve">
+    <value>the password and confirmation password do not match</value>
+  </data>
+  <data name="passwordLength" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
+  <data name="passwordRequired" xml:space="preserve">
+    <value>password is required!</value>
+  </data>
+  <data name="invalidLogin" xml:space="preserve">
+    <value>invalid login attempt!</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>user name</value>
+  </data>
+  <data name="userNameRequired" xml:space="preserve">
+    <value>user name is required!</value>
+  </data>
 </root>

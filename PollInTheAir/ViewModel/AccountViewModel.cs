@@ -38,10 +38,9 @@ namespace PollInTheAir.Web.ViewModel
 
     public class LoginViewModel
     {
-        [Display(Name = "email", ResourceType = typeof(Resources.Resources))]
-        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "emailRequired")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "userName", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "userNameRequired")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -54,20 +53,24 @@ namespace PollInTheAir.Web.ViewModel
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "userNameRequired")]
+        [Display(Name = "userName", ResourceType = typeof(Resources.Resources))]
+        public string UserName { get; set; }
+
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "emailRequired")]
+        [Display(Name = "email", ResourceType = typeof(Resources.Resources))]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "passwordRequired")]
+        [StringLength(100, ErrorMessageResourceName = "passwordLength", ErrorMessageResourceType = typeof(Resources.Resources), MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "password", ResourceType = typeof(Resources.Resources))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "confirmPassword", ResourceType = typeof(Resources.Resources))]
+        [Compare("Password", ErrorMessageResourceType = typeof(Resources.Resources), ErrorMessageResourceName = "passwordConfirmErrorMsg")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -98,12 +101,5 @@ namespace PollInTheAir.Web.ViewModel
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-    }
-
-    public class SignInSignUpViewModel
-    {
-        public LoginViewModel LoginViewModel { get; set; }
-
-        public RegisterViewModel RegisterViewModel { get; set; }
     }
 }

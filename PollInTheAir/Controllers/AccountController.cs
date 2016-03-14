@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PollInTheAir.Web.ViewModel;
 using PollInTheAir.Domain.Models;
+using PollInTheAir.Web.ViewModel;
 
 namespace PollInTheAir.Web.Controllers
 {
@@ -88,7 +88,7 @@ namespace PollInTheAir.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(SignInSignUpViewModel model)
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace PollInTheAir.Web.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await this.SignInManager.PasswordSignInAsync(model.LoginViewModel.Email, model.LoginViewModel.Password, model.LoginViewModel.RememberMe, false);
+            var result = await this.SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -105,9 +105,9 @@ namespace PollInTheAir.Web.Controllers
                 case SignInStatus.LockedOut:
                     return this.View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return this.RedirectToAction("SendCode", new { model.LoginViewModel.RememberMe });
+                    return this.RedirectToAction("SendCode", new { model.RememberMe });
                 default:
-                    this.ModelState.AddModelError("LOGIN_FAILED", "Invalid login attempt!");
+                    this.ModelState.AddModelError("LOGIN_FAILED", Resources.Resources.invalidLogin);
                     return this.View(model);
             }
         }
@@ -164,12 +164,12 @@ namespace PollInTheAir.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(SignInSignUpViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User { UserName = model.RegisterViewModel.Email, Email = model.RegisterViewModel.Email };
-                var result = await this.UserManager.CreateAsync(user, model.RegisterViewModel.Password);
+                var user = new User { UserName = model.UserName, Email = model.Email };
+                var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -434,7 +434,7 @@ namespace PollInTheAir.Web.Controllers
         {
             foreach (var error in result.Errors)
             {
-                this.ModelState.AddModelError(string.Empty, error);
+                this.ModelState.AddModelError("ACCOUNT_ERROR", error);
             }
         }
 
