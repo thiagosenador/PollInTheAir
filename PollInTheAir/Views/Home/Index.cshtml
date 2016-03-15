@@ -11,12 +11,10 @@
                 <div>
                     @using (Html.BeginForm("AvailablePolls", "PollAnswer", FormMethod.Post))
                     {
-
                         @Html.Hidden("Latitude")
                         @Html.Hidden("Longitude")
 
                         <input id="AnswerPollButton" type="submit" value="@Resources.Resources.answerPoll" class="btn btn-primary btn-lg" />
-
                     }
                 </div>
 
@@ -32,6 +30,17 @@
 
                 <div>
                     @Html.ActionLink(Resources.Resources.createNote, "CreateNote", "Note", null, new { @class = "btn btn-primary btn-lg", @id = "CreateNoteButton" })
+                </div>
+
+                <div>
+                    @using (Html.BeginForm("AvailableNotes", "Note", FormMethod.Get))
+                    {
+
+                        @Html.Hidden("Latitude")
+                        @Html.Hidden("Longitude")
+
+                        <input id="AvailableNoteButton" type="submit" value="@Resources.Resources.availableNotes" class="btn btn-primary btn-lg" />
+                    }
                 </div>
             </div>
         </div>

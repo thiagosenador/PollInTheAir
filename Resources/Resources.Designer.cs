@@ -115,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to available notes.
+        /// </summary>
+        public static string availableNotes {
+            get {
+                return ResourceManager.GetString("availableNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to available polls.
         /// </summary>
         public static string availablePolls {

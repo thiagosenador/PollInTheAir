@@ -294,4 +294,7 @@
   <data name="userNameRequired" xml:space="preserve">
     <value>user name is required!</value>
   </data>
+  <data name="availableNotes" xml:space="preserve">
+    <value>available notes</value>
+  </data>
 </root>

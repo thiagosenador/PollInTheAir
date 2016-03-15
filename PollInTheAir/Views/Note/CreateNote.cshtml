@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary btn-block" type="submit" name="questionType" value="@QuestionType.FreeText">
+    <button class="btn btn-primary btn-block" type="submit">
         @Resources.Resources.createNote
     </button>
 }
@@ -47,7 +47,6 @@
 }
 
 @section SCRIPTS {
-    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/ion.rangeSlider.min.js")
     @Scripts.Render("~/Scripts/intheair.mapslider.js")
 

@@ -45,5 +45,13 @@ namespace PollInTheAir.Web.Controllers
 
             return null;
         }
+
+        [HttpGet]
+        public ViewResult AvailableNotes(Location location)
+        {
+            var notes = this.noteService.GetAvailableNotes(location);
+
+            return this.View(notes);
+        }
     }
 }

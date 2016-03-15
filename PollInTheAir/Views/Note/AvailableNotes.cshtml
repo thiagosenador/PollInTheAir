@@ -1,0 +1,20 @@
+﻿@using PollInTheAir.Domain.Models;
+
+@model IEnumerable<Note>
+
+@foreach (var note in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">@note.Description</div>
+        @if (note.File != null)
+        {
+            <div class="panel-body">
+                <img src="@note.File.FileString" class="img-rounded" />
+            </div>
+        }
+    </div>
+}
+
+@section PAGETITLE {
+    @Resources.Resources.availableNotes
+}
