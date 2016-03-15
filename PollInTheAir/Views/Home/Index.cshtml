@@ -9,13 +9,7 @@
                 </div>
 
                 <div>
-                    @using (Html.BeginForm("AvailablePolls", "PollAnswer", FormMethod.Post))
-                    {
-                        @Html.Hidden("Latitude")
-                        @Html.Hidden("Longitude")
-
-                        <input id="AnswerPollButton" type="submit" value="@Resources.Resources.answerPoll" class="btn btn-primary btn-lg" />
-                    }
+                    @Html.ActionLink(Resources.Resources.answerPoll, "AvailablePolls", "PollAnswer", new { Latitude = "lat_placeholder", Longitude = "lng_placeholder" }, new { @class = "btn btn-primary btn-lg", @id = "AnswerPollButton" })
                 </div>
 
                 <div>
@@ -33,14 +27,7 @@
                 </div>
 
                 <div>
-                    @using (Html.BeginForm("AvailableNotes", "Note", FormMethod.Get))
-                    {
-
-                        @Html.Hidden("Latitude")
-                        @Html.Hidden("Longitude")
-
-                        <input id="AvailableNoteButton" type="submit" value="@Resources.Resources.availableNotes" class="btn btn-primary btn-lg" />
-                    }
+                    @Html.ActionLink(Resources.Resources.availableNotes, "AvailableNotes", "Note", new { Latitude = "lat_placeholder", Longitude = "lng_placeholder" }, new { @class = "btn btn-primary btn-lg", @id = "AvailableNoteButton" })
                 </div>
             </div>
         </div>
@@ -72,6 +59,9 @@
 @section SCRIPTS {
     <script language="javascript">
         $(function () {
+
+            var latitude, longitude;
+
             navigator.geolocation.getCurrentPosition(showPosition, positionError);
 
             function showPosition(position) {
@@ -80,8 +70,8 @@
                     lng: position.coords.longitude
                 };
 
-                $("#Latitude").val(pos.lat);
-                $("#Longitude").val(pos.lng);
+                latitude = pos.lat;
+                longitude = pos.lng;
             }
 
             function positionError(position) {
@@ -92,6 +82,14 @@
                 $('#AnswerPollButton').prop('disabled', true);
                 $('#AnswerPollButton').css('cursor', 'context-menu');
             }
+
+            $("#AvailableNoteButton").click(function () {
+                this.href = this.href.replace("lat_placeholder", latitude).replace("lng_placeholder", longitude);
+            });
+
+            $("#AnswerPollButton").click(function () {
+                this.href = this.href.replace("lat_placeholder", latitude).replace("lng_placeholder", longitude);
+            });
         });
     </script>
 }

@@ -13,6 +13,11 @@
             this.catalog = catalog;
         }
 
+        public File GetFile(long id)
+        {
+            return this.catalog.Files.Find(id);
+        }
+
         public IEnumerable<Note> GetAvailableNotes(Location location)
         {
             return this.catalog.Notes.RetrieveAvailableNotes(location);

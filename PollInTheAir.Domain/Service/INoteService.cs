@@ -7,6 +7,8 @@
     {
         Note CreateNote(Note note);
 
+        File GetFile(long id);
+
         IEnumerable<Note> GetAvailableNotes(Location location);
     }
 }

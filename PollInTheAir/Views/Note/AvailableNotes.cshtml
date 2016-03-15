@@ -6,10 +6,10 @@
 {
     <div class="panel panel-default">
         <div class="panel-heading">@note.Description</div>
-        @if (note.File != null)
+        @if (note.FileId != 0)
         {
             <div class="panel-body">
-                <img src="@note.File.FileString" class="img-rounded" />
+                <img src="@Url.Action("ShowImage", "Note", new { fileId = note.FileId })" class="img-rounded" />
             </div>
         }
     </div>

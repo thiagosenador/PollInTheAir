@@ -17,7 +17,7 @@
         {
             var myLocation = LocationUtil.ParseLocation(location);
 
-            return this.Context.Notes.Include(n => n.User).Include(n => n.File)
+            return this.Context.Notes.Include(n => n.User)
                 .Where(p => p.CreationLocation.Distance(myLocation) < p.Range).ToList();
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace PollInTheAir.Domain.Repository
+﻿using PollInTheAir.Domain.Models;
+
+namespace PollInTheAir.Domain.Repository
 {
     public interface ICatalog
     {
@@ -7,5 +9,7 @@
         IPollAnswerRepository PollAnswers { get; }
 
         INoteRepository Notes { get; }
+
+        IFileRepository Files { get; }
     }
 }

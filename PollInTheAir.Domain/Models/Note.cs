@@ -14,6 +14,8 @@ namespace PollInTheAir.Domain.Models
         [Required]
         public DbGeography CreationLocation { get; set; }
 
+        public long FileId { get; set; }
+
         [Display(Name = "file", ResourceType = typeof(Resources.Resources))]
         public virtual File File { get; set; }
 

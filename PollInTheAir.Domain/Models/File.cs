@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PollInTheAir.Domain.Models
 {
@@ -13,14 +11,5 @@ namespace PollInTheAir.Domain.Models
         public string ContentType { get; set; }
 
         public byte[] Content { get; set; }
-
-        [NotMapped]
-        public string FileString
-        {
-            get
-            {
-                return "data:image/png;base64," + Convert.ToBase64String(this.Content);
-            }
-        }
     }
 }
