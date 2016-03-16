@@ -10,5 +10,7 @@
         File GetFile(long id);
 
         IEnumerable<Note> GetAvailableNotes(Location location);
+
+        NoteComment AddNoteComment(NoteComment comment);
     }
 }

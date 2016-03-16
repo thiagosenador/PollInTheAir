@@ -6,6 +6,7 @@
 
     using PollInTheAir.Domain.Models;
     using Service;
+
     public class NoteRepository : Repository<Note>, INoteRepository
     {
         public NoteRepository(AppDbContext context)
@@ -17,7 +18,7 @@
         {
             var myLocation = LocationUtil.ParseLocation(location);
 
-            return this.Context.Notes.Include(n => n.User)
+            return this.Context.Notes.Include(n => n.User).Include(n => n.Comments).Include("Comments.User")
                 .Where(p => p.CreationLocation.Distance(myLocation) < p.Range).ToList();
         }
     }

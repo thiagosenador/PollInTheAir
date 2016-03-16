@@ -5,13 +5,56 @@
 @foreach (var note in Model)
 {
     <div class="panel panel-default">
-        <div class="panel-heading">@note.Description</div>
+        <div class="panel-heading">
+            @note.Description (@note.CreationDate)
+        </div>
         @if (note.FileId != 0)
         {
             <div class="panel-body">
-                <img src="@Url.Action("ShowImage", "Note", new { fileId = note.FileId })" class="img-rounded" />
+                <img src="@Url.Action("ShowImage", "Note", new { fileId = note.FileId })" class="img-rounded" height="400" />
             </div>
         }
+
+        <div class="panel-footer">
+            <div>
+                <a href="#" id="Comment">@Resources.Resources.comment</a>
+            </div>
+
+            <div>
+                @using (Html.BeginForm("CommentNote", "Note"))
+                {
+                    @Html.Hidden("comment.NoteId", note.Id)
+                    @Html.TextArea("comment.Comment", new { @class = "form-control", @maxlength = "128", @rows = "3" })
+
+                    <button class="btn btn-primary" type="submit">@Resources.Resources.comment</button>
+                }
+            </div>
+
+            @if (note.Comments != null && note.Comments.Count > 0)
+            {
+                <div>
+                    @string.Format(Resources.Resources.numberComments, @note.Comments.Count)
+                </div>
+
+                <div>
+                    @foreach (var comment in note.Comments)
+                    {
+                        <div>
+                            @comment.Comment
+                        </div>
+
+                        <div>
+                            @comment.CommentDate
+                        </div>
+
+                        <div>
+                            @comment.User.UserName
+                        </div>
+                    }
+                </div>
+            }
+
+        </div>
     </div>
 }
 

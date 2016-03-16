@@ -27,5 +27,10 @@
         {
             return this.catalog.Notes.Create(note);
         }
+
+        public NoteComment AddNoteComment(NoteComment comment)
+        {
+            return this.catalog.NoteComments.Create(comment);
+        }
     }
 }

@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to comment.
+        /// </summary>
+        public static string comment {
+            get {
+                return ResourceManager.GetString("comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to please provide a valid comment!.
         /// </summary>
         public static string commentRequired {
@@ -390,6 +399,15 @@ namespace Resources {
         public static string notes {
             get {
                 return ResourceManager.GetString("notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} comment(s).
+        /// </summary>
+        public static string numberComments {
+            get {
+                return ResourceManager.GetString("numberComments", resourceCulture);
             }
         }
         

@@ -54,11 +54,23 @@ namespace PollInTheAir.Web.Controllers
             return this.View(notes);
         }
 
+        [HttpGet]
         public ActionResult ShowImage(long fileId)
         {
             var imageBytes = this.noteService.GetFile(fileId).Content;
 
             return this.File(imageBytes, "image/jpg");
+        }
+
+        [HttpPost]
+        public ActionResult CommentNote(NoteComment comment)
+        {
+            comment.UserId = this.User.Identity.GetUserId();
+            comment.CommentDate = DateTime.Now;
+
+            this.noteService.AddNoteComment(comment);
+
+            return null;
         }
     }
 }

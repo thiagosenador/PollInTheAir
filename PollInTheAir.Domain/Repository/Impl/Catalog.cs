@@ -14,6 +14,8 @@
 
         private IFileRepository fileRepository;
 
+        private INoteCommentRepository noteCommentRepository;
+
         public Catalog()
         {
             this.context = new AppDbContext();
@@ -48,6 +50,14 @@
             get
             {
                 return this.fileRepository ?? (this.fileRepository = new FileRepository(this.context));
+            }
+        }
+
+        public INoteCommentRepository NoteComments
+        {
+            get
+            {
+                return this.noteCommentRepository ?? (this.noteCommentRepository = new NoteCommentRepository(this.context));
             }
         }
 

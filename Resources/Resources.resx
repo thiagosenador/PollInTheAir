@@ -297,4 +297,10 @@
   <data name="availableNotes" xml:space="preserve">
     <value>available notes</value>
   </data>
+  <data name="comment" xml:space="preserve">
+    <value>comment</value>
+  </data>
+  <data name="numberComments" xml:space="preserve">
+    <value>{0} comment(s)</value>
+  </data>
 </root>

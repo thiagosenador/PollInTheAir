@@ -91,10 +91,12 @@
     <Compile Include="Repository\Impl\Catalog.cs" />
     <Compile Include="Repository\ICatalog.cs" />
     <Compile Include="Repository\Impl\FileRepository.cs" />
+    <Compile Include="Repository\Impl\NoteCommentRepository.cs" />
     <Compile Include="Repository\Impl\NoteRepository.cs" />
     <Compile Include="Repository\Impl\PollAnswerRepository.cs" />
     <Compile Include="Repository\Impl\PollRepository.cs" />
     <Compile Include="Repository\IFileRepository.cs" />
+    <Compile Include="Repository\INoteCommentRepository.cs" />
     <Compile Include="Repository\IPollAnswerRepository.cs" />
     <Compile Include="Repository\INoteRepository.cs" />
     <Compile Include="Repository\IPollRepository.cs" />
