@@ -5,6 +5,7 @@
         <tr>
             <th>@Resources.Resources.name</th>
             <th>@Resources.Resources.expirationDate</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -14,6 +15,12 @@
             <tr>
                 <td>@Html.ActionLink(poll.Name, "ViewPollResults", "PollResults", new { pollId = @poll.Id }, null)</td>
                 <td>@poll.ExpirationDate</td>
+
+                <td>
+                    <a href="@Url.Action("DeletePoll", "PollResults", new { pollId = poll.Id })">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>

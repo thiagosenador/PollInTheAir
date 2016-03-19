@@ -45,5 +45,10 @@
         {
             return this.catalog.Polls.RetrievePollsAvailableForResult(currentUser);
         }
+
+        public void DeletePoll(long pollId)
+        {
+            this.catalog.Polls.Delete(p => p.Id.Equals(pollId));
+        }
     }
 }

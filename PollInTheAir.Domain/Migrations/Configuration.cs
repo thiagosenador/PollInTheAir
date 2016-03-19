@@ -6,8 +6,8 @@ namespace PollInTheAir.Domain.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = true;
+            // this.AutomaticMigrationsEnabled = true;
+            // this.AutomaticMigrationDataLossAllowed = true;
         }
     }
 }

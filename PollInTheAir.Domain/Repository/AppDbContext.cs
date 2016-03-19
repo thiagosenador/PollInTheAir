@@ -11,15 +11,11 @@ namespace PollInTheAir.Domain.Repository
 
     public class AppDbContext : IdentityDbContext<User>
     {
-        public AppDbContext() : base("name=InTheAir")
+        public AppDbContext()
+            : base("name=InTheAir")
         {
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
-        }
-
-        public static AppDbContext Create()
-        {
-            return new AppDbContext();
         }
 
         public DbSet<Poll> Polls { get; set; }
@@ -35,6 +31,11 @@ namespace PollInTheAir.Domain.Repository
         public DbSet<Note> Notes { get; set; }
 
         public DbSet<NoteComment> NoteComments { get; set; }
+
+        public static AppDbContext Create()
+        {
+            return new AppDbContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

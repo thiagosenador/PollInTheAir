@@ -65,6 +65,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201603191835490_CustomMigration.cs" />
+    <Compile Include="Migrations\201603191835490_CustomMigration.Designer.cs">
+      <DependentUpon>201603191835490_CustomMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FreeTextAnswer.cs" />
@@ -141,6 +145,11 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603191835490_CustomMigration.resx">
+      <DependentUpon>201603191835490_CustomMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

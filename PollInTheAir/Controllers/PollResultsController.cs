@@ -26,5 +26,12 @@
 
             return this.View("PollResults", pollAnswers);
         }
+
+        public RedirectToRouteResult DeletePoll(long pollId)
+        {
+            this.pollService.DeletePoll(pollId);
+
+            return this.RedirectToAction("AvailableResultPolls");
+        }
     }
 }
