@@ -14,13 +14,17 @@ namespace PollInTheAir.Domain.Migrations
             this.DropForeignKey("dbo.Choice", "FK_dbo.Choice_dbo.MultipleChoicesQuestion_MultipleChoicesQuestion_Id");
             this.AddForeignKey("dbo.Choice", "MultipleChoicesQuestion_Id", "dbo.MultipleChoicesQuestion", "Id", true, "FK_dbo.Choice_dbo.MultipleChoicesQuestion_MultipleChoicesQuestion_Id");
 
-            // CASCADE ON DELETE FOR QuestionAnswer X MultipleChoicesAnswer
-            // this.DropForeignKey("dbo.MultipleChoicesAnswer", "FK_dbo.MultipleChoicesAnswer_dbo.QuestionAnswer_Id");
-            // this.AddForeignKey("dbo.MultipleChoicesAnswer", "Id", "dbo.QuestionAnswer", "Id", true, "FK_dbo.MultipleChoicesAnswer_dbo.QuestionAnswer_Id");
-
             // CASCADE ON DELETE FOR QuestionAnswer X FreeTextAnswer
             this.DropForeignKey("dbo.FreeTextAnswer", "FK_dbo.FreeTextAnswer_dbo.QuestionAnswer_Id");
             this.AddForeignKey("dbo.FreeTextAnswer", "Id", "dbo.QuestionAnswer", "Id", true, "FK_dbo.FreeTextAnswer_dbo.QuestionAnswer_Id");
+
+            // REMOVE CASCADE ON DELETE FOR MultipleChoicesAnswerChoice X Choice
+            this.DropForeignKey("dbo.MultipleChoicesAnswerChoice", "FK_dbo.MultipleChoicesAnswerChoice_dbo.Choice_Choice_Id");
+            this.AddForeignKey("dbo.MultipleChoicesAnswerChoice", "Choice_Id", "dbo.Choice", "Id", false, "FK_dbo.MultipleChoicesAnswerChoice_dbo.Choice_Choice_Id");
+
+            // CASCADE ON DELETE FOR QuestionAnswer X MultipleChoicesAnswer
+            this.DropForeignKey("dbo.MultipleChoicesAnswer", "FK_dbo.MultipleChoicesAnswer_dbo.QuestionAnswer_Id");
+            this.AddForeignKey("dbo.MultipleChoicesAnswer", "Id", "dbo.QuestionAnswer", "Id", true, "FK_dbo.MultipleChoicesAnswer_dbo.QuestionAnswer_Id");
         }
 
         public override void Down()
