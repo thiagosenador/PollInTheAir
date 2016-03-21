@@ -63,14 +63,15 @@ namespace PollInTheAir.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CommentNote(NoteComment comment)
+        public PartialViewResult CommentNote(NoteComment comment)
         {
             comment.UserId = this.User.Identity.GetUserId();
             comment.CommentDate = DateTime.Now;
 
-            this.noteService.AddNoteComment(comment);
+            var newComment = this.noteService.AddNoteComment(comment);
+            newComment.User = new User { UserName = this.User.Identity.Name };
 
-            return null;
+            return this.PartialView("Note/_NoteComments", newComment);
         }
     }
 }

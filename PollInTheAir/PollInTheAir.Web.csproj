@@ -246,6 +246,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
@@ -315,6 +317,7 @@
     <Content Include="Views\Shared\PollResults\_FreeTextQuestionResult.cshtml" />
     <Content Include="Views\Shared\PollResults\_MultipleChoicesQuestionResult.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Note\_NoteComments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

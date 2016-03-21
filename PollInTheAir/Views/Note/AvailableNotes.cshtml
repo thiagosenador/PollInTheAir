@@ -21,7 +21,7 @@
             </div>
 
             <div>
-                @using (Html.BeginForm("CommentNote", "Note"))
+                @using (Ajax.BeginForm("CommentNote", new AjaxOptions { InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "noteComments" + note.Id }))
                 {
                     @Html.Hidden("comment.NoteId", note.Id)
                     @Html.TextArea("comment.Comment", new { @class = "form-control", @maxlength = "128", @rows = "3" })
@@ -30,30 +30,22 @@
                 }
             </div>
 
-            @if (note.Comments != null && note.Comments.Count > 0)
-            {
-                <div>
-                    @string.Format(Resources.Resources.numberComments, @note.Comments.Count)
-                </div>
+            <div id="@string.Format("noteComments{0}", note.Id)">
 
-                <div>
-                    @foreach (var comment in note.Comments)
-                    {
-                        <div>
-                            @comment.Comment
-                        </div>
+                @if (note.Comments.Any())
+                {
+                    <div>
+                        @string.Format(Resources.Resources.numberComments, @note.Comments.Count)
+                    </div>
 
-                        <div>
-                            @comment.CommentDate
-                        </div>
-
-                        <div>
-                            @comment.User.UserName
-                        </div>
-                    }
-                </div>
-            }
-
+                    <div>
+                        @foreach (var comment in note.Comments)
+                        {
+                            @Html.Partial("Note/_NoteComments", comment)
+                        }
+                    </div>
+                }
+            </div>
         </div>
     </div>
 }
