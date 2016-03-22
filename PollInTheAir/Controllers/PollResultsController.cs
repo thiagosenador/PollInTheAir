@@ -13,9 +13,9 @@
             this.pollService = pollService;
         }
 
-        public ActionResult AvailableResultPolls()
+        public ActionResult UserPolls()
         {
-            var availablePools = this.pollService.GetAvailablePollsForResult(new Domain.Models.User { Id = this.User.Identity.GetUserId() });
+            var availablePools = this.pollService.GetUserPolls(new Domain.Models.User { Id = this.User.Identity.GetUserId() });
 
             return this.View(availablePools);
         }
@@ -31,7 +31,7 @@
         {
             this.pollService.DeletePoll(pollId);
 
-            return this.RedirectToAction("AvailableResultPolls");
+            return this.RedirectToAction("UserPolls");
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿@model PollInTheAir.Domain.Models.Note
+
+<p>@Resources.Resources.noteIsAvailable</p>
+
+<div>
+    <img src="https://maps.googleapis.com/maps/api/staticmap?center=@Model.CreationLocation.Latitude,@Model.CreationLocation.Longitude
+&zoom=15
+&size=400x400
+&maptype=roadmap
+&markers=@Model.CreationLocation.Latitude,@Model.CreationLocation.Longitude
+&key=AIzaSyBTKJ2aBQb-q0LmbjCu2C-8TwGsgS7S1H4" class="img-rounded" alt="Cinque Terre" width="400" height="400">
+</div>
+
+@if (Model.FileId != 0)
+{
+    <div class="panel-body">
+        <img src="@Url.Action("ShowImage", "Note", new { fileId = Model.FileId })" class="img-rounded" height="400" />
+    </div>
+}
+
+<div>@Model.Description</div>
+
+@section PAGETITLE {
+    @Resources.Resources.noteIsAvailable
+}

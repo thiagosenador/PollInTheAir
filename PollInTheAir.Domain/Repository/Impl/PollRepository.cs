@@ -7,6 +7,7 @@
 
     using PollInTheAir.Domain.Models;
     using Service;
+
     public class PollRepository : Repository<Poll>, IPollRepository
     {
         public PollRepository(AppDbContext context)
@@ -43,7 +44,7 @@
                 && p.CreationLocation.Distance(myLocation) < p.Range).ToList();
         }
 
-        public IEnumerable<Poll> RetrievePollsAvailableForResult(User currentUser)
+        public IEnumerable<Poll> RetrieveUserPolls(User currentUser)
         {
             return this.Context.Polls.Where(p => p.UserId.Equals(currentUser.Id)).ToList();
         }

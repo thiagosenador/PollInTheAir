@@ -15,7 +15,7 @@
 
         IEnumerable<Poll> GetAvailablePollsForAnswer(Location location, User currentUser);
 
-        IEnumerable<Poll> GetAvailablePollsForResult(User currentUser);
+        IEnumerable<Poll> GetUserPolls(User currentUser);
 
         void DeletePoll(long pollId);
     }

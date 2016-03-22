@@ -41,9 +41,9 @@
             return this.catalog.Polls.RetrievePollsAvailableForAnswer(location, currentUser);
         }
 
-        public IEnumerable<Poll> GetAvailablePollsForResult(User currentUser)
+        public IEnumerable<Poll> GetUserPolls(User currentUser)
         {
-            return this.catalog.Polls.RetrievePollsAvailableForResult(currentUser);
+            return this.catalog.Polls.RetrieveUserPolls(currentUser);
         }
 
         public void DeletePoll(long pollId)

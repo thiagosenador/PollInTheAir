@@ -43,7 +43,7 @@ namespace PollInTheAir.Web.Controllers
 
             this.noteService.CreateNote(note);
 
-            return null;
+            return this.View("FinishNoteCreation", note);
         }
 
         [HttpGet]
@@ -72,6 +72,13 @@ namespace PollInTheAir.Web.Controllers
             newComment.User = new User { UserName = this.User.Identity.Name };
 
             return this.PartialView("Note/_NoteComments", newComment);
+        }
+
+        public ViewResult UserNotes()
+        {
+            var notes = this.noteService.GetUserNotes(new User { Id = this.User.Identity.GetUserId() });
+
+            return this.View(notes);
         }
     }
 }

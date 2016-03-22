@@ -303,4 +303,13 @@
   <data name="numberComments" xml:space="preserve">
     <value>{0} comment(s)</value>
   </data>
+  <data name="confirmDeletePoll" xml:space="preserve">
+    <value>are you sure you want to delete this poll?</value>
+  </data>
+  <data name="noteIsAvailable" xml:space="preserve">
+    <value>your note is available!</value>
+  </data>
+  <data name="myNotes" xml:space="preserve">
+    <value>my notes</value>
+  </data>
 </root>

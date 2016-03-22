@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PollInTheAir.Domain.Models.Note>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Resources.Resources.name</th>
+            <th>@Resources.Resources.creationDate</th>
+            <th>@Resources.Resources.file</th>
+            <th>@Resources.Resources.comment</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var note in Model)
+        {
+            <tr>
+                <td>@note.Description</td>
+                <td>@note.CreationDate</td>
+                <td><img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-rounded" height="200"/></td>
+                <td>@note.CommentsNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section PAGETITLE {
+    @Resources.Resources.myNotes
+}

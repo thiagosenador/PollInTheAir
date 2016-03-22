@@ -13,7 +13,7 @@
                 </div>
 
                 <div>
-                    @Html.ActionLink(Resources.Resources.myPolls, "AvailableResultPolls", "PollResults", null, new { @class = "btn btn-primary btn-lg", @id = "ViewPollButton" })
+                    @Html.ActionLink(Resources.Resources.myPolls, "UserPolls", "PollResults", null, new { @class = "btn btn-primary btn-lg", @id = "ViewPollButton" })
                 </div>
             </div>
         </div>
@@ -27,7 +27,11 @@
                 </div>
 
                 <div>
-                    @Html.ActionLink(Resources.Resources.availableNotes, "AvailableNotes", "Note", new { Latitude = "lat_placeholder", Longitude = "lng_placeholder" }, new { @class = "btn btn-primary btn-lg", @id = "AvailableNoteButton" })
+                    @Html.ActionLink(Resources.Resources.availableNotes, "AvailableNotes", "Note", new {Latitude = "lat_placeholder", Longitude = "lng_placeholder"}, new {@class = "btn btn-primary btn-lg", @id = "AvailableNoteButton"})
+                </div>
+
+                <div>
+                    @Html.ActionLink(Resources.Resources.myNotes, "UserNotes", "Note", null, new { @class = "btn btn-primary btn-lg" })
                 </div>
             </div>
         </div>

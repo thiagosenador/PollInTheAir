@@ -1,7 +1,6 @@
 ﻿namespace PollInTheAir.Web.Controllers
 {
     using System.Collections.Generic;
-    using System.Data.Entity.Spatial;
     using System.Web.Mvc;
     using Domain.Service;
     using Microsoft.AspNet.Identity;

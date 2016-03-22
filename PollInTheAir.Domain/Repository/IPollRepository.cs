@@ -9,6 +9,6 @@
 
         IEnumerable<Poll> RetrievePollsAvailableForAnswer(Location location, User currentUser);
 
-        IEnumerable<Poll> RetrievePollsAvailableForResult(User currentUser);
+        IEnumerable<Poll> RetrieveUserPolls(User currentUser);
     }
 }

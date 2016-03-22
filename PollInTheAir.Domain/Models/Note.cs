@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 
 namespace PollInTheAir.Domain.Models
@@ -30,5 +31,8 @@ namespace PollInTheAir.Domain.Models
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
+
+        [NotMapped]
+        public int CommentsNumber { get; set; }
     }
 }

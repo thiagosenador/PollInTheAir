@@ -30,7 +30,7 @@ namespace PollInTheAir.Web
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
                 SlidingExpiration = false,
-                ExpireTimeSpan = TimeSpan.FromMinutes(15),
+                ExpireTimeSpan = TimeSpan.FromDays(30),
                 Provider = new CookieAuthenticationProvider
                 {
                     OnValidateIdentity =

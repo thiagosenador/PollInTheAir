@@ -169,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to are you sure you want to delete this poll?.
+        /// </summary>
+        public static string confirmDeletePoll {
+            get {
+                return ResourceManager.GetString("confirmDeletePoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to confirm password.
         /// </summary>
         public static string confirmPassword {
@@ -358,6 +367,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to my notes.
+        /// </summary>
+        public static string myNotes {
+            get {
+                return ResourceManager.GetString("myNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to my polls.
         /// </summary>
         public static string myPolls {
@@ -390,6 +408,15 @@ namespace Resources {
         public static string noLocationErrorMsg {
             get {
                 return ResourceManager.GetString("noLocationErrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to your note is available!.
+        /// </summary>
+        public static string noteIsAvailable {
+            get {
+                return ResourceManager.GetString("noteIsAvailable", resourceCulture);
             }
         }
         

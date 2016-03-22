@@ -12,5 +12,7 @@
         IEnumerable<Note> GetAvailableNotes(Location location);
 
         NoteComment AddNoteComment(NoteComment comment);
+
+        IEnumerable<Note> GetUserNotes(User currentUser);
     }
 }

@@ -6,5 +6,7 @@
     public interface INoteRepository : IRepository<Note>
     {
         IEnumerable<Note> RetrieveAvailableNotes(Location location);
+
+        IEnumerable<Note> RetrieveUserNotes(User currentUser);
     }
 }

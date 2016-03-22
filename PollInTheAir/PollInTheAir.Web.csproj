@@ -307,12 +307,14 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Note\CreateNote.cshtml" />
     <Content Include="Views\Note\AvailableNotes.cshtml" />
+    <Content Include="Views\Note\FinishNoteCreation.cshtml" />
+    <Content Include="Views\Note\UserNotes.cshtml" />
     <None Include="Views\PollAnswer\AnswerQuestion.cshtml" />
     <Content Include="Views\Shared\PollAnswer\_AnswerFreeTextQuestion.cshtml" />
     <Content Include="Views\Shared\PollAnswer\_AnswerMultipleChoicesQuestion.cshtml" />
     <Content Include="Views\PollAnswer\FinishPollAnswer.cshtml" />
     <None Include="Views\PollCreation\FinishPollPublish.cshtml" />
-    <Content Include="Views\PollResults\AvailableResultPolls.cshtml" />
+    <Content Include="Views\PollResults\UserPolls.cshtml" />
     <Content Include="Views\PollResults\PollResults.cshtml" />
     <Content Include="Views\Shared\PollResults\_FreeTextQuestionResult.cshtml" />
     <Content Include="Views\Shared\PollResults\_MultipleChoicesQuestionResult.cshtml" />
@@ -327,7 +329,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PollInTheAir.Domain\PollInTheAir.Domain.csproj">

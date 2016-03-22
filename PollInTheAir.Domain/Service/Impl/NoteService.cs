@@ -32,5 +32,10 @@
         {
             return this.catalog.NoteComments.Create(comment);
         }
+
+        public IEnumerable<Note> GetUserNotes(User currentUser)
+        {
+            return this.catalog.Notes.RetrieveUserNotes(currentUser);
+        }
     }
 }
