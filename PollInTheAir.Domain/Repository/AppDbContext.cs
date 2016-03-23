@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.AspNet.Identity.EntityFramework;
-using PollInTheAir.Domain.Models.Identity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PollInTheAir.Domain.Repository
 {
@@ -47,6 +45,8 @@ namespace PollInTheAir.Domain.Repository
             modelBuilder.Entity<User>().ToTable("User");
 
             modelBuilder.Entity<MultipleChoicesAnswer>().HasMany(m => m.SelectedChoices).WithMany();
+
+            modelBuilder.Entity<Note>().HasOptional(n => n.File).WithOptionalDependent().Map(n => n.MapKey()).WillCascadeOnDelete(true);
         }
     }
 }

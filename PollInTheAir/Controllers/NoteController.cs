@@ -25,18 +25,22 @@ namespace PollInTheAir.Web.Controllers
         [HttpPost]
         public ViewResult CreateNote(Note note, Location location, HttpPostedFileBase upload)
         {
-            var file = new File
+            if (upload != null)
             {
-                FileName = upload.FileName,
-                ContentType = upload.ContentType
-            };
+                var file = new File
+                {
+                    FileName = upload.FileName,
+                    ContentType = upload.ContentType
+                };
 
-            using (var reader = new System.IO.BinaryReader(upload.InputStream))
-            {
-                file.Content = reader.ReadBytes(upload.ContentLength);
+                using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                {
+                    file.Content = reader.ReadBytes(upload.ContentLength);
+                }
+
+                note.File = file;
             }
 
-            note.File = file;
             note.UserId = this.User.Identity.GetUserId();
             note.CreationDate = DateTime.Now;
             note.CreationLocation = LocationUtil.ParseLocation(location);
@@ -74,11 +78,20 @@ namespace PollInTheAir.Web.Controllers
             return this.PartialView("Note/_NoteComments", newComment);
         }
 
+        [HttpGet]
         public ViewResult UserNotes()
         {
             var notes = this.noteService.GetUserNotes(new User { Id = this.User.Identity.GetUserId() });
 
             return this.View(notes);
+        }
+
+        [HttpGet]
+        public RedirectToRouteResult DeleteNote(long noteId)
+        {
+            this.noteService.DeleteNote(noteId);
+
+            return this.RedirectToAction("UserNotes");
         }
     }
 }

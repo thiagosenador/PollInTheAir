@@ -14,5 +14,7 @@
         NoteComment AddNoteComment(NoteComment comment);
 
         IEnumerable<Note> GetUserNotes(User currentUser);
+
+        void DeleteNote(long noteId);
     }
 }

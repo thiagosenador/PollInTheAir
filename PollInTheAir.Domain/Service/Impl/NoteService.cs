@@ -37,5 +37,10 @@
         {
             return this.catalog.Notes.RetrieveUserNotes(currentUser);
         }
+
+        public void DeleteNote(long noteId)
+        {
+            this.catalog.Notes.Delete(n => n.Id.Equals(noteId));
+        }
     }
 }

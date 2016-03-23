@@ -7,6 +7,7 @@
             <th>@Resources.Resources.creationDate</th>
             <th>@Resources.Resources.file</th>
             <th>@Resources.Resources.comment</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -16,8 +17,13 @@
             <tr>
                 <td>@note.Description</td>
                 <td>@note.CreationDate</td>
-                <td><img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-rounded" height="200"/></td>
+                <td><img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-rounded" height="200" /></td>
                 <td>@note.CommentsNumber</td>
+                <td>
+                    <a href="@Url.Action("DeleteNote", "Note", new {noteId = note.Id})">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>
