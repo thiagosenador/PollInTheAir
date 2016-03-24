@@ -21,7 +21,7 @@
             </div>
 
             <div>
-                @using (Ajax.BeginForm("CommentNote", new AjaxOptions { InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "noteComments" + note.Id }))
+                @using (Ajax.BeginForm("CommentNote", new AjaxOptions { InsertionMode = InsertionMode.InsertBefore, UpdateTargetId = "noteComments" + note.Id }))
                 {
                     @Html.Hidden("comment.NoteId", note.Id)
                     @Html.TextArea("comment.Comment", new { @class = "form-control", @maxlength = "128", @rows = "3" })
@@ -52,4 +52,8 @@
 
 @section PAGETITLE {
     @Resources.Resources.availableNotes
+}
+
+@section SCRIPTS {
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
 }

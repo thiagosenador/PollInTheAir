@@ -67,7 +67,7 @@ namespace PollInTheAir.Web.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult CommentNote(NoteComment comment)
+        public ActionResult CommentNote(NoteComment comment)
         {
             comment.UserId = this.User.Identity.GetUserId();
             comment.CommentDate = DateTime.Now;
