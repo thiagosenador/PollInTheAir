@@ -46,7 +46,7 @@ namespace PollInTheAir.Domain.Repository
 
             modelBuilder.Entity<MultipleChoicesAnswer>().HasMany(m => m.SelectedChoices).WithMany();
 
-            modelBuilder.Entity<Note>().HasOptional(n => n.File).WithOptionalDependent().Map(n => n.MapKey()).WillCascadeOnDelete(true);
+            modelBuilder.Entity<Note>().HasOptional(n => n.File).WithMany().HasForeignKey(x => x.FileId).WillCascadeOnDelete(true);
         }
     }
 }

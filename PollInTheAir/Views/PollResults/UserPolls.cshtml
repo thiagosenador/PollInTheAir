@@ -17,7 +17,7 @@
                 <td>@poll.ExpirationDate</td>
 
                 <td>
-                    <a href="@Url.Action("DeletePoll", "PollResults", new {pollId = poll.Id})">
+                    <a href="@Url.Action("DeletePoll", "PollResults", new {pollId = poll.Id})" data-confirm="@poll.Name">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </a>
                 </td>
@@ -34,7 +34,7 @@
                 <h4 class="modal-title">@Resources.Resources.myPolls</h4>
             </div>
             <div class="modal-body">
-                <p>@Resources.Resources.confirmDeletePoll</p>
+                <p id="msg"></p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
@@ -49,6 +49,7 @@
         $(document).ready(function () {
             $('a[data-confirm]').click(function (ev) {
                 $('#confirmDialog').modal('toggle');
+                $("#msg").html("@Resources.Resources.confirmDeletePoll".replace("{0}", $(this).attr("data-confirm")));
                 $('#dataConfirmOK').attr('href', $(this).attr('href'));
                 return false;
             });

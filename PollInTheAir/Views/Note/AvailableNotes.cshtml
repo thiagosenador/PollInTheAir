@@ -8,7 +8,7 @@
         <div class="panel-heading">
             @note.Description (@note.CreationDate)
         </div>
-        @if (note.FileId != 0)
+        @if (note.FileId != null)
         {
             <div class="panel-body">
                 <img src="@Url.Action("ShowImage", "Note", new { fileId = note.FileId })" class="img-rounded" height="400" />

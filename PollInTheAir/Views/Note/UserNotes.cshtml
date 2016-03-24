@@ -17,10 +17,15 @@
             <tr>
                 <td>@note.Description</td>
                 <td>@note.CreationDate</td>
-                <td><img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-rounded" height="200" /></td>
+                <td>
+                    @if (note.FileId != null)
+                    {
+                        <img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-rounded" height="200" />
+                    }
+                </td>
                 <td>@note.CommentsNumber</td>
                 <td>
-                    <a href="@Url.Action("DeleteNote", "Note", new {noteId = note.Id})">
+                    <a href="@Url.Action("DeleteNote", "Note", new {noteId = note.Id})" data-confirm="@note.Description">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </a>
                 </td>
@@ -28,6 +33,37 @@
         }
     </tbody>
 </table>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">@Resources.Resources.myNotes</h4>
+            </div>
+            <div class="modal-body">
+                <p id="msg"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Resources.Resources.no</button>
+                <a class="btn btn-default" id="dataConfirmOK">@Resources.Resources.yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section SCRIPTS {
+    <script>
+        $(document).ready(function () {
+            $("a[data-confirm]").click(function (ev) {
+                $("#confirmDialog").modal("toggle");
+                $("#msg").html("@Resources.Resources.confirmDeleteNote".replace("{0}", $(this).attr("data-confirm")));
+                $("#dataConfirmOK").attr("href", $(this).attr("href"));
+                return false;
+            });
+        });
+    </script>
+}
 
 @section PAGETITLE {
     @Resources.Resources.myNotes

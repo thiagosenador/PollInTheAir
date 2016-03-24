@@ -169,7 +169,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to are you sure you want to delete this poll?.
+        ///   Looks up a localized string similar to are you sure you want to delete the &apos;{0}&apos; note?.
+        /// </summary>
+        public static string confirmDeleteNote {
+            get {
+                return ResourceManager.GetString("confirmDeleteNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to are you sure you want to delete the &apos;{0}&apos; poll?.
         /// </summary>
         public static string confirmDeletePoll {
             get {
@@ -399,6 +408,15 @@ namespace Resources {
         public static string nameRequired {
             get {
                 return ResourceManager.GetString("nameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to no.
+        /// </summary>
+        public static string no {
+            get {
+                return ResourceManager.GetString("no", resourceCulture);
             }
         }
         
@@ -642,6 +660,15 @@ namespace Resources {
         public static string welcome {
             get {
                 return ResourceManager.GetString("welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yes.
+        /// </summary>
+        public static string yes {
+            get {
+                return ResourceManager.GetString("yes", resourceCulture);
             }
         }
     }
