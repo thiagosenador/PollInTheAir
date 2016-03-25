@@ -18,8 +18,12 @@
         {
             var myLocation = LocationUtil.ParseLocation(location);
 
-            return this.Context.Notes.Include(n => n.User).Include(n => n.Comments).Include("Comments.User")
+            var notes = this.Context.Notes.Include(n => n.User).Include(n => n.Comments).Include("Comments.User")
                 .Where(p => p.CreationLocation.Distance(myLocation) < p.Range).ToList();
+
+            notes.ForEach(n => n.Comments.Sort((x, y) => y.CommentDate.CompareTo(x.CommentDate)));
+
+            return notes;
         }
 
         public IEnumerable<Note> RetrieveUserNotes(User currentUser)
