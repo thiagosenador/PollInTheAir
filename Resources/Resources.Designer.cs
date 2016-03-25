@@ -169,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to comment(s).
+        /// </summary>
+        public static string comments {
+            get {
+                return ResourceManager.GetString("comments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to are you sure you want to delete the &apos;{0}&apos; note?.
         /// </summary>
         public static string confirmDeleteNote {

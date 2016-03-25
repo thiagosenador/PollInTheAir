@@ -1,38 +1,49 @@
 ﻿@model IEnumerable<PollInTheAir.Domain.Models.Note>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>@Resources.Resources.name</th>
-            <th>@Resources.Resources.creationDate</th>
-            <th>@Resources.Resources.file</th>
-            <th>@Resources.Resources.comment</th>
-            <th></th>
-        </tr>
-    </thead>
+<div class="row">
 
-    <tbody>
-        @foreach (var note in Model)
-        {
-            <tr>
-                <td>@note.Description</td>
-                <td>@note.CreationDate</td>
-                <td>
-                    @if (note.FileId != null)
-                    {
-                        <img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-rounded" height="200" />
-                    }
-                </td>
-                <td>@note.CommentsNumber</td>
-                <td>
+
+    @foreach (var note in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-xs-6">
+            <div>
+                <div>
+                    @note.Description
+                </div>
+
+                <div>
+                    <small>@note.CreationDate.ToShortDateString()</small>
+                </div>
+            </div>
+
+            <div>
+                @if (note.FileId != null)
+                {
+                    <img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-responsive" height="200" />
+                }
+                else
+                {
+                    <img src="~/Content/img/quotation-mark.jpg" class="img-responsive" height="200" />
+                }
+            </div>
+
+            <div>
+                @if (note.CommentsNumber > 0)
+                {
+                    <span>
+                        <span class="badge">@note.CommentsNumber</span>@Resources.Resources.comments
+                    </span>
+                }
+
+                <span class="pull-right">
                     <a href="@Url.Action("DeleteNote", "Note", new {noteId = note.Id})" data-confirm="@note.Description">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </span>
+            </div>
+        </div>
+    }
+</div>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="confirmDialog">
     <div class="modal-dialog">
@@ -55,7 +66,7 @@
 @section SCRIPTS {
     <script>
         $(document).ready(function () {
-            $("a[data-confirm]").click(function (ev) {
+            $("a[data-confirm]").click(function () {
                 $("#confirmDialog").modal("toggle");
                 $("#msg").html("@Resources.Resources.confirmDeleteNote".replace("{0}", $(this).attr("data-confirm")));
                 $("#dataConfirmOK").attr("href", $(this).attr("href"));

@@ -321,4 +321,7 @@
   <data name="yes" xml:space="preserve">
     <value>yes</value>
   </data>
+  <data name="comments" xml:space="preserve">
+    <value>comment(s)</value>
+  </data>
 </root>
