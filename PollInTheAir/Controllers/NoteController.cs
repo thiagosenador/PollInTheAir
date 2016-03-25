@@ -93,5 +93,13 @@ namespace PollInTheAir.Web.Controllers
 
             return this.RedirectToAction("UserNotes");
         }
+
+        [HttpGet]
+        public ActionResult ViewNote(long noteId)
+        {
+            var note = this.noteService.GetNote(noteId);
+
+            return null;
+        }
     }
 }

@@ -8,5 +8,7 @@
         IEnumerable<Note> RetrieveAvailableNotes(Location location);
 
         IEnumerable<Note> RetrieveUserNotes(User currentUser);
+
+        Note RetrieveNote(long noteId);
     }
 }

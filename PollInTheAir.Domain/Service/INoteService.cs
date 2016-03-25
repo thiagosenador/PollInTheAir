@@ -16,5 +16,7 @@
         IEnumerable<Note> GetUserNotes(User currentUser);
 
         void DeleteNote(long noteId);
+
+        Note GetNote(long noteId);
     }
 }

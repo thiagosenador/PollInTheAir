@@ -22,3 +22,27 @@
         cursor: inherit;
         display: block;
     }
+
+
+/* my notes style */
+
+.row-height {
+    height: 300px;
+}
+
+.col-height {
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-controls {
+    position: absolute;
+    bottom:0;
+}

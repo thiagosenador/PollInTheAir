@@ -41,5 +41,10 @@
 
             return notes.Select(x => x.Note);
         }
+
+        public Note RetrieveNote(long noteId)
+        {
+            return this.Context.Notes.Include(n => n.Comments).Include("Comments.User").FirstOrDefault(n => n.Id.Equals(noteId));
+        }
     }
 }
