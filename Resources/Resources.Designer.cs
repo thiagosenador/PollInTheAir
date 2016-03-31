@@ -439,6 +439,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to my note.
+        /// </summary>
+        public static string noteDetail {
+            get {
+                return ResourceManager.GetString("noteDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to your note is available!.
         /// </summary>
         public static string noteIsAvailable {

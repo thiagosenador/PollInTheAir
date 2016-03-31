@@ -310,6 +310,7 @@
     <Content Include="Views\Note\AvailableNotes.cshtml" />
     <Content Include="Views\Note\FinishNoteCreation.cshtml" />
     <Content Include="Views\Note\UserNotes.cshtml" />
+    <Content Include="Views\Note\NoteDetail.cshtml" />
     <None Include="Views\PollAnswer\AnswerQuestion.cshtml" />
     <Content Include="Views\Shared\PollAnswer\_AnswerFreeTextQuestion.cshtml" />
     <Content Include="Views\Shared\PollAnswer\_AnswerMultipleChoicesQuestion.cshtml" />
@@ -321,6 +322,7 @@
     <Content Include="Views\Shared\PollResults\_MultipleChoicesQuestionResult.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Note\_NoteComments.cshtml" />
+    <Content Include="Views\Shared\Note\_NoteDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

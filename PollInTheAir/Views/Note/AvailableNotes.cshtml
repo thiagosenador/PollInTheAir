@@ -4,50 +4,7 @@
 
 @foreach (var note in Model)
 {
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            @note.Description (@note.CreationDate)
-        </div>
-        @if (note.FileId != null)
-        {
-            <div class="panel-body">
-                <img src="@Url.Action("ShowImage", "Note", new { fileId = note.FileId })" class="img-rounded" height="400" />
-            </div>
-        }
-
-        <div class="panel-footer">
-            <div>
-                <a href="#" id="Comment">@Resources.Resources.comment</a>
-            </div>
-
-            <div>
-                @using (Ajax.BeginForm("CommentNote", new AjaxOptions { InsertionMode = InsertionMode.InsertBefore, UpdateTargetId = "noteComments" + note.Id }))
-                {
-                    @Html.Hidden("comment.NoteId", note.Id)
-                    @Html.TextArea("comment.Comment", new { @class = "form-control", @maxlength = "128", @rows = "3" })
-
-                    <button class="btn btn-primary" type="submit">@Resources.Resources.comment</button>
-                }
-            </div>
-
-            <div id="@string.Format("noteComments{0}", note.Id)">
-
-                @if (note.Comments.Any())
-                {
-                    <div>
-                        @string.Format(Resources.Resources.numberComments, @note.Comments.Count)
-                    </div>
-
-                    <div>
-                        @foreach (var comment in note.Comments)
-                        {
-                            @Html.Partial("Note/_NoteComments", comment)
-                        }
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
+    @Html.Partial("Note/_NoteDetail", note)
 }
 
 @section PAGETITLE {

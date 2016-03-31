@@ -324,4 +324,7 @@
   <data name="comments" xml:space="preserve">
     <value>comment(s)</value>
   </data>
+  <data name="noteDetail" xml:space="preserve">
+    <value>my note</value>
+  </data>
 </root>

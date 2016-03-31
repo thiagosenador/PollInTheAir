@@ -44,7 +44,14 @@
 
         public Note RetrieveNote(long noteId)
         {
-            return this.Context.Notes.Include(n => n.Comments).Include("Comments.User").FirstOrDefault(n => n.Id.Equals(noteId));
+            var note = this.Context.Notes.Include(n => n.Comments).Include("Comments.User").FirstOrDefault(n => n.Id.Equals(noteId));
+
+            if (note != null)
+            {
+                note.Comments.Sort((x, y) => y.CommentDate.CompareTo(x.CommentDate));
+            }
+
+            return note;
         }
     }
 }

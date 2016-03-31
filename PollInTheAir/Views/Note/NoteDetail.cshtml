@@ -1,0 +1,14 @@
+﻿@using PollInTheAir.Domain.Models;
+
+@model Note
+
+@Html.Partial("Note/_NoteDetail", Model)
+
+@section PAGETITLE
+{
+    @Resources.Resources.noteDetail
+}
+
+@section SCRIPTS {
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

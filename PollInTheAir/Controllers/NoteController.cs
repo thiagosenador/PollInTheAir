@@ -95,11 +95,11 @@ namespace PollInTheAir.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewNote(long noteId)
+        public ViewResult NoteDetail(long noteId)
         {
             var note = this.noteService.GetNote(noteId);
 
-            return null;
+            return this.View(note);
         }
     }
 }

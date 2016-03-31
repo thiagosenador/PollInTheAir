@@ -19,7 +19,9 @@
             <div class="vertical-center-row">
                 @if (note.FileId != null)
                 {
-                    <img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-responsive" height="200"/>
+                    <a href="@Url.Action("NoteDetail", "Note", new {noteId = note.Id})">
+                        <img src="@Url.Action("ShowImage", "Note", new {fileId = note.FileId})" class="img-responsive" height="200" />
+                    </a>
                 }
                 else
                 {
