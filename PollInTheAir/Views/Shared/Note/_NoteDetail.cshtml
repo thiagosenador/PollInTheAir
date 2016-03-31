@@ -15,17 +15,8 @@
 
     <div class="panel-footer">
         <div>
-            <a href="#" id="Comment">@Resources.Resources.comment</a>
-        </div>
-
-        <div>
-            @using (Ajax.BeginForm("CommentNote", "Note", null, new AjaxOptions { InsertionMode = InsertionMode.InsertBefore, UpdateTargetId = "noteComments" + Model.Id }))
-            {
-                @Html.Hidden("comment.NoteId", Model.Id)
-                @Html.TextArea("comment.Comment", new { @class = "form-control", @maxlength = "128", @rows = "3" })
-
-                <button class="btn btn-primary" type="submit">@Resources.Resources.comment</button>
-            }
+            @Html.TextArea("comment", new { @class = "form-control", @maxlength = "128", @rows = "3" })
+            <button id="submitComment" class="btn btn-primary">@Resources.Resources.comment</button>
         </div>
 
         <div>
@@ -36,7 +27,7 @@
                 </div>
             }
 
-            <div id="@string.Format("noteComments{0}", Model.Id)">
+            <div id="noteComments">
                 <div>
                     @foreach (var comment in Model.Comments)
                     {
@@ -45,5 +36,26 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $("#submitComment").click(function () {
+                var comment = {
+                    NoteId: @Model.Id,
+                    Comment: $("#comment").val()
+                };
+
+                alert(JSON.stringify(comment));
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Note/CommentNote",
+                    traditional: true,
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(comment),
+                    success: function (data) { alert("success"); },
+                    error: function (data) { alert("failure"); } 
+                });
+            });
+        </script>
     </div>
 </div>
